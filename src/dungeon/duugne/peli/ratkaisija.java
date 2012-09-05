@@ -13,13 +13,22 @@ public class ratkaisija {
     int voittoRivinPituus;
     alusta alusta;
 
-    ratkaisija(int voittoRivinPituus, alusta alusta) {
+    public ratkaisija(int voittoRivinPituus, alusta alusta) {
         this.voittoRivinPituus = voittoRivinPituus;
         this.alusta = alusta;
     }
 
+    public boolean tarkistaVoitto(int x, int y){
+        char merkki = alusta.lueMerkki(x, y);
+        if((tarkistaVasemmalle(x, y, merkki) + 1 + tarkistaOikealle(x, y, merkki))>=this.voittoRivinPituus)
+            return true;
+        if((tarkistaAlas(x, y, merkki)+ 1 + tarkistaYlos(x, y, merkki))>=this.voittoRivinPituus)
+            return true;
+        return false;
+    }
+    
     boolean tarkistaKoordinaatit(int x, int y) {
-        if (x < 0 && y < 0) {
+        if (x < 0 || y < 0) {
             return false;
         }
         if (x > this.alusta.maxKoko() && y > this.alusta.maxKoko()) {

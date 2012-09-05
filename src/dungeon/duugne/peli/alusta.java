@@ -13,12 +13,12 @@ public class alusta {
     int koko;
     char[][] lauta;
 
-    alusta(int koko) {
+    public alusta(int koko) {
         this.koko = koko;
         this.lauta = new char[this.koko][this.koko];
     }
 
-    void tyhjaaLauta() {
+    public void tyhjaaLauta() {
         for (int i = 0; i < this.koko; i++) {
             for (int j = 0; j < this.koko; j++) {
                 this.lauta[i][j] = ' ';
@@ -26,22 +26,31 @@ public class alusta {
         }
     }
 
-    boolean onkoTyhja(int x, int y) {
+    public boolean onkoTyhja(int x, int y) {
         if (this.lauta[x][y] == ' ') {
             return true;
         }
         return false;
     }
 
-    void lisaaMerkkiLaudalle(int x, int y, char merkki) {
+    public void lisaaMerkkiLaudalle(int x, int y, char merkki) {
         this.lauta[x][y] = merkki;
     }
 
-    char lueMerkki(int x, int y) {
+    public char lueMerkki(int x, int y) {
         return this.lauta[x][y];
     }
 
-    int maxKoko() {
+    public int maxKoko() {
         return this.koko - 1;
+    }
+    public void tulostaAlusta(){
+        System.out.println();
+        for(int i = 0; i< this.koko;i++){
+            for(int j = 0 ; j<this.koko;j++){
+                System.out.print(lueMerkki(i, j));
+            }
+            System.out.println();
+        }
     }
 }
