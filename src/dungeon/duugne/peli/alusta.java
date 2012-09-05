@@ -40,4 +40,8 @@ public class alusta {
     char lueMerkki(int x, int y) {
         return this.lauta[x][y];
     }
+
+    int maxKoko() {
+        return this.koko - 1;
+    }
 }
