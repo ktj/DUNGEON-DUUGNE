@@ -31,7 +31,7 @@ public class ratkaisija {
         if (x < 0 || y < 0) {
             return false;
         }
-        if (x > this.alusta.maxKoko() && y > this.alusta.maxKoko()) {
+        if (x > this.alusta.maxKoko() || y > this.alusta.maxKoko()) {
             return false;
         }
         return true;

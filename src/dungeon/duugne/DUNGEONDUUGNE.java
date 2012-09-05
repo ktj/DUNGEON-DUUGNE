@@ -26,10 +26,10 @@ public class DUNGEONDUUGNE {
         lauta.lisaaMerkkiLaudalle(1, 1, 'x');
         lauta.lisaaMerkkiLaudalle(1, 2, 'x');
         lauta.tulostaAlusta();
-        if (ratkaisija.tarkistaVoitto(1, 1)) {
+        if (ratkaisija.tarkistaVoitto(2, 0)) {
             System.out.println("x voitti");
         }
-        if (ratkaisija.tarkistaVoitto(1, 2)) {
+        if (ratkaisija.tarkistaVoitto(3, 0)) {
             System.out.println("x voitti");
         }
     }
