@@ -4,8 +4,8 @@
  */
 package dungeon.duugne;
 
-import dungeon.duugne.peli.alusta;
-import dungeon.duugne.peli.ratkaisija;
+import dungeon.duugne.peli.Alusta;
+import dungeon.duugne.peli.Ratkaisija;
 
 /**
  *
@@ -17,8 +17,8 @@ public class DUNGEONDUUGNE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        alusta lauta = new alusta(5);
-        ratkaisija ratkaisija = new ratkaisija(3, lauta);
+        Alusta lauta = new Alusta(5);
+        Ratkaisija ratkaisija = new Ratkaisija(3, lauta);
         lauta.lisaaMerkkiLaudalle(0, 0, 'x');
         lauta.lisaaMerkkiLaudalle(1, 0, 'x');
         lauta.lisaaMerkkiLaudalle(2, 0, 'o');
