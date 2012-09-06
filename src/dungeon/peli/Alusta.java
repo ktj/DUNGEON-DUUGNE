@@ -44,7 +44,7 @@ public class Alusta {
         System.out.println();
         for(int i = 0; i< this.koko;i++){
             for(int j = 0 ; j<this.koko;j++){
-                System.out.print(lueMerkki(i, j));
+                System.out.print(lueMerkki(j, i));
             }
             System.out.println();
         }
