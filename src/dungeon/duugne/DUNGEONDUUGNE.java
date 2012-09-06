@@ -4,8 +4,8 @@
  */
 package dungeon.duugne;
 
-import dungeon.duugne.peli.Alusta;
-import dungeon.duugne.peli.Ratkaisija;
+import dungeon.peli.Alusta;
+import dungeon.peli.Ratkaisija;
 
 /**
  *
