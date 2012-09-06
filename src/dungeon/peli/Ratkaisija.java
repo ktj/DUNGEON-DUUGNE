@@ -13,12 +13,12 @@ public class Ratkaisija {
     int voittoRivinPituus;
     Alusta alusta;
 
-    public Ratkaisija(int voittoRivinPituus) {
-        this.voittoRivinPituus = voittoRivinPituus;
+    public Ratkaisija() {
     }
 
-    public boolean etsiVoitto(Alusta alusta){
+    public boolean etsiVoitto(Alusta alusta,int voittoRivinPituus){
         this.alusta=alusta;
+        this.voittoRivinPituus=voittoRivinPituus;
         for(int i = 0; i<this.alusta.maxKoko();i++){
             for(int j=0;j<this.alusta.maxKoko();j++){
                 if(tarkistaRuutu(i, j))
