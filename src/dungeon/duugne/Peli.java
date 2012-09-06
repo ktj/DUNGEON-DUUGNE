@@ -6,19 +6,18 @@ import dungeon.peli.Ratkaisija;
 
 public class Peli {
     
-    int RIVINPITUUS;
+    final int RIVINPITUUS = 3;
     
     Pelaaja pelaaja1;
     Pelaaja pelaaja2;
     Alusta alusta;
     Ratkaisija ratkaisija;
     
-    public Peli(Alusta alusta, Ratkaisija ratkaisija, Pelaaja pelaaja1, Pelaaja pelaaja2, int rivinpituus){
+    public Peli(Alusta alusta, Ratkaisija ratkaisija, Pelaaja pelaaja1, Pelaaja pelaaja2){
         this.alusta = alusta;
         this.ratkaisija = ratkaisija;
         this.pelaaja1 = pelaaja1;
         this.pelaaja2 = pelaaja2;
-        this.RIVINPITUUS = rivinpituus;
     }
     
     public void aloita(){

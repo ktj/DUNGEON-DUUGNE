@@ -15,7 +15,7 @@ public class DUNGEONDUUGNE {
         Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
         Ihmispelaaja pelaaja2 = new Ihmispelaaja(tekstikäli);
         
-        Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2, 3);
+        Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2);
         peli.aloita();
     }
 }

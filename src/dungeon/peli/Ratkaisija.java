@@ -16,27 +16,33 @@ public class Ratkaisija {
     public Ratkaisija() {
     }
 
-    public boolean etsiVoitto(Alusta alusta,int voittoRivinPituus){
-        this.alusta=alusta;
-        this.voittoRivinPituus=voittoRivinPituus;
-        for(int i = 0; i<this.alusta.maxKoko();i++){
-            for(int j=0;j<this.alusta.maxKoko();j++){
-                if(tarkistaRuutu(i, j))
+    public boolean etsiVoitto(Alusta alusta, int voittoRivinPituus) {
+        this.alusta = alusta;
+        this.voittoRivinPituus = voittoRivinPituus;
+        for (int i = 0; i < this.alusta.maxKoko(); i++) {
+            for (int j = 0; j < this.alusta.maxKoko(); j++) {
+                if (alusta.onkoTyhja(i, j)) {
+                    continue;
+                }
+                if (tarkistaRuutu(i, j)) {
                     return true;
+                }
             }
         }
         return false;
     }
-    
-    public boolean tarkistaRuutu(int x, int y){
+
+    public boolean tarkistaRuutu(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
-        if((tarkistaVasemmalle(x, y, merkki) + 1 + tarkistaOikealle(x, y, merkki))>=this.voittoRivinPituus)
+        if ((tarkistaVasemmalle(x, y, merkki) + 1 + tarkistaOikealle(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
-        if((tarkistaAlas(x, y, merkki)+ 1 + tarkistaYlos(x, y, merkki))>=this.voittoRivinPituus)
+        }
+        if ((tarkistaAlas(x, y, merkki) + 1 + tarkistaYlos(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
+        }
         return false;
     }
-    
+
     boolean tarkistaKoordinaatit(int x, int y) {
         if (x < 0 || y < 0) {
             return false;
