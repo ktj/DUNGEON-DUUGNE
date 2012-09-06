@@ -20,7 +20,7 @@ public class Peli {
     
     public void aloita(){
         alusta.tyhjaaLauta();
-        while(ratkaisija.tarkistaVoitto(1, 1)) {
+        while(ratkaisija.etsiVoitto(alusta)) {
             pelaaja1.seuraava_siirto(alusta);
             pelaaja2.seuraava_siirto(alusta);
         }

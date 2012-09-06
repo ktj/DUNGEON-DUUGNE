@@ -13,12 +13,22 @@ public class Ratkaisija {
     int voittoRivinPituus;
     Alusta alusta;
 
-    public Ratkaisija(int voittoRivinPituus, Alusta alusta) {
+    public Ratkaisija(int voittoRivinPituus) {
         this.voittoRivinPituus = voittoRivinPituus;
-        this.alusta = alusta;
     }
 
-    public boolean tarkistaVoitto(int x, int y){
+    public boolean etsiVoitto(Alusta alusta){
+        this.alusta=alusta;
+        for(int i = 0; i<this.alusta.maxKoko();i++){
+            for(int j=0;j<this.alusta.maxKoko();j++){
+                if(tarkistaRuutu(i, j))
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean tarkistaRuutu(int x, int y){
         char merkki = alusta.lueMerkki(x, y);
         if((tarkistaVasemmalle(x, y, merkki) + 1 + tarkistaOikealle(x, y, merkki))>=this.voittoRivinPituus)
             return true;
@@ -31,7 +41,7 @@ public class Ratkaisija {
         if (x < 0 || y < 0) {
             return false;
         }
-        if (x > this.alusta.maxKoko() || y > this.alusta.maxKoko()) {
+        if (x >= this.alusta.maxKoko() || y >= this.alusta.maxKoko()) {
             return false;
         }
         return true;
