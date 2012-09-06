@@ -23,7 +23,7 @@ public class Tekstikäyttöliittymä implements Käyttöliittymä {
         x = lukija.nextInt();
         System.out.print("Syötä y-koordinaatti: ");
         y = lukija.nextInt();
-        
+
         while (!alusta.onkoTyhja(x, y) || x >= alusta.maxKoko() || y >= alusta.maxKoko()) {
             System.out.println("Virheelliset koordinaatit!");
             System.out.print("Syötä x-koordinaatti: ");
