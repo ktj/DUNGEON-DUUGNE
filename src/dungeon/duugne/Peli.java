@@ -6,6 +6,8 @@ import dungeon.peli.Ratkaisija;
 
 public class Peli {
     
+    final int RIVINPITUUS = 3;
+    
     Pelaaja pelaaja1;
     Pelaaja pelaaja2;
     Alusta alusta;
@@ -20,7 +22,7 @@ public class Peli {
     
     public void aloita(){
         alusta.tyhjaaLauta();
-        while(ratkaisija.tarkistaVoitto(1, 1)) {
+        while(ratkaisija.etsiVoitto(alusta, RIVINPITUUS)) {
             pelaaja1.seuraava_siirto(alusta, 'x');
             pelaaja2.seuraava_siirto(alusta, 'o');
         }
