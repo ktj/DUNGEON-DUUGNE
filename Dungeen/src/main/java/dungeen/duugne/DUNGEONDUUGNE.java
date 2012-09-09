@@ -1,9 +1,9 @@
-package dungeon.duugne;
+package dungeen.duugne;
 
-import dungeon.käyttöliittymä.Tekstikäyttöliittymä;
-import dungeon.peli.Alusta;
-import dungeon.peli.Ihmispelaaja;
-import dungeon.peli.Ratkaisija;
+import dungeen.käyttöliittymä.Tekstikäyttöliittymä;
+import dungeen.peli.Alusta;
+import dungeen.peli.Ihmispelaaja;
+import dungeen.peli.Ratkaisija;
 
 public class DUNGEONDUUGNE {
 

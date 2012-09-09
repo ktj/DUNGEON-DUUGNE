@@ -1,4 +1,4 @@
-package dungeon.peli;
+package dungeen.peli;
 
 public interface Pelaaja {
 

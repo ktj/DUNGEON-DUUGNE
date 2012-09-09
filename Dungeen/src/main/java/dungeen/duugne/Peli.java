@@ -1,8 +1,8 @@
-package dungeon.duugne;
+package dungeen.duugne;
 
-import dungeon.peli.Alusta;
-import dungeon.peli.Pelaaja;
-import dungeon.peli.Ratkaisija;
+import dungeen.peli.Alusta;
+import dungeen.peli.Pelaaja;
+import dungeen.peli.Ratkaisija;
 
 public class Peli {
 

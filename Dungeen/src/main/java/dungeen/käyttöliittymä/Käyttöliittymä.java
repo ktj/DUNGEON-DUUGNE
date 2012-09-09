@@ -1,6 +1,6 @@
-package dungeon.käyttöliittymä;
+package dungeen.käyttöliittymä;
 
-import dungeon.peli.Alusta;
+import dungeen.peli.Alusta;
 
 public interface Käyttöliittymä {
 

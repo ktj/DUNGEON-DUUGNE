@@ -1,6 +1,6 @@
-package dungeon.peli;
+package dungeen.peli;
 
-import dungeon.käyttöliittymä.Käyttöliittymä;
+import dungeen.käyttöliittymä.Käyttöliittymä;
 
 public class Ihmispelaaja implements Pelaaja {
 
