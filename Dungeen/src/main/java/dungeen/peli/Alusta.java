@@ -12,6 +12,7 @@ public class Alusta {
     public Alusta(int koko) {
         this.koko = koko;
         this.lauta = new char[this.koko][this.koko];
+        this.tyhjaaLauta();
     }
 
     public void tyhjaaLauta() {
