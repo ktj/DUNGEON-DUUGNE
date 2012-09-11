@@ -36,6 +36,12 @@ public class Ratkaisija {
         if ((tarkistaAlas(x, y, merkki) + 1 + tarkistaYlos(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
         }
+        if ((tarkistaVasemmalleYlos(x, y, merkki) + 1 + tarkistaOikealleAlas(x, y, merkki)) >= this.voittoRivinPituus) {
+            return true;
+        }
+        if ((tarkistaVasemmalleAlas(x, y, merkki) + 1 + tarkistaOikealleYlos(x, y, merkki)) >= this.voittoRivinPituus) {
+            return true;
+        }
         return false;
     }
 
@@ -85,6 +91,46 @@ public class Ratkaisija {
         }
         if ((this.alusta.lueMerkki(x, y - 1)) == merkki) {
             return 1 + tarkistaYlos(x, y - 1, merkki);
+        }
+        return 0;
+    }
+
+    int tarkistaVasemmalleYlos(int x, int y, char merkki) {
+        if (!tarkistaKoordinaatit(x - 1, y - 1)) {
+            return 0;
+        }
+        if ((this.alusta.lueMerkki(x - 1, y - 1)) == merkki) {
+            return 1 + tarkistaVasemmalleYlos(x - 1, y - 1, merkki);
+        }
+        return 0;
+    }
+
+    int tarkistaOikealleAlas(int x, int y, char merkki) {
+        if (!tarkistaKoordinaatit(x + 1, y + 1)) {
+            return 0;
+        }
+        if ((this.alusta.lueMerkki(x + 1, y + 1)) == merkki) {
+            return 1 + tarkistaOikealleAlas(x + 1, y + 1, merkki);
+        }
+        return 0;
+    }
+
+    int tarkistaOikealleYlos(int x, int y, char merkki) {
+        if (!tarkistaKoordinaatit(x + 1, y - 1)) {
+            return 0;
+        }
+        if ((this.alusta.lueMerkki(x + 1, y - 1)) == merkki) {
+            return 1 + tarkistaOikealleYlos(x + 1, y - 1, merkki);
+        }
+        return 0;
+    }
+
+    int tarkistaVasemmalleAlas(int x, int y, char merkki) {
+        if (!tarkistaKoordinaatit(x - 1, y + 1)) {
+            return 0;
+        }
+        if ((this.alusta.lueMerkki(x - 1, y + 1)) == merkki) {
+            return 1 + tarkistaVasemmalleAlas(x - 1, y + 1, merkki);
         }
         return 0;
     }
