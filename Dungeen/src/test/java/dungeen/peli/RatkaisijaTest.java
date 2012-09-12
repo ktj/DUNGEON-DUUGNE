@@ -104,4 +104,29 @@ public class RatkaisijaTest {
         alusta.lisaaMerkkiLaudalle(1, 3, merkki);
         assertTrue(ratkaisija.etsiVoitto(alusta, pituus));
     }
+    @Test
+    public void testEtsiVoittoTaysi() {
+        alustakoko = 5;
+        alsta = new Alusta(alustakoko);
+        pituus = 3;
+        char x = 'x';
+        char o = 'o';
+        int rivi=1;
+        for(int i=0;i<alustakoko;i++){
+            if(rivi==1||rivi==2){x='x'; o='o';}
+            if(rivi==3||rivi==4){x='o';o='x';}
+            for(int j=0;j<alustakoko;j++){
+                if(j%2==0){
+                    alusta.lisaaMerkkiLaudalle(i, j, x);
+                }else{
+                    alusta.lisaaMerkkiLaudalle(i,j,o);
+                }  
+            }
+            rivi++;
+            if(rivi==5){
+                rivi=1;
+            }
+        }
+        assertFalse(ratkaisija.etsiVoitto(alusta,pituus));
+    }
 }
