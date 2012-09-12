@@ -106,8 +106,8 @@ public class RatkaisijaTest {
     }
     @Test
     public void testEtsiVoittoTaysi() {
-        alustakoko = 5;
-        alsta = new Alusta(alustakoko);
+        alustakoko = 100;
+        alusta = new Alusta(alustakoko);
         pituus = 3;
         char x = 'x';
         char o = 'o';
@@ -127,6 +127,7 @@ public class RatkaisijaTest {
                 rivi=1;
             }
         }
+        alusta.tulostaAlusta();
         assertFalse(ratkaisija.etsiVoitto(alusta,pituus));
     }
 }
