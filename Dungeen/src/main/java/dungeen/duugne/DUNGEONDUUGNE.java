@@ -1,21 +1,38 @@
 package dungeen.duugne;
 
-import dungeen.käyttöliittymä.Tekstikäyttöliittymä;
 import dungeen.peli.Alusta;
-import dungeen.peli.Ihmispelaaja;
-import dungeen.peli.Ratkaisija;
+import tekoäly.Puu;
+import tekoäly.Puukasaaja;
 
 public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
+
+        Alusta alusta = new Alusta(2);
+//        Ratkaisija ratkaisija = new Ratkaisija();
+//        Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
+//        Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
+//        Ihmispelaaja pelaaja2 = new Ihmispelaaja(tekstikäli);
+//        
+//        Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2);
+//        peli.aloita();
+
+
+        Puukasaaja kasaaja = new Puukasaaja();
         
-        Alusta alusta = new Alusta(3);
-        Ratkaisija ratkaisija = new Ratkaisija();
-        Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
-        Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
-        Ihmispelaaja pelaaja2 = new Ihmispelaaja(tekstikäli);
+        Puu puu1 = new Puu(alusta);
+
         
-        Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2);
-        peli.aloita();
+        Puu puu = kasaaja.kasaaPuu(alusta, 'x');
+        tulostaPuu(puu);
+    }
+    
+    private static void tulostaPuu(Puu puu){
+        System.out.println("pyyntö");
+        for(Puu lapsi: puu.haeLapset()){
+            lapsi.haeAlusta().tulostaAlusta();
+            tulostaPuu(lapsi);
+            
+        }
     }
 }

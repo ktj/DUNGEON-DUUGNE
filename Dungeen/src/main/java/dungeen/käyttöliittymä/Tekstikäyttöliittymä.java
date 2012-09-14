@@ -13,7 +13,13 @@ public class Tekstikäyttöliittymä implements Käyttöliittymä {
 
     @Override
     public void tulosta_alusta(Alusta alusta) {
-        alusta.tulostaAlusta();
+        System.out.println();
+        for (int i = 0; i < alusta.maxKoko(); i++) {
+            for (int j = 0; j < alusta.maxKoko(); j++) {
+                System.out.print(alusta.lueMerkki(j, i));
+            }
+            System.out.println();
+        }
     }
 
     @Override
@@ -23,7 +29,7 @@ public class Tekstikäyttöliittymä implements Käyttöliittymä {
         x = lukija.nextInt();
         System.out.print("Syötä y-koordinaatti: ");
         y = lukija.nextInt();
-        
+
         while (!alusta.onkoTyhja(x, y) || x >= alusta.maxKoko() || y >= alusta.maxKoko()) {
             System.out.println("Virheelliset koordinaatit!");
             System.out.print("Syötä x-koordinaatti: ");
