@@ -12,7 +12,7 @@ public class Ratkaisija {
     public Ratkaisija() {
     }
 
-    public boolean etsiVoitto(Alusta alusta, int voittoRivinPituus) {
+    public int etsiVoitto(Alusta alusta, int voittoRivinPituus) {
         this.alusta = alusta;
         this.voittoRivinPituus = voittoRivinPituus;
         for (int i = 0; i < this.alusta.maxKoko(); i++) {
@@ -21,14 +21,18 @@ public class Ratkaisija {
                     continue;
                 }
                 if (tarkistaRuutu(i, j)) {
-                    return true;
+                    if (this.alusta.lueMerkki(i, j) == 'x') {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
                 }
             }
         }
-        return false;
+        return 0;
     }
 
-    public boolean tarkistaRuutu(int x, int y) {
+    boolean tarkistaRuutu(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
         if ((tarkistaVasemmalle(x, y, merkki) + 1 + tarkistaOikealle(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;

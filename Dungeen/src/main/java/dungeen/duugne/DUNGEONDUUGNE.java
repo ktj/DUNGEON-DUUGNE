@@ -30,7 +30,7 @@ public class DUNGEONDUUGNE {
     private static void tulostaPuu(Puu puu){
         puu.haeAlusta().tulostaAlusta();
         for(Puu lapsi: puu.haeLapset()){
-            tulostaPuu(lapsi);
+            lapsi.haeAlusta().tulostaAlusta();
         }
     }
 }

@@ -21,9 +21,9 @@ public class Peli {
 
     public void aloita() {
         alusta.tyhjaaLauta();
-        while (!ratkaisija.etsiVoitto(alusta, RIVINPITUUS)) {
+        while (ratkaisija.etsiVoitto(alusta, RIVINPITUUS)==0) {
             pelaaja1.seuraava_siirto(alusta, 'x');
-            if (!ratkaisija.etsiVoitto(alusta, RIVINPITUUS)) {
+            if (ratkaisija.etsiVoitto(alusta, RIVINPITUUS)==0) {
                 pelaaja2.seuraava_siirto(alusta, 'o');
             }
         }
