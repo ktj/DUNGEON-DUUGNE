@@ -8,7 +8,7 @@ public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
 
-        Alusta alusta = new Alusta(2);
+        Alusta alusta = new Alusta(3);
 //        Ratkaisija ratkaisija = new Ratkaisija();
 //        Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
 //        Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
@@ -28,11 +28,9 @@ public class DUNGEONDUUGNE {
     }
     
     private static void tulostaPuu(Puu puu){
-        System.out.println("pyyntö");
+        puu.haeAlusta().tulostaAlusta();
         for(Puu lapsi: puu.haeLapset()){
-            lapsi.haeAlusta().tulostaAlusta();
             tulostaPuu(lapsi);
-            
         }
     }
 }

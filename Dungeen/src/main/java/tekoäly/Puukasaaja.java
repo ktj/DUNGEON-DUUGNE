@@ -17,9 +17,15 @@ public class Puukasaaja {
     private Puu kasaaLapset(Puu parent, char merkki) {
         etsiVaihtoehdot(parent, merkki);
         for(Puu lapsi : parent.haeLapset()){
-            kasaaLapset(lapsi, merkki);
+            kasaaLapset(lapsi, negaatio(merkki));
         } 
         return parent;
+    }
+    
+    private char negaatio(char merkki){
+        if(merkki == 'x')
+            return 'o';
+        else return 'x';
     }
 
     private void etsiVaihtoehdot(Puu parent, char merkki) {
