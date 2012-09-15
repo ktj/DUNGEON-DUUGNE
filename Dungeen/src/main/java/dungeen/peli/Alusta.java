@@ -61,4 +61,13 @@ public class Alusta {
             System.out.println();
         }
     }
+    public boolean tarkistaKoordinaatit(int x, int y) {
+        if (x < 0 || y < 0) {
+            return false;
+        }
+        if (x >= maxKoko() || y >= maxKoko()) {
+            return false;
+        }
+        return true;
+    }
 }

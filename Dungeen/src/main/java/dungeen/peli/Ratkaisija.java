@@ -49,18 +49,10 @@ public class Ratkaisija {
         return false;
     }
 
-    boolean tarkistaKoordinaatit(int x, int y) {
-        if (x < 0 || y < 0) {
-            return false;
-        }
-        if (x >= this.alusta.maxKoko() || y >= this.alusta.maxKoko()) {
-            return false;
-        }
-        return true;
-    }
+    
 
     int tarkistaVasemmalle(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit((x - 1), y)) {
+        if (!this.alusta.tarkistaKoordinaatit((x - 1), y)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x - 1, y)) == merkki) {
@@ -70,7 +62,7 @@ public class Ratkaisija {
     }
 
     int tarkistaOikealle(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit(x + 1, y)) {
+        if (!this.alusta.tarkistaKoordinaatit(x + 1, y)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x + 1, y)) == merkki) {
@@ -80,7 +72,7 @@ public class Ratkaisija {
     }
 
     int tarkistaAlas(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit(x, y + 1)) {
+        if (!this.alusta.tarkistaKoordinaatit(x, y + 1)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x, y + 1)) == merkki) {
@@ -90,7 +82,7 @@ public class Ratkaisija {
     }
 
     int tarkistaYlos(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit(x, y - 1)) {
+        if (!this.alusta.tarkistaKoordinaatit(x, y - 1)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x, y - 1)) == merkki) {
@@ -100,7 +92,7 @@ public class Ratkaisija {
     }
 
     int tarkistaVasemmalleYlos(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit(x - 1, y - 1)) {
+        if (!this.alusta.tarkistaKoordinaatit(x - 1, y - 1)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x - 1, y - 1)) == merkki) {
@@ -110,7 +102,7 @@ public class Ratkaisija {
     }
 
     int tarkistaOikealleAlas(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit(x + 1, y + 1)) {
+        if (!this.alusta.tarkistaKoordinaatit(x + 1, y + 1)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x + 1, y + 1)) == merkki) {
@@ -120,7 +112,7 @@ public class Ratkaisija {
     }
 
     int tarkistaOikealleYlos(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit(x + 1, y - 1)) {
+        if (!this.alusta.tarkistaKoordinaatit(x + 1, y - 1)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x + 1, y - 1)) == merkki) {
@@ -130,7 +122,7 @@ public class Ratkaisija {
     }
 
     int tarkistaVasemmalleAlas(int x, int y, char merkki) {
-        if (!tarkistaKoordinaatit(x - 1, y + 1)) {
+        if (!this.alusta.tarkistaKoordinaatit(x - 1, y + 1)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x - 1, y + 1)) == merkki) {
