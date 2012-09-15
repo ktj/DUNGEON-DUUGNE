@@ -49,18 +49,20 @@ public class Arvioija {
 
     int arvioiRuutu(int x, int y, char merkki) {
         if (this.alusta.tarkistaKoordinaatit(x, y)) {
-            if (this.alusta.lueMerkki(x, y) == 'x') {
+            if (this.alusta.lueMerkki(x, y) == 'x' && merkki == 'x') {
                 return 2;
             }
-            if (this.alusta.lueMerkki(x, y) == 'o') {
+            if (this.alusta.lueMerkki(x, y) == 'o' && merkki == 'o') {
                 return -2;
             }
-            //tyhjä x:n vieressä
-            if (merkki == 'x') {
-                return 1;
+            if (this.alusta.onkoTyhja(x, y)) {
+                //tyhjä x:n vieressä
+                if (merkki == 'x') {
+                    return 1;
                 //tyhjä o:n vieressä;
-            } else {
-                return -1;
+                } else {
+                    return -1;
+                }
             }
         }
         return 0;
