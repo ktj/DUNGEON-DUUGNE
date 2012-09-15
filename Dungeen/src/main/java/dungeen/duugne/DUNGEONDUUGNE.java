@@ -16,20 +16,28 @@ public class DUNGEONDUUGNE {
 //        
 //        Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2);
 //        peli.aloita();
-
+//
 
         Puukasaaja kasaaja = new Puukasaaja();
-        
-        Puu puu1 = new Puu(alusta);
 
+        Puu puu1 = new Puu(alusta);
         
         Puu puu = kasaaja.kasaaPuu(alusta, 'x');
-        tulostaPuu(puu);
+        for (Puu lapsi : puu.haeLapset()) {
+            lapsi.haeAlusta().tulostaAlusta();
+            for(Puu lapsenlapsi: lapsi.haeLapset()){
+                System.out.println("***************");
+                lapsenlapsi.haeAlusta().tulostaAlusta();
+                
+            }
+            System.out.println("-------------");
+
+        }
     }
-    
-    private static void tulostaPuu(Puu puu){
+
+    private static void tulostaPuu(Puu puu) {
         puu.haeAlusta().tulostaAlusta();
-        for(Puu lapsi: puu.haeLapset()){
+        for (Puu lapsi : puu.haeLapset()) {
             tulostaPuu(lapsi);
         }
     }
