@@ -6,8 +6,8 @@ package dungeen.peli;
  */
 public class Ratkaisija {
 
-    int voittoRivinPituus;
-    Alusta alusta;
+    private int voittoRivinPituus;
+    private Alusta alusta;
 
     public Ratkaisija() {
     }
@@ -32,7 +32,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    boolean tarkistaRuutu(int x, int y) {
+    private boolean tarkistaRuutu(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
         if ((tarkistaVasemmalle(x, y, merkki) + 1 + tarkistaOikealle(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
@@ -51,7 +51,7 @@ public class Ratkaisija {
 
     
 
-    int tarkistaVasemmalle(int x, int y, char merkki) {
+    private int tarkistaVasemmalle(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit((x - 1), y)) {
             return 0;
         }
@@ -61,7 +61,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    int tarkistaOikealle(int x, int y, char merkki) {
+    private int tarkistaOikealle(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y)) {
             return 0;
         }
@@ -71,7 +71,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    int tarkistaAlas(int x, int y, char merkki) {
+    private int tarkistaAlas(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x, y + 1)) {
             return 0;
         }
@@ -81,7 +81,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    int tarkistaYlos(int x, int y, char merkki) {
+    private int tarkistaYlos(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x, y - 1)) {
             return 0;
         }
@@ -91,7 +91,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    int tarkistaVasemmalleYlos(int x, int y, char merkki) {
+    private int tarkistaVasemmalleYlos(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x - 1, y - 1)) {
             return 0;
         }
@@ -101,7 +101,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    int tarkistaOikealleAlas(int x, int y, char merkki) {
+    private int tarkistaOikealleAlas(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y + 1)) {
             return 0;
         }
@@ -111,7 +111,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    int tarkistaOikealleYlos(int x, int y, char merkki) {
+    private int tarkistaOikealleYlos(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y - 1)) {
             return 0;
         }
@@ -121,7 +121,7 @@ public class Ratkaisija {
         return 0;
     }
 
-    int tarkistaVasemmalleAlas(int x, int y, char merkki) {
+    private int tarkistaVasemmalleAlas(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x - 1, y + 1)) {
             return 0;
         }
