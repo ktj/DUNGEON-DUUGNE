@@ -73,7 +73,7 @@ public class MinMax {
         }
         int v = Integer.MAX_VALUE;
         for (Puu lapsi : puu) {
-            v = Math.max(v, maksimi(lapsi));
+            v = Math.min(v, maksimi(lapsi));
         }
         return v;
     }
