@@ -22,7 +22,7 @@ public class Alusta {
                 this.lauta[j][i] = alusta.lauta[j][i];
             }
         }
-        
+
     }
 
     public void tyhjaaLauta() {
@@ -61,6 +61,7 @@ public class Alusta {
             System.out.println();
         }
     }
+
     public boolean tarkistaKoordinaatit(int x, int y) {
         if (x < 0 || y < 0) {
             return false;
@@ -69,5 +70,16 @@ public class Alusta {
             return false;
         }
         return true;
+    }
+
+    public boolean onkoLautaTaynna() {
+        boolean taysi = true;
+        for (int i = 0; i < this.koko; i++) {
+            for (int j = 0; j < this.koko; j++) {
+                if(this.onkoTyhja(i, j))
+                    taysi = false;
+            }
+        }
+        return taysi;
     }
 }

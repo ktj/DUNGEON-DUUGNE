@@ -1,6 +1,8 @@
 package dungeen.duugne;
 
 import dungeen.peli.Alusta;
+import dungeen.peli.Ratkaisija;
+import tekoäly.MinMax;
 import tekoäly.Puu;
 import tekoäly.Puukasaaja;
 
@@ -20,17 +22,29 @@ public class DUNGEONDUUGNE {
 
         Puukasaaja kasaaja = new Puukasaaja();
         
-        Puu puu1 = new Puu(alusta);
+        alusta.lisaaMerkkiLaudalle(0, 0, 'x');
+        alusta.lisaaMerkkiLaudalle(1, 0, 'o');
+        alusta.lisaaMerkkiLaudalle(0, 1, 'x');
 
+        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
         
-        Puu puu = kasaaja.kasaaPuu(alusta, 'x');
-        tulostaPuu(puu);
+        Puu puu = kasaaja.kasaaPuu(alusta, 'o');
+        
+        //tulostaPuu(puu);
+        
+        alusta.tulostaAlusta();
+        
+        MinMax minmax = new MinMax(new Ratkaisija());
+        
+        minmax.aloitaMin(puu, 3).tulostaAlusta();
+        
     }
     
     private static void tulostaPuu(Puu puu){
         puu.haeAlusta().tulostaAlusta();
         for(Puu lapsi: puu.haeLapset()){
             lapsi.haeAlusta().tulostaAlusta();
+            tulostaPuu(lapsi);
         }
     }
 }
