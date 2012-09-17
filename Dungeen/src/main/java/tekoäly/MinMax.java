@@ -20,7 +20,7 @@ public class MinMax {
         Alusta suurin = null;
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
-        for (Puu lapsi : puu.haeLapset()) {
+        for (Puu lapsi : puu) {
             lapsenarvo = minimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
             if (lapsenarvo > v) {
                 suurin = lapsi.haeAlusta();
@@ -39,7 +39,7 @@ public class MinMax {
         Alusta pienin = null;
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
-        for (Puu lapsi : puu.haeLapset()) {
+        for (Puu lapsi : puu) {
             lapsenarvo = maksimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
             if (lapsenarvo < v) {
                 pienin = lapsi.haeAlusta();
@@ -56,7 +56,7 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MIN_VALUE;
-        for (Puu lapsi : puu.haeLapset()) {
+        for (Puu lapsi : puu) {
             v = Math.max(v, minimi(lapsi, alfa, beta));
             if (v >= beta)
                 return v;
@@ -78,7 +78,7 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MAX_VALUE;
-        for (Puu lapsi : puu.haeLapset()) {
+        for (Puu lapsi : puu) {
             v = Math.min(v, maksimi(lapsi, alfa, beta));
             if (v <= alfa)
                 return v;

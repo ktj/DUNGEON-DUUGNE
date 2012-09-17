@@ -11,16 +11,16 @@
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
                 
     <context:annotation-config/>
-    <context:component-scan base-package="dungeon.peli" />
-    <bean id="alusta" class="dungeon.peli.Alusta" />
-    <bean id="ratkaisija" class="dungeon.peli.Ratkaisija" />
-    <bean id="tekstikäli" class="dungeon.käyttöliittymä.Tekstikäyttöliittymä" />
+    <context:component-scan base-package="main" />
+    <bean id="alusta" class="logiikka.Alusta" />
+    <bean id="ratkaisija" class="logiikka.Ratkaisija" />
+    <bean id="tekstikäli" class="käyttöliittymä.Tekstikäyttöliittymä" />
     
-    <bean id="ihmispelaaja" class="dungeon.peli.Ihmispelaaja">
+    <bean id="ihmispelaaja" class="logiikka.Ihmispelaaja">
         <constructor-arg ref="tekstikäli"/>
     </bean>
     
-    <bean id="peli" class="dungeon.duugne.Peli">
+    <bean id="peli" class="main.Peli">
         <constructor-arg ref="alusta" />
         <constructor-arg ref="ratkaisija" />
         <constructor-arg ref="ihmispelaaja" />

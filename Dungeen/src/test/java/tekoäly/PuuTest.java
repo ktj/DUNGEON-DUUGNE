@@ -49,8 +49,8 @@ public class PuuTest {
 
     @Test
     public void testIterator() {
-        assertFalse(puu.haeLapset().iterator().hasNext());
+        assertFalse(puu.iterator().hasNext());
         puu.lisaaLapsi(new Puu(alustamock));
-        assertTrue(puu.haeLapset().iterator().hasNext());
+        assertTrue(puu.iterator().hasNext());
     }
 }

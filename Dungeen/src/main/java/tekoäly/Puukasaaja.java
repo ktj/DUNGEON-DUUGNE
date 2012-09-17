@@ -18,7 +18,7 @@ public class Puukasaaja {
     private Puu kasaaLapset(Puu parent, char merkki, int taso, int maksimitaso) {
         etsiVaihtoehdot(parent, merkki);
         int seurtaso = taso + 1;
-        for (Puu lapsi : parent.haeLapset()) {
+        for (Puu lapsi : parent) {
             if (taso < maksimitaso) {
                 kasaaLapset(lapsi, negaatio(merkki), seurtaso, maksimitaso);
             }
