@@ -1,12 +1,11 @@
-package dungeen.duugne;
+package main;
 
-import dungeen.peli.Alusta;
-import dungeen.peli.Pelaaja;
-import dungeen.peli.Ratkaisija;
+import logiikka.Alusta;
+import logiikka.Pelaaja;
+import logiikka.Ratkaisija;
 
 public class Peli {
 
-    final int RIVINPITUUS = 3;
     Pelaaja pelaaja1;
     Pelaaja pelaaja2;
     Alusta alusta;
@@ -21,18 +20,18 @@ public class Peli {
 
     public void aloita() {
         alusta.tyhjaaLauta();
-        while (ratkaisija.etsiVoitto(alusta, RIVINPITUUS) == 0 && !alusta.onkoLautaTaynna()) {
+        while (ratkaisija.etsiVoitto(alusta) == 0 && !alusta.onkoLautaTaynna()) {
             alusta = pelaaja1.seuraava_siirto(alusta, 'x');
-            if (ratkaisija.etsiVoitto(alusta, RIVINPITUUS) == 0 && !alusta.onkoLautaTaynna()) {
+            if (ratkaisija.etsiVoitto(alusta) == 0 && !alusta.onkoLautaTaynna()) {
                 alusta = pelaaja2.seuraava_siirto(alusta, 'o');
             }
         }
         
         alusta.tulostaAlusta();
         System.out.println("");
-        if(ratkaisija.etsiVoitto(alusta, RIVINPITUUS) == 1)
+        if(ratkaisija.etsiVoitto(alusta) == 1)
             System.out.println("Pelin voitti x!");
-        else if (ratkaisija.etsiVoitto(alusta, RIVINPITUUS) == -1)
+        else if (ratkaisija.etsiVoitto(alusta) == -1)
             System.out.println("Pelin voitti o!");
         else
             System.out.println("Tasapeli!");

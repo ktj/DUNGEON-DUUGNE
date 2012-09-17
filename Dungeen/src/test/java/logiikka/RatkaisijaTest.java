@@ -1,5 +1,7 @@
-package dungeen.peli;
+package logiikka;
 
+import logiikka.Ratkaisija;
+import logiikka.Alusta;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -14,12 +16,12 @@ public class RatkaisijaTest {
     public RatkaisijaTest() {
         merkki = 'x';
         ratkaisija = new Ratkaisija();
-        alusta = new Alusta(alustakoko);
+        alusta = new Alusta(alustakoko, pituus);
     }
 
     @Test
     public void testEtsiVoitto0() {
-        assertFalse(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
@@ -27,7 +29,7 @@ public class RatkaisijaTest {
         int x = 0;
         int y = 0;
         alusta.lisaaMerkkiLaudalle(x, y, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
@@ -37,7 +39,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(i, y, merkki);
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
@@ -47,7 +49,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(x, i, merkki);
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
@@ -58,17 +60,17 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(i, y, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
     public void testiEtsiVoitto41() {
         for (int j = 0; j < pituus; j++) {
-            alusta = new Alusta(alustakoko);
+            alusta = new Alusta(alustakoko, alustakoko);
             for (int i = 0; i < pituus; i++) {
                 alusta.lisaaMerkkiLaudalle(i, j, merkki);
             }
-            assertTrue(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+            assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
         }
     }
 
@@ -79,50 +81,50 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(x, i, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
     public void testiEtsiVoitto51() {
         for (int j = 0; j < pituus; j++) {
-            alusta = new Alusta(alustakoko);
+            alusta = new Alusta(alustakoko, alustakoko);
             for (int i = 0; i < pituus; i++) {
                 alusta.lisaaMerkkiLaudalle(j, i, merkki);
             }
-            assertTrue(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+            assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
         }
     }
 
     @Test
     public void testEtstiVoittoaReika1() {
         alustakoko = 5;
-        alusta = new Alusta(alustakoko);
         pituus = 3;
+        alusta = new Alusta(alustakoko, pituus);
         alusta.lisaaMerkkiLaudalle(1, 1, merkki);
         alusta.lisaaMerkkiLaudalle(2, 1, merkki);
         alusta.lisaaMerkkiLaudalle(4, 1, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
         alusta.lisaaMerkkiLaudalle(3, 1, merkki);
-        assertTrue(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
     public void testEtstiVoittoaReika2() {
         alustakoko = 5;
-        alusta = new Alusta(alustakoko);
         pituus = 3;
+        alusta = new Alusta(alustakoko, pituus);
         alusta.lisaaMerkkiLaudalle(1, 1, merkki);
         alusta.lisaaMerkkiLaudalle(1, 2, merkki);
         alusta.lisaaMerkkiLaudalle(1, 4, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
         alusta.lisaaMerkkiLaudalle(1, 3, merkki);
-        assertTrue(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 
     @Test
     public void testEtsiVoittoTaysi() {
         alustakoko = 100;
-        alusta = new Alusta(alustakoko);
+        alusta = new Alusta(alustakoko, alustakoko);
         pituus = 3;
         char x = 'x';
         char o = 'o';
@@ -149,6 +151,6 @@ public class RatkaisijaTest {
             }
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta, pituus)==1||ratkaisija.etsiVoitto(alusta, pituus)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
     }
 }

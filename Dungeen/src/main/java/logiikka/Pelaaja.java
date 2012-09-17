@@ -1,4 +1,4 @@
-package dungeen.peli;
+package logiikka;
 
 public interface Pelaaja {
 

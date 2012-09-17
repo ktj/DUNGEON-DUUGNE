@@ -1,6 +1,6 @@
 package tekoäly;
 
-import dungeen.peli.Alusta;
+import logiikka.Alusta;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -14,17 +14,16 @@ public class Puu implements Iterable<Puu> {
         lapset = new HashSet<Puu>();
         this.alusta = alusta;
     }
-    
 
     public boolean lisaaLapsi(Puu n) {
         return lapset.add(n);
     }
-    
-    public Alusta haeAlusta(){
+
+    public Alusta haeAlusta() {
         return alusta;
     }
-    
-    public Set<Puu> haeLapset(){
+
+    public Set<Puu> haeLapset() {
         return lapset;
     }
 
@@ -32,4 +31,3 @@ public class Puu implements Iterable<Puu> {
         return lapset.iterator();
     }
 }
-

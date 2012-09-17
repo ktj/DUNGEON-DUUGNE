@@ -1,4 +1,4 @@
-package dungeen.peli;
+package logiikka;
 
 /**
  *
@@ -7,16 +7,18 @@ package dungeen.peli;
 public class Alusta {
 
     private int koko;
+    private int voittorivinpituus;
     private char[][] lauta;
 
-    public Alusta(int koko) {
+    public Alusta(int koko, int voittorivinpituus) {
         this.koko = koko;
+        this.voittorivinpituus = voittorivinpituus;
         this.lauta = new char[this.koko][this.koko];
         this.tyhjaaLauta();
     }
 
     public Alusta(Alusta alusta) {
-        this(alusta.koko);
+        this(alusta.koko, alusta.voittorivinpituus);
         for (int i = 0; i < this.koko; i++) {
             for (int j = 0; j < this.koko; j++) {
                 this.lauta[j][i] = alusta.lauta[j][i];
@@ -81,5 +83,9 @@ public class Alusta {
             }
         }
         return taysi;
+    }
+    
+    public int voittorivinpituus(){
+        return voittorivinpituus;
     }
 }

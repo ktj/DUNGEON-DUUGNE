@@ -1,6 +1,6 @@
-package dungeen.käyttöliittymä;
+package käyttöliittymä;
 
-import dungeen.peli.Alusta;
+import logiikka.Alusta;
 import java.util.Scanner;
 
 public class Tekstikäyttöliittymä implements Käyttöliittymä {

@@ -1,9 +1,9 @@
-package dungeen.duugne;
+package main;
 
-import dungeen.käyttöliittymä.Tekstikäyttöliittymä;
-import dungeen.peli.Alusta;
-import dungeen.peli.Ihmispelaaja;
-import dungeen.peli.Ratkaisija;
+import käyttöliittymä.Tekstikäyttöliittymä;
+import logiikka.Alusta;
+import logiikka.Ihmispelaaja;
+import logiikka.Ratkaisija;
 import tekoäly.MinMax;
 import tekoäly.Puu;
 import tekoäly.Puukasaaja;
@@ -13,7 +13,7 @@ public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
 
-        Alusta alusta = new Alusta(4);
+        Alusta alusta = new Alusta(3,3);
         Ratkaisija ratkaisija = new Ratkaisija();
         Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
         Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);

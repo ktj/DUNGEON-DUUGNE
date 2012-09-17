@@ -1,7 +1,7 @@
 package tekoäly;
 
-import dungeen.peli.Alusta;
-import dungeen.peli.Pelaaja;
+import logiikka.Alusta;
+import logiikka.Pelaaja;
 
 public class Tekoäly implements Pelaaja{
     
@@ -18,9 +18,9 @@ public class Tekoäly implements Pelaaja{
         Puu puu = kasaaja.kasaaPuu(alusta, merkki, 5);
         
         if(merkki == 'x'){
-            return minmax.aloitaMax(puu, 3);
+            return minmax.aloitaMax(puu);
         }
-        return minmax.aloitaMin(puu, 3);
+        return minmax.aloitaMin(puu);
     }
     
 }

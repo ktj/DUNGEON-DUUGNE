@@ -1,5 +1,6 @@
-package dungeen.peli;
+package logiikka;
 
+import logiikka.Alusta;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -7,9 +8,10 @@ public class AlustaTest {
     
     Alusta alusta;
     int koko = 3;
+    int voittorivinpituus = 3;
     
     public AlustaTest() {
-        alusta = new Alusta(koko);
+        alusta = new Alusta(koko, voittorivinpituus);
     }
    
     @Test
@@ -52,5 +54,10 @@ public class AlustaTest {
     @Test
     public void testMaxKoko() {
         assertEquals(alusta.maxKoko(), koko);
+    }
+    
+    @Test
+    public void testVoittorivinpituus(){
+        assertEquals(alusta.voittorivinpituus(), voittorivinpituus);
     }
 }

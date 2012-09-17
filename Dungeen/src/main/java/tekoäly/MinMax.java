@@ -1,28 +1,26 @@
 package tekoäly;
 
-import dungeen.peli.Alusta;
-import dungeen.peli.Ratkaisija;
+import logiikka.Alusta;
+import logiikka.Ratkaisija;
 
 public class MinMax {
 
     private Ratkaisija ratkaisija;
-    private int voittoRivinPituus;
 
     public MinMax(Ratkaisija ratkaisija) {
         this.ratkaisija = ratkaisija;
     }
 
-    public Alusta aloitaMax(Puu puu, int voittoRivinPituus) {
-        this.voittoRivinPituus = voittoRivinPituus;
+    public Alusta aloitaMax(Puu puu) {
         Alusta alusta = puu.haeAlusta();
-        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta, voittoRivinPituus);
+        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
         if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
             return alusta;
         }
         Alusta suurin = null;
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
-        for (Puu lapsi : puu) {
+        for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = minimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
             if (lapsenarvo > v) {
                 suurin = lapsi.haeAlusta();
@@ -32,17 +30,16 @@ public class MinMax {
         return suurin;
     }
 
-    public Alusta aloitaMin(Puu puu, int voittoRivinPituus) {
-        this.voittoRivinPituus = voittoRivinPituus;
+    public Alusta aloitaMin(Puu puu) {
         Alusta alusta = puu.haeAlusta();
-        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta, voittoRivinPituus);
+        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
         if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
             return alusta;
         }
         Alusta pienin = null;
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
-        for (Puu lapsi : puu) {
+        for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = maksimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
             if (lapsenarvo < v) {
                 pienin = lapsi.haeAlusta();
@@ -54,12 +51,12 @@ public class MinMax {
 
     private int maksimi(Puu puu, int alfa, int beta) {
         Alusta alusta = puu.haeAlusta();
-        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta, voittoRivinPituus);
+        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
         if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
             return ratkaisuarvo;
         }
         int v = Integer.MIN_VALUE;
-        for (Puu lapsi : puu) {
+        for (Puu lapsi : puu.haeLapset()) {
             v = Math.max(v, minimi(lapsi, alfa, beta));
             if (v >= beta)
                 return v;
@@ -67,8 +64,8 @@ public class MinMax {
         }
         
         /*
-         * voi laittaa tähän vaik jotai if v == Integer.Min_Value niin sitte kattoo arvioijast
-         * eli siis jos lapsii ei oo
+         * voi laittaa tähän vaik jotai if v == Integer.Min_Value, niin kattoo arvioijast
+         * eli siis jos ei oo lapsia
          */
         
         return v;
@@ -76,12 +73,12 @@ public class MinMax {
 
     private int minimi(Puu puu, int alfa, int beta) {
         Alusta alusta = puu.haeAlusta();
-        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta, voittoRivinPituus);
+        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
         if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
             return ratkaisuarvo;
         }
         int v = Integer.MAX_VALUE;
-        for (Puu lapsi : puu) {
+        for (Puu lapsi : puu.haeLapset()) {
             v = Math.min(v, maksimi(lapsi, alfa, beta));
             if (v <= alfa)
                 return v;

@@ -1,6 +1,6 @@
 package tekoäly;
 
-import dungeen.peli.Alusta;
+import logiikka.Alusta;
 
 public class Puukasaaja {
 
@@ -9,6 +9,9 @@ public class Puukasaaja {
 
     public Puu kasaaPuu(Alusta alusta, char merkki, int maksimitaso) {
         Puu puu = new Puu(alusta);
+        if (maksimitaso < 1) {
+            return puu;
+        }
         return kasaaLapset(puu, merkki, 1, maksimitaso);
     }
 

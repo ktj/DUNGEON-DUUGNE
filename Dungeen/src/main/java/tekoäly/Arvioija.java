@@ -4,7 +4,7 @@
  */
 package tekoäly;
 
-import dungeen.peli.Alusta;
+import logiikka.Alusta;
 
 /**
  *

@@ -1,4 +1,4 @@
-package dungeen.peli;
+package logiikka;
 
 /**
  *
@@ -12,9 +12,9 @@ public class Ratkaisija {
     public Ratkaisija() {
     }
 
-    public int etsiVoitto(Alusta alusta, int voittoRivinPituus) {
+    public int etsiVoitto(Alusta alusta) {
         this.alusta = alusta;
-        this.voittoRivinPituus = voittoRivinPituus;
+        this.voittoRivinPituus = alusta.voittorivinpituus();
         for (int i = 0; i < this.alusta.maxKoko(); i++) {
             for (int j = 0; j < this.alusta.maxKoko(); j++) {
                 if (alusta.onkoTyhja(i, j)) {
