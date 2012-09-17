@@ -1,42 +1,47 @@
 package dungeen.duugne;
 
+import dungeen.käyttöliittymä.Tekstikäyttöliittymä;
 import dungeen.peli.Alusta;
+import dungeen.peli.Ihmispelaaja;
 import dungeen.peli.Ratkaisija;
 import tekoäly.MinMax;
 import tekoäly.Puu;
 import tekoäly.Puukasaaja;
+import tekoäly.Tekoäly;
 
 public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
 
         Alusta alusta = new Alusta(3);
-//        Ratkaisija ratkaisija = new Ratkaisija();
-//        Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
-//        Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
-//        Ihmispelaaja pelaaja2 = new Ihmispelaaja(tekstikäli);
+        Ratkaisija ratkaisija = new Ratkaisija();
+        Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
+        Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
+        Tekoäly pelaaja2 = new Tekoäly(new MinMax(ratkaisija), new Puukasaaja());
+        
+        Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja2);
+        peli.aloita();
+        
+        
+
+//        Puukasaaja kasaaja = new Puukasaaja();
+        
+//        alusta.lisaaMerkkiLaudalle(0, 0, 'x');
+//        alusta.lisaaMerkkiLaudalle(1, 0, 'o');
+//        alusta.lisaaMerkkiLaudalle(0, 1, 'x');
+//        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
 //        
-//        Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2);
-//        peli.aloita();
-
-
-        Puukasaaja kasaaja = new Puukasaaja();
+//        pelaaja2.seuraava_siirto(alusta, 'x').tulostaAlusta();
         
-        alusta.lisaaMerkkiLaudalle(0, 0, 'x');
-        alusta.lisaaMerkkiLaudalle(1, 0, 'o');
-        alusta.lisaaMerkkiLaudalle(0, 1, 'x');
-
-        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
-        
-        Puu puu = kasaaja.kasaaPuu(alusta, 'o');
-        
-        //tulostaPuu(puu);
-        
-        alusta.tulostaAlusta();
-        
-        MinMax minmax = new MinMax(new Ratkaisija());
-        
-        minmax.aloitaMin(puu, 3).tulostaAlusta();
+//        Puu puu = kasaaja.kasaaPuu(alusta, 'o');
+//        
+//        //tulostaPuu(puu);
+//        
+//        alusta.tulostaAlusta();
+//        
+//        MinMax minmax = new MinMax(new Ratkaisija());
+//        
+//        minmax.aloitaMin(puu, 3).tulostaAlusta();
         
     }
     
