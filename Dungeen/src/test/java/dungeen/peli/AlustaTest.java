@@ -3,10 +3,6 @@ package dungeen.peli;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author keus
- */
 public class AlustaTest {
     
     Alusta alusta;

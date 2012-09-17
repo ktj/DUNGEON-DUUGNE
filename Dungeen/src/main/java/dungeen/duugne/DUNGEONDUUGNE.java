@@ -13,41 +13,42 @@ public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
 
-        Alusta alusta = new Alusta(3);
+        Alusta alusta = new Alusta(4);
         Ratkaisija ratkaisija = new Ratkaisija();
         Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
         Ihmispelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
         Tekoäly pelaaja2 = new Tekoäly(new MinMax(ratkaisija), new Puukasaaja());
-        
+
         Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja2);
         peli.aloita();
-        
-        
 
-//        Puukasaaja kasaaja = new Puukasaaja();
-        
+
+
+
+//        
 //        alusta.lisaaMerkkiLaudalle(0, 0, 'x');
 //        alusta.lisaaMerkkiLaudalle(1, 0, 'o');
 //        alusta.lisaaMerkkiLaudalle(0, 1, 'x');
 //        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
-//        
+
 //        pelaaja2.seuraava_siirto(alusta, 'x').tulostaAlusta();
         
-//        Puu puu = kasaaja.kasaaPuu(alusta, 'o');
-//        
-//        //tulostaPuu(puu);
+        
+//        Puukasaaja kasaaja = new Puukasaaja();
+//        Puu puu = kasaaja.kasaaPuu(new Alusta(3), 'o', 2);
+//        tulostaPuu(puu);
 //        
 //        alusta.tulostaAlusta();
 //        
 //        MinMax minmax = new MinMax(new Ratkaisija());
 //        
 //        minmax.aloitaMin(puu, 3).tulostaAlusta();
-        
+
     }
-    
-    private static void tulostaPuu(Puu puu){
+
+    private static void tulostaPuu(Puu puu) {
         puu.haeAlusta().tulostaAlusta();
-        for(Puu lapsi: puu.haeLapset()){
+        for (Puu lapsi : puu.haeLapset()) {
             lapsi.haeAlusta().tulostaAlusta();
             tulostaPuu(lapsi);
         }

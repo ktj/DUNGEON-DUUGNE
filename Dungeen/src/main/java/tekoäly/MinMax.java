@@ -23,7 +23,7 @@ public class MinMax {
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
         for (Puu lapsi : puu) {
-            lapsenarvo = minimi(lapsi);
+            lapsenarvo = minimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
             if (lapsenarvo > v) {
                 suurin = lapsi.haeAlusta();
                 v = lapsenarvo;
@@ -43,7 +43,7 @@ public class MinMax {
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
         for (Puu lapsi : puu) {
-            lapsenarvo = maksimi(lapsi);
+            lapsenarvo = maksimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
             if (lapsenarvo < v) {
                 pienin = lapsi.haeAlusta();
                 v = lapsenarvo;
@@ -52,7 +52,7 @@ public class MinMax {
         return pienin;
     }
 
-    private int maksimi(Puu puu) {
+    private int maksimi(Puu puu, int alfa, int beta) {
         Alusta alusta = puu.haeAlusta();
         int ratkaisuarvo = ratkaisija.etsiVoitto(alusta, voittoRivinPituus);
         if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
@@ -60,12 +60,21 @@ public class MinMax {
         }
         int v = Integer.MIN_VALUE;
         for (Puu lapsi : puu) {
-            v = Math.max(v, minimi(lapsi));
+            v = Math.max(v, minimi(lapsi, alfa, beta));
+            if (v >= beta)
+                return v;
+            alfa = Math.max(alfa, v);
         }
+        
+        /*
+         * voi laittaa tähän vaik jotai if v == Integer.Min_Value niin sitte kattoo arvioijast
+         * eli siis jos lapsii ei oo
+         */
+        
         return v;
     }
 
-    private int minimi(Puu puu) {
+    private int minimi(Puu puu, int alfa, int beta) {
         Alusta alusta = puu.haeAlusta();
         int ratkaisuarvo = ratkaisija.etsiVoitto(alusta, voittoRivinPituus);
         if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
@@ -73,7 +82,10 @@ public class MinMax {
         }
         int v = Integer.MAX_VALUE;
         for (Puu lapsi : puu) {
-            v = Math.min(v, maksimi(lapsi));
+            v = Math.min(v, maksimi(lapsi, alfa, beta));
+            if (v <= alfa)
+                return v;
+            beta = Math.min(beta, v);
         }
         return v;
     }

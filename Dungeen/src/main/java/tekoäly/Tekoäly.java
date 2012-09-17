@@ -15,7 +15,7 @@ public class Tekoäly implements Pelaaja{
 
     public Alusta seuraava_siirto(Alusta alusta, char merkki) {
         
-        Puu puu = kasaaja.kasaaPuu(alusta, merkki);
+        Puu puu = kasaaja.kasaaPuu(alusta, merkki, 5);
         
         if(merkki == 'x'){
             return minmax.aloitaMax(puu, 3);

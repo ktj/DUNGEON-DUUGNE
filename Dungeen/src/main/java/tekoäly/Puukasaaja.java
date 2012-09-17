@@ -4,28 +4,31 @@ import dungeen.peli.Alusta;
 
 public class Puukasaaja {
 
-
     public Puukasaaja() {
     }
-    
 
-    public Puu kasaaPuu(Alusta alusta, char merkki){
+    public Puu kasaaPuu(Alusta alusta, char merkki, int maksimitaso) {
         Puu puu = new Puu(alusta);
-        return kasaaLapset(puu, merkki);
+        return kasaaLapset(puu, merkki, 1, maksimitaso);
     }
-    
-    private Puu kasaaLapset(Puu parent, char merkki) {
+
+    private Puu kasaaLapset(Puu parent, char merkki, int taso, int maksimitaso) {
         etsiVaihtoehdot(parent, merkki);
-        for(Puu lapsi : parent.haeLapset()){
-            kasaaLapset(lapsi, negaatio(merkki));
-        } 
+        int seurtaso = taso + 1;
+        for (Puu lapsi : parent.haeLapset()) {
+            if (taso < maksimitaso) {
+                kasaaLapset(lapsi, negaatio(merkki), seurtaso, maksimitaso);
+            }
+        }
         return parent;
     }
-    
-    private char negaatio(char merkki){
-        if(merkki == 'x')
+
+    private char negaatio(char merkki) {
+        if (merkki == 'x') {
             return 'o';
-        else return 'x';
+        } else {
+            return 'x';
+        }
     }
 
     private void etsiVaihtoehdot(Puu parent, char merkki) {
