@@ -2,7 +2,7 @@ package logiikka;
 
 /**
  *
- * @author julius
+ * @author qq
  */
 public class Ratkaisija {
 

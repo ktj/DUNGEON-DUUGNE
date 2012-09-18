@@ -124,7 +124,7 @@ public class RatkaisijaTest {
     @Test
     public void testEtsiVoittoTaysi() {
         alustakoko = 100;
-        alusta = new Alusta(alustakoko, alustakoko);
+        alusta = new Alusta(alustakoko, 3);
         pituus = 3;
         char x = 'x';
         char o = 'o';
