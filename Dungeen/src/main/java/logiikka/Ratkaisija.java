@@ -34,16 +34,16 @@ public class Ratkaisija {
 
     private boolean tarkistaRuutu(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
-        if ((tarkistaVasemmalle(x, y, merkki) + 1 + tarkistaOikealle(x, y, merkki)) >= this.voittoRivinPituus) {
+        if ((1 + tarkistaOikealle(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
         }
-        if ((tarkistaAlas(x, y, merkki) + 1 + tarkistaYlos(x, y, merkki)) >= this.voittoRivinPituus) {
+        if ((1 +tarkistaAlas(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
         }
-        if ((tarkistaVasemmalleYlos(x, y, merkki) + 1 + tarkistaOikealleAlas(x, y, merkki)) >= this.voittoRivinPituus) {
+        if ((1 + tarkistaOikealleAlas(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
         }
-        if ((tarkistaVasemmalleAlas(x, y, merkki) + 1 + tarkistaOikealleYlos(x, y, merkki)) >= this.voittoRivinPituus) {
+        if ((1 + tarkistaVasemmalleAlas(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
         }
         return false;
