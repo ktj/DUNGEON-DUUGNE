@@ -37,7 +37,7 @@ public class Ratkaisija {
         if ((1 + tarkistaOikealle(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
         }
-        if ((1 +tarkistaAlas(x, y, merkki)) >= this.voittoRivinPituus) {
+        if ((1 + tarkistaAlas(x, y, merkki)) >= this.voittoRivinPituus) {
             return true;
         }
         if ((1 + tarkistaOikealleAlas(x, y, merkki)) >= this.voittoRivinPituus) {
@@ -48,6 +48,7 @@ public class Ratkaisija {
         }
         return false;
     }
+
     private int tarkistaOikealle(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y)) {
             return 0;
