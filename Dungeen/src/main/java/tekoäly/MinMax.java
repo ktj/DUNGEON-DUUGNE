@@ -13,10 +13,7 @@ public class MinMax {
 
     public Alusta aloitaMax(Puu puu) {
         Alusta alusta = puu.haeAlusta();
-        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
-        if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
-            return alusta;
-        }
+        if (onkovalmis(alusta)) return alusta;
         Alusta suurin = null;
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
@@ -32,10 +29,7 @@ public class MinMax {
 
     public Alusta aloitaMin(Puu puu) {
         Alusta alusta = puu.haeAlusta();
-        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
-        if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
-            return alusta;
-        }
+        if (onkovalmis(alusta)) return alusta;
         Alusta pienin = null;
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
@@ -47,6 +41,14 @@ public class MinMax {
             }
         }
         return pienin;
+    }
+
+    private boolean onkovalmis(Alusta alusta) {
+        int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
+        if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
+            return true;
+        }
+        return false;
     }
 
     private int maksimi(Puu puu, int alfa, int beta) {
@@ -86,4 +88,5 @@ public class MinMax {
         }
         return v;
     }
+    
 }
