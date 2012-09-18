@@ -48,19 +48,6 @@ public class Ratkaisija {
         }
         return false;
     }
-
-    
-
-    private int tarkistaVasemmalle(int x, int y, char merkki) {
-        if (!this.alusta.tarkistaKoordinaatit((x - 1), y)) {
-            return 0;
-        }
-        if ((this.alusta.lueMerkki(x - 1, y)) == merkki) {
-            return 1 + tarkistaVasemmalle(x - 1, y, merkki);
-        }
-        return 0;
-    }
-
     private int tarkistaOikealle(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y)) {
             return 0;
@@ -81,42 +68,12 @@ public class Ratkaisija {
         return 0;
     }
 
-    private int tarkistaYlos(int x, int y, char merkki) {
-        if (!this.alusta.tarkistaKoordinaatit(x, y - 1)) {
-            return 0;
-        }
-        if ((this.alusta.lueMerkki(x, y - 1)) == merkki) {
-            return 1 + tarkistaYlos(x, y - 1, merkki);
-        }
-        return 0;
-    }
-
-    private int tarkistaVasemmalleYlos(int x, int y, char merkki) {
-        if (!this.alusta.tarkistaKoordinaatit(x - 1, y - 1)) {
-            return 0;
-        }
-        if ((this.alusta.lueMerkki(x - 1, y - 1)) == merkki) {
-            return 1 + tarkistaVasemmalleYlos(x - 1, y - 1, merkki);
-        }
-        return 0;
-    }
-
     private int tarkistaOikealleAlas(int x, int y, char merkki) {
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y + 1)) {
             return 0;
         }
         if ((this.alusta.lueMerkki(x + 1, y + 1)) == merkki) {
             return 1 + tarkistaOikealleAlas(x + 1, y + 1, merkki);
-        }
-        return 0;
-    }
-
-    private int tarkistaOikealleYlos(int x, int y, char merkki) {
-        if (!this.alusta.tarkistaKoordinaatit(x + 1, y - 1)) {
-            return 0;
-        }
-        if ((this.alusta.lueMerkki(x + 1, y - 1)) == merkki) {
-            return 1 + tarkistaOikealleYlos(x + 1, y - 1, merkki);
         }
         return 0;
     }
