@@ -26,15 +26,16 @@ public class Peli {
                 alusta = pelaaja2.seuraava_siirto(alusta, 'o');
             }
         }
-        
+
         alusta.tulostaAlusta();
         System.out.println("");
-        if(ratkaisija.etsiVoitto(alusta) == 1)
+        if (ratkaisija.etsiVoitto(alusta) > 0) {
             System.out.println("Pelin voitti x!");
-        else if (ratkaisija.etsiVoitto(alusta) == -1)
+        } else if (ratkaisija.etsiVoitto(alusta) < 0) {
             System.out.println("Pelin voitti o!");
-        else
+        } else {
             System.out.println("Tasapeli!");
+        }
 
     }
 }

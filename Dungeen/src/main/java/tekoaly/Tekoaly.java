@@ -15,7 +15,7 @@ public class Tekoaly implements Pelaaja{
 
     public Alusta seuraava_siirto(Alusta alusta, char merkki) {
         
-        Puu puu = kasaaja.kasaaPuu(alusta, merkki, 5);
+        Puu puu = kasaaja.kasaaPuu(alusta, merkki, 3);
         
         if(merkki == 'x'){
             return minmax.aloitaMax(puu);

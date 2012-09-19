@@ -14,7 +14,7 @@ public class MinMax {
     public Alusta aloitaMax(Puu puu) {
         Alusta alusta = puu.haeAlusta();
         if (onkovalmis(alusta)) return alusta;
-        Alusta suurin = null;
+        Alusta suurin = puu.haeAlusta();
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
         for (Puu lapsi : puu) {
@@ -30,7 +30,7 @@ public class MinMax {
     public Alusta aloitaMin(Puu puu) {
         Alusta alusta = puu.haeAlusta();
         if (onkovalmis(alusta)) return alusta;
-        Alusta pienin = null;
+        Alusta pienin = puu.haeAlusta();
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
         for (Puu lapsi : puu) {

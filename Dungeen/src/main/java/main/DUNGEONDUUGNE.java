@@ -36,7 +36,7 @@ public class DUNGEONDUUGNE {
         
         
 //        Puukasaaja kasaaja = new Puukasaaja();
-//        Puu puu = kasaaja.kasaaPuu(new Alusta(3), 'o', 2);
+//        Puu puu = kasaaja.kasaaPuu(new Alusta(3,3), 'o', 2);
 //        tulostaPuu(puu);
 //        
 //        alusta.tulostaAlusta();

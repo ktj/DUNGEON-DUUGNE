@@ -9,6 +9,7 @@ public class Alusta {
     private int koko;
     private int voittorivinpituus;
     private char[][] lauta;
+    private int tilaa;
 
     public Alusta(int koko, int voittorivinpituus) {
         this.koko = koko;
@@ -33,21 +34,24 @@ public class Alusta {
                 this.lauta[i][j] = ' ';
             }
         }
+        tilaa = koko * koko;
     }
 
     public boolean onkoTyhja(int x, int y) {
-        if (this.lauta[x][y] == ' ') {
-            return true;
-        }
-        return false;
+        return lueMerkki(x, y) == ' ';
     }
 
     public void lisaaMerkkiLaudalle(int x, int y, char merkki) {
-        this.lauta[x][y] = merkki;
+        if (tarkistaKoordinaatit(x, y)) {
+            this.lauta[x][y] = merkki;
+        }
     }
 
     public char lueMerkki(int x, int y) {
-        return this.lauta[x][y];
+        if (tarkistaKoordinaatit(x, y)) {
+            return this.lauta[x][y];
+        }
+        return 'z';
     }
 
     public int maxKoko() {
@@ -55,37 +59,32 @@ public class Alusta {
     }
 
     public void tulostaAlusta() {
-        System.out.println();
         for (int i = 0; i < this.koko; i++) {
             for (int j = 0; j < this.koko; j++) {
                 System.out.print(lueMerkki(j, i));
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public boolean tarkistaKoordinaatit(int x, int y) {
-        if (x < 0 || y < 0) {
-            return false;
-        }
-        if (x >= maxKoko() || y >= maxKoko()) {
-            return false;
-        }
-        return true;
+        return x < koko && y < koko && x >= 0 && y >= 0;
     }
 
     public boolean onkoLautaTaynna() {
-        boolean taysi = true;
-        for (int i = 0; i < this.koko; i++) {
-            for (int j = 0; j < this.koko; j++) {
-                if(this.onkoTyhja(i, j))
-                    taysi = false;
-            }
-        }
-        return taysi;
+        return tilaa == 0;
+    }
+
+    public int tyhjaaTilaa() {
+        return tilaa;
     }
     
-    public int voittorivinpituus(){
+    public boolean onkoLautaTyhja(){
+        return tilaa == koko*koko;
+    }
+
+    public int voittorivinpituus() {
         return voittorivinpituus;
     }
 }
