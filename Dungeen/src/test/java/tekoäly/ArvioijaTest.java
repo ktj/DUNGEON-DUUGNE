@@ -97,6 +97,6 @@ public class ArvioijaTest {
         this.alusta.lisaaMerkkiLaudalle(55, 49, ' ');
         this.alusta.lisaaMerkkiLaudalle(50, 49, ' ');
         this.alusta.tulostaAlusta();
-        assertEquals(85,this.arvioija.arvioiLauta(this.alusta));
+        assertEquals(42,this.arvioija.arvioiLauta(this.alusta));
     }
 }
