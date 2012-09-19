@@ -21,7 +21,7 @@ public class RatkaisijaTest {
 
     @Test
     public void testEtsiVoitto0() {
-        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class RatkaisijaTest {
         int x = 0;
         int y = 0;
         alusta.lisaaMerkkiLaudalle(x, y, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(i, y, merkki);
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(x, i, merkki);
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(i, y, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class RatkaisijaTest {
             for (int i = 0; i < pituus; i++) {
                 alusta.lisaaMerkkiLaudalle(i, j, merkki);
             }
-            assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+            assertTrue(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
         }
     }
 
@@ -81,7 +81,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(x, i, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -91,7 +91,7 @@ public class RatkaisijaTest {
             for (int i = 0; i < pituus; i++) {
                 alusta.lisaaMerkkiLaudalle(j, i, merkki);
             }
-            assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+            assertTrue(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
         }
     }
 
@@ -103,9 +103,9 @@ public class RatkaisijaTest {
         alusta.lisaaMerkkiLaudalle(1, 1, merkki);
         alusta.lisaaMerkkiLaudalle(2, 1, merkki);
         alusta.lisaaMerkkiLaudalle(4, 1, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
         alusta.lisaaMerkkiLaudalle(3, 1, merkki);
-        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -116,9 +116,9 @@ public class RatkaisijaTest {
         alusta.lisaaMerkkiLaudalle(1, 1, merkki);
         alusta.lisaaMerkkiLaudalle(1, 2, merkki);
         alusta.lisaaMerkkiLaudalle(1, 4, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
         alusta.lisaaMerkkiLaudalle(1, 3, merkki);
-        assertTrue(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertTrue(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 
     @Test
@@ -151,6 +151,6 @@ public class RatkaisijaTest {
             }
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta)==1||ratkaisija.etsiVoitto(alusta)==-1);
+        assertFalse(ratkaisija.etsiVoitto(alusta)==50||ratkaisija.etsiVoitto(alusta)==-50);
     }
 }

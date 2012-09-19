@@ -85,10 +85,10 @@ public class ArvioijaTest {
         this.alusta.lisaaMerkkiLaudalle(54, 51, ' ');
         this.alusta.lisaaMerkkiLaudalle(55, 51, ' ');
         this.alusta.lisaaMerkkiLaudalle(50, 50, ' ');
-        this.alusta.lisaaMerkkiLaudalle(51, 50, o);
-        this.alusta.lisaaMerkkiLaudalle(52, 50, o);
-        this.alusta.lisaaMerkkiLaudalle(53, 50, o);
-        this.alusta.lisaaMerkkiLaudalle(54, 50, o);
+        this.alusta.lisaaMerkkiLaudalle(51, 50, 'o');
+        this.alusta.lisaaMerkkiLaudalle(52, 50, 'o');
+        this.alusta.lisaaMerkkiLaudalle(53, 50, 'o');
+        this.alusta.lisaaMerkkiLaudalle(54, 50, 'o');
         this.alusta.lisaaMerkkiLaudalle(55, 50, ' ');
         this.alusta.lisaaMerkkiLaudalle(51, 49, ' ');
         this.alusta.lisaaMerkkiLaudalle(52, 49, ' ');
@@ -97,6 +97,6 @@ public class ArvioijaTest {
         this.alusta.lisaaMerkkiLaudalle(55, 49, ' ');
         this.alusta.lisaaMerkkiLaudalle(50, 49, ' ');
         this.alusta.tulostaAlusta();
-        assertEquals(42,this.arvioija.arvioiLauta(this.alusta));
+        assertEquals(-42,this.arvioija.arvioiLauta(this.alusta));
     }
 }

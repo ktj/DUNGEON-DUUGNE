@@ -46,7 +46,7 @@ public class Arvioija {
         char merkki = alusta.lueMerkki(x, y);
         int arvo = 0;
         arvo = tarkistaVasemmalle(x, y) + merkinArvo + tarkistaOikealle(x, y, merkki);
-        if (arvo >= merkinArvo * 4 + tyhjanArvo) {
+        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
             if (merkki == 'x') {
                 return arvo;
             } else {
@@ -54,7 +54,7 @@ public class Arvioija {
             }
         }
         arvo = tarkistaYlos(x, y) + merkinArvo + tarkistaAlas(x, y, merkki);
-        if (arvo >= merkinArvo * 4 + tyhjanArvo) {
+        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
             if (merkki == 'x') {
                 return arvo;
             } else {
@@ -62,7 +62,7 @@ public class Arvioija {
             }
         }
         arvo = tarkistaVasemmalleYlos(x, y) + merkinArvo + tarkistaOikealleAlas(x, y, merkki);
-        if (arvo >= merkinArvo * 4 + tyhjanArvo) {
+        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
             if (merkki == 'x') {
                 return arvo;
             } else {
@@ -70,7 +70,7 @@ public class Arvioija {
             }
         }
         arvo = tarkistaOikealleYlos(x, y) + merkinArvo + tarkistaVasemmalleAlas(x, y, merkki);
-        if (arvo >= merkinArvo * 4 + tyhjanArvo) {
+        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
             if (merkki == 'x') {
                 return arvo;
             } else {
