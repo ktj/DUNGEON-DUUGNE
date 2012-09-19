@@ -1,14 +1,14 @@
 package main;
 
-import käyttöliittymä.Tekstikäyttöliittymä;
+import kayttoliittyma.Tekstikayttoliittyma;
 import logiikka.Alusta;
 import logiikka.Ihmispelaaja;
 import logiikka.Pelaaja;
 import logiikka.Ratkaisija;
-import tekoäly.MinMax;
-import tekoäly.Puu;
-import tekoäly.Puukasaaja;
-import tekoäly.Tekoäly;
+import tekoaly.MinMax;
+import tekoaly.Puu;
+import tekoaly.Puukasaaja;
+import tekoaly.Tekoaly;
 
 public class DUNGEONDUUGNE {
 
@@ -16,9 +16,9 @@ public class DUNGEONDUUGNE {
 
         Alusta alusta = new Alusta(3,3);
         Ratkaisija ratkaisija = new Ratkaisija();
-        Tekstikäyttöliittymä tekstikäli = new Tekstikäyttöliittymä();
+        Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();
         Pelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
-        Pelaaja pelaaja2 = new Tekoäly(new MinMax(ratkaisija), new Puukasaaja());
+        Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija), new Puukasaaja());
 
         Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja2);
         peli.aloita();

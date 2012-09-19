@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package tekoäly;
+package tekoaly;
 
+import tekoaly.Arvioija;
 import logiikka.Alusta;
 import org.junit.*;
 import static org.junit.Assert.*;

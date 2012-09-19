@@ -1,14 +1,14 @@
-package tekoäly;
+package tekoaly;
 
 import logiikka.Alusta;
 import logiikka.Pelaaja;
 
-public class Tekoäly implements Pelaaja{
+public class Tekoaly implements Pelaaja{
     
     private MinMax minmax;
     private Puukasaaja kasaaja;
     
-    public Tekoäly(MinMax minmax, Puukasaaja kasaaja){
+    public Tekoaly(MinMax minmax, Puukasaaja kasaaja){
         this.minmax = minmax;
         this.kasaaja = kasaaja;
     }

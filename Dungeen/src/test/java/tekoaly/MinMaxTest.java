@@ -1,5 +1,7 @@
-package tekoäly;
+package tekoaly;
 
+import tekoaly.MinMax;
+import tekoaly.Puu;
 import java.util.Set;
 import java.util.HashSet;
 import logiikka.Alusta;

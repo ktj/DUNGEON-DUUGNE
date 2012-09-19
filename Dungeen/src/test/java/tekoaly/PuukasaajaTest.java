@@ -1,5 +1,7 @@
-package tekoäly;
+package tekoaly;
 
+import tekoaly.Puukasaaja;
+import tekoaly.Puu;
 import logiikka.Alusta;
 import org.junit.After;
 import org.junit.AfterClass;

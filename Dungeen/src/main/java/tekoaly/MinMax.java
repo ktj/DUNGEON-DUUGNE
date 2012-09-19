@@ -1,4 +1,4 @@
-package tekoäly;
+package tekoaly;
 
 import logiikka.Alusta;
 import logiikka.Ratkaisija;

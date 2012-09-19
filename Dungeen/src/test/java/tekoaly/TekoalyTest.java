@@ -1,26 +1,30 @@
-package tekoäly;
+package tekoaly;
 
+import tekoaly.Tekoaly;
+import tekoaly.Puukasaaja;
+import tekoaly.MinMax;
+import tekoaly.Puu;
 import logiikka.Alusta;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentMatcher;
 import static org.mockito.Mockito.*;
 
-public class TekoälyTest {
+public class TekoalyTest {
 
     Puukasaaja kasaaja;
     MinMax minmax;
-    Tekoäly tekoaly;
+    Tekoaly tekoaly;
     int koko;
 
-    public TekoälyTest() {
+    public TekoalyTest() {
     }
 
     @Before
     public void setUp() {
         kasaaja = mock(Puukasaaja.class);
         minmax = mock(MinMax.class);
-        tekoaly = new Tekoäly(minmax, kasaaja);
+        tekoaly = new Tekoaly(minmax, kasaaja);
         this.koko = 3;
     }
 

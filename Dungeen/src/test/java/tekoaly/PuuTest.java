@@ -1,5 +1,6 @@
-package tekoäly;
+package tekoaly;
 
+import tekoaly.Puu;
 import logiikka.Alusta;
 import org.junit.Before;
 import org.junit.Test;

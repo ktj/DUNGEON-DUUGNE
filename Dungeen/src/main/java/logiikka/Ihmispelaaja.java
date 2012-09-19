@@ -1,12 +1,12 @@
 package logiikka;
 
-import käyttöliittymä.Käyttöliittymä;
+import kayttoliittyma.Kayttoliittyma;
 
 public class Ihmispelaaja implements Pelaaja {
 
-    Käyttöliittymä UI;
+    Kayttoliittyma UI;
 
-    public Ihmispelaaja(Käyttöliittymä UI) {
+    public Ihmispelaaja(Kayttoliittyma UI) {
         this.UI = UI;
     }
 

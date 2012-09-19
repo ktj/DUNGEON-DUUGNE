@@ -1,8 +1,8 @@
-package käyttöliittymä;
+package kayttoliittyma;
 
 import logiikka.Alusta;
 
-public interface Käyttöliittymä {
+public interface Kayttoliittyma {
 
     public void tulosta_alusta(Alusta alusta);
 

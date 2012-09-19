@@ -1,13 +1,13 @@
-package käyttöliittymä;
+package kayttoliittyma;
 
 import logiikka.Alusta;
 import java.util.Scanner;
 
-public class Tekstikäyttöliittymä implements Käyttöliittymä {
+public class Tekstikayttoliittyma implements Kayttoliittyma {
 
     Scanner lukija;
 
-    public Tekstikäyttöliittymä() {
+    public Tekstikayttoliittyma() {
         lukija = new Scanner(System.in);
     }
 
