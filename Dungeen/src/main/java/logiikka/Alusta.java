@@ -52,7 +52,7 @@ public class Alusta {
         if (tarkistaKoordinaatit(x, y)) {
             return this.lauta[x][y];
         }
-        return 'z';
+        return ' ';
     }
 
     public int maxKoko() {

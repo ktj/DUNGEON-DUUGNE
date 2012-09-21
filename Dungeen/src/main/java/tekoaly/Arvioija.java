@@ -20,7 +20,7 @@ public class Arvioija {
     public Arvioija() {
     }
 
-    public int arvioiLauta(Alusta alusta) {
+    public int arvioiAlusta(Alusta alusta) {
         this.alusta = alusta;
         this.voittoRivinPituus = alusta.voittorivinpituus();
         int arvio = 0;

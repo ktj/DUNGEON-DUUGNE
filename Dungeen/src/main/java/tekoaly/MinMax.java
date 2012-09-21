@@ -6,9 +6,11 @@ import logiikka.Ratkaisija;
 public class MinMax {
 
     private Ratkaisija ratkaisija;
+    private Arvioija arvioija;
 
-    public MinMax(Ratkaisija ratkaisija) {
+    public MinMax(Ratkaisija ratkaisija,Arvioija arvioija) {
         this.ratkaisija = ratkaisija;
+        this.arvioija=arvioija;
     }
 
     public Alusta aloitaMax(Puu puu) {
@@ -69,6 +71,8 @@ public class MinMax {
          * voi laittaa tähän vaik jotai if v == Integer.Min_Value, niin kattoo arvioijast
          * eli siis jos ei oo lapsia
          */
+        if(v == Integer.MIN_VALUE)
+            v=arvioija.arvioiAlusta(alusta);
         
         return v;
     }

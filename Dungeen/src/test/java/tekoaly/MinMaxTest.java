@@ -26,7 +26,7 @@ public class MinMaxTest {
         alusta = new Alusta(koko, voittorivinpituus);
         puu = new Puu(alusta);
         ratkaisijamock = mock(Ratkaisija.class);
-        minmax = new MinMax(ratkaisijamock);
+        minmax = new MinMax(ratkaisijamock,new Arvioija());
     }
 
     @Test

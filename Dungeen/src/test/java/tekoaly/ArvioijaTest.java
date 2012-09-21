@@ -51,7 +51,7 @@ public class ArvioijaTest {
                 rivi = 1;
             }
         }
-        assertEquals(this.arvioija.arvioiLauta(this.alusta), 0);
+        assertEquals(this.arvioija.arvioiAlusta(this.alusta), 0);
     }
     @Test
     public void testaaArviointia2() {
@@ -98,6 +98,6 @@ public class ArvioijaTest {
         this.alusta.lisaaMerkkiLaudalle(55, 49, ' ');
         this.alusta.lisaaMerkkiLaudalle(50, 49, ' ');
         this.alusta.tulostaAlusta();
-        assertEquals(-42,this.arvioija.arvioiLauta(this.alusta));
+        assertEquals(-42,this.arvioija.arvioiAlusta(this.alusta));
     }
 }

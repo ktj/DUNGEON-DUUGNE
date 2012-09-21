@@ -5,10 +5,7 @@ import logiikka.Alusta;
 import logiikka.Ihmispelaaja;
 import logiikka.Pelaaja;
 import logiikka.Ratkaisija;
-import tekoaly.MinMax;
-import tekoaly.Puu;
-import tekoaly.Puukasaaja;
-import tekoaly.Tekoaly;
+import tekoaly.*;
 
 public class DUNGEONDUUGNE {
 
@@ -18,7 +15,7 @@ public class DUNGEONDUUGNE {
         Ratkaisija ratkaisija = new Ratkaisija();
         Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();
         Pelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
-        Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija), new Puukasaaja());
+        Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija,new Arvioija()), new Puukasaaja());
 
         Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja1);
         peli.aloita();
@@ -36,7 +33,7 @@ public class DUNGEONDUUGNE {
         
         
 //        Puukasaaja kasaaja = new Puukasaaja();
-//        Puu puu = kasaaja.kasaaPuu(new Alusta(3,3), 'o', 2);
+//        Puu puu = kasaaja.kasaaPuu(new Alusta(10,5), 'o', 2);
 //        tulostaPuu(puu);
 //        
 //        alusta.tulostaAlusta();
