@@ -44,6 +44,7 @@ public class Alusta {
     public void lisaaMerkkiLaudalle(int x, int y, char merkki) {
         if (tarkistaKoordinaatit(x, y)) {
             this.lauta[x][y] = merkki;
+            tilaa--;
         }
     }
 

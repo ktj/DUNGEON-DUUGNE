@@ -47,16 +47,16 @@ public class Puukasaaja {
         }
     }
 
-    
     /*
      * HIDAS PASKA(?)
      */
     private boolean karsinta(Alusta alusta, int x, int y) {
-        if(!alusta.onkoTyhja(x, y))
+        if (!alusta.onkoTyhja(x, y)) {
             return false;
+        }
         for (int k = y - 1; k <= y + 1; k++) {
             for (int l = x - 1; l <= x + 1; l++) {
-                if (!alusta.onkoTyhja(k, l) || alusta.onkoLautaTyhja()) {
+                if (!alusta.onkoTyhja(l, k) || alusta.onkoLautaTyhja()) {
                     return true;
                 }
             }

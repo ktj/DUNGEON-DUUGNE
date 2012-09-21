@@ -14,13 +14,13 @@ public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
 
-        Alusta alusta = new Alusta(3,3);
+        Alusta alusta = new Alusta(10, 5);
         Ratkaisija ratkaisija = new Ratkaisija();
         Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();
         Pelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
         Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija), new Puukasaaja());
 
-        Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja2);
+        Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja1);
         peli.aloita();
 
 
