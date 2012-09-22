@@ -19,17 +19,18 @@ public class Arvioija {
 
     public Arvioija() {
     }
-/**
- * 
- * @param alusta Arvioitava alusta
- * @return palauttaa arvion alustasta posiitivinen tarkoittaa hyvää x:lle ja negatiivinen hyvää oo:lle
- */
+
+    /**
+     * 
+     * @param alusta Arvioitava alusta
+     * @return palauttaa arvion alustasta posiitivinen tarkoittaa hyvää x:lle ja negatiivinen hyvää oo:lle
+     */
     public int arvioiAlusta(Alusta alusta) {
         this.alusta = alusta;
-        this.voittoRivinPituus = alusta.voittorivinpituus();
+        this.voittoRivinPituus = alusta.getVoittorivinpituus();
         int arvio = 0;
-        for (int i = 0; i < this.alusta.maxKoko(); i++) {
-            for (int j = 0; j < this.alusta.maxKoko(); j++) {
+        for (int i = 0; i < this.alusta.getKoko(); i++) {
+            for (int j = 0; j < this.alusta.getKoko(); j++) {
                 if (alusta.onkoTyhja(i, j)) {
                     continue;
                 }
@@ -39,56 +40,57 @@ public class Arvioija {
         }
         return arvio;
     }
-/**
- * Arviointi tapahtuu seuraavasti: (x:n suhteen arvio) x = 4
- * ox=2
- * oxx=20
- * oxxx=200
- * xx=22
- * xxx=202
- * xxxx2002
- * jne
- * Arviointi tapahtu vain oikealle, alas, oikealle alas ja vasemmalle alas.
- * Kun jokainen ruutu käydään läpi niin kaikki mahdolliset suorat saadaan arvioitua ja minimoidaan samojen suorien uudelleen arviointi.
- * Metodit tarkista vasemmalle, ylös jne ovat olemassa vain sitä varten, että voidaan tarkistaa tyhjät ruudut suorien päissä.
- * @param x x koordinaatti
- * @param y y koordinaatti
- * @return tietysti pisteestä lähtevien suorien arviot
- */
+
+    /**
+     * Arviointi tapahtuu seuraavasti: (x:n suhteen arvio) x = 4
+     * ox=2
+     * oxx=20
+     * oxxx=200
+     * xx=22
+     * xxx=202
+     * xxxx2002
+     * jne
+     * Arviointi tapahtu vain oikealle, alas, oikealle alas ja vasemmalle alas.
+     * Kun jokainen ruutu käydään läpi niin kaikki mahdolliset suorat saadaan arvioitua ja minimoidaan samojen suorien uudelleen arviointi.
+     * Metodit tarkista vasemmalle, ylös jne ovat olemassa vain sitä varten, että voidaan tarkistaa tyhjät ruudut suorien päissä.
+     * @param x x koordinaatti
+     * @param y y koordinaatti
+     * @return tietysti pisteestä lähtevien suorien arviot
+     */
     private int arvioiSuora(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
         int arvo;
-        int arvio=0;
+        int arvio = 0;
         arvo = tarkistaVasemmalle(x, y) + tarkistaOikealle(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
-                arvio=arvio+arvo;
+                arvio = arvio + arvo;
             } else {
-                arvio=arvio-arvo;
+                arvio = arvio - arvo;
             }
         }
         arvo = tarkistaYlos(x, y) + tarkistaAlas(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
-                arvio=arvio+arvo;
+                arvio = arvio + arvo;
             } else {
-                arvio=arvio-arvo;
+                arvio = arvio - arvo;
             }
         }
         arvo = tarkistaVasemmalleYlos(x, y) + tarkistaOikealleAlas(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
-                arvio=arvio+arvo;
+                arvio = arvio + arvo;
             } else {
-                arvio=arvio-arvo;
+                arvio = arvio - arvo;
             }
         }
         arvo = tarkistaOikealleYlos(x, y) + tarkistaVasemmalleAlas(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
-                arvio=arvio+arvo;
+                arvio = arvio + arvo;
             } else {
-                arvio=arvio-arvo;
+                arvio = arvio - arvo;
             }
         }
         return arvio;

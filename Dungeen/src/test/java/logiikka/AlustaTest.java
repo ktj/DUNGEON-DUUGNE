@@ -53,11 +53,18 @@ public class AlustaTest {
     
     @Test
     public void testMaxKoko() {
-        assertEquals(alusta.maxKoko(), koko);
+        assertEquals(alusta.getKoko(), koko);
     }
     
     @Test
     public void testVoittorivinpituus(){
-        assertEquals(alusta.voittorivinpituus(), voittorivinpituus);
+        assertEquals(alusta.getVoittorivinpituus(), voittorivinpituus);
+    }
+    
+    @Test
+    public void testArviointi(){
+        int arvio = 100;
+        alusta.setArvio(arvio);
+        assertEquals(alusta.getArvio(), arvio);
     }
 }

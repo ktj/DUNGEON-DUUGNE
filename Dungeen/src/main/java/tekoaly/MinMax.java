@@ -8,14 +8,16 @@ public class MinMax {
     private Ratkaisija ratkaisija;
     private Arvioija arvioija;
 
-    public MinMax(Ratkaisija ratkaisija,Arvioija arvioija) {
+    public MinMax(Ratkaisija ratkaisija, Arvioija arvioija) {
         this.ratkaisija = ratkaisija;
-        this.arvioija=arvioija;
+        this.arvioija = arvioija;
     }
 
     public Alusta aloitaMax(Puu puu) {
         Alusta alusta = puu.haeAlusta();
-        if (onkovalmis(alusta)) return alusta;
+        if (onkovalmis(alusta)) {
+            return alusta;
+        }
         Alusta suurin = puu.haeAlusta();
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
@@ -31,7 +33,9 @@ public class MinMax {
 
     public Alusta aloitaMin(Puu puu) {
         Alusta alusta = puu.haeAlusta();
-        if (onkovalmis(alusta)) return alusta;
+        if (onkovalmis(alusta)) {
+            return alusta;
+        }
         Alusta pienin = puu.haeAlusta();
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
@@ -62,18 +66,16 @@ public class MinMax {
         int v = Integer.MIN_VALUE;
         for (Puu lapsi : puu) {
             v = Math.max(v, minimi(lapsi, alfa, beta));
-            if (v >= beta)
+            if (v >= beta) {
                 return v;
+            }
             alfa = Math.max(alfa, v);
         }
-        
-        /*
-         * voi laittaa tähän vaik jotai if v == Integer.Min_Value, niin kattoo arvioijast
-         * eli siis jos ei oo lapsia
-         */
-        if(v == Integer.MIN_VALUE)
-            v=arvioija.arvioiAlusta(alusta);
-        
+
+        if (v == Integer.MIN_VALUE) {
+            v = arvioija.arvioiAlusta(alusta);
+        }
+
         return v;
     }
 
@@ -86,11 +88,11 @@ public class MinMax {
         int v = Integer.MAX_VALUE;
         for (Puu lapsi : puu) {
             v = Math.min(v, maksimi(lapsi, alfa, beta));
-            if (v <= alfa)
+            if (v <= alfa) {
                 return v;
+            }
             beta = Math.min(beta, v);
         }
         return v;
     }
-    
 }

@@ -14,9 +14,9 @@ public class Ratkaisija {
 
     public int etsiVoitto(Alusta alusta) {
         this.alusta = alusta;
-        this.voittoRivinPituus = alusta.voittorivinpituus();
-        for (int i = 0; i < this.alusta.maxKoko(); i++) {
-            for (int j = 0; j < this.alusta.maxKoko(); j++) {
+        this.voittoRivinPituus = alusta.getVoittorivinpituus();
+        for (int i = 0; i < this.alusta.getKoko(); i++) {
+            for (int j = 0; j < this.alusta.getKoko(); j++) {
                 if (alusta.onkoTyhja(i, j)) {
                     continue;
                 }

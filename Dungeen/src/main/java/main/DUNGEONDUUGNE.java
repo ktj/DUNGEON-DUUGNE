@@ -17,7 +17,7 @@ public class DUNGEONDUUGNE {
         Pelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
         Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija,new Arvioija()), new Puukasaaja());
 
-        Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja1);
+        Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja2);
         peli.aloita();
 
 

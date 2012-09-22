@@ -43,8 +43,8 @@ public class PuuTest {
     @Test
     public void testHaeAlusta() {
         Alusta alusta2 = puu.haeAlusta();
-        alusta2.maxKoko();
-        verify(alustamock).maxKoko();
+        alusta2.getKoko();
+        verify(alustamock).getKoko();
     }
 
 

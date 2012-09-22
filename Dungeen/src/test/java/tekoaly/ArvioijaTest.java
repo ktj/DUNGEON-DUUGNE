@@ -30,7 +30,7 @@ public class ArvioijaTest {
         char x = 'x';
         char o = 'o';
         int rivi = 1;
-        for (int i = 0; i < this.alusta.maxKoko(); i++) {
+        for (int i = 0; i < this.alusta.getKoko(); i++) {
             if (rivi == 1 || rivi == 2) {
                 x = 'x';
                 o = 'o';
@@ -39,7 +39,7 @@ public class ArvioijaTest {
                 x = 'o';
                 o = 'x';
             }
-            for (int j = 0; j < this.alusta.maxKoko(); j++) {
+            for (int j = 0; j < this.alusta.getKoko(); j++) {
                 if (j % 2 == 0) {
                     this.alusta.lisaaMerkkiLaudalle(i, j, x);
                 } else {

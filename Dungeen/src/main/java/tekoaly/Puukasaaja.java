@@ -36,8 +36,8 @@ public class Puukasaaja {
 
     private void etsiVaihtoehdot(Puu parent, char merkki) {
         Alusta alusta = parent.haeAlusta();
-        for (int i = 0; i < alusta.maxKoko(); i++) {
-            for (int j = 0; j < alusta.maxKoko(); j++) {
+        for (int i = 0; i < alusta.getKoko(); i++) {
+            for (int j = 0; j < alusta.getKoko(); j++) {
                 if (karsinta(alusta, i, j)) {
                     Alusta alustaklooni = new Alusta(alusta);
                     alustaklooni.lisaaMerkkiLaudalle(i, j, merkki);

@@ -14,8 +14,8 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
     @Override
     public void tulosta_alusta(Alusta alusta) {
         System.out.println();
-        for (int i = 0; i < alusta.maxKoko(); i++) {
-            for (int j = 0; j < alusta.maxKoko(); j++) {
+        for (int i = 0; i < alusta.getKoko(); i++) {
+            for (int j = 0; j < alusta.getKoko(); j++) {
                 System.out.print(alusta.lueMerkki(j, i));
             }
             System.out.println();
@@ -30,7 +30,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         System.out.print("Syötä y-koordinaatti: ");
         y = lukija.nextInt();
 
-        while (!alusta.onkoTyhja(x, y) || x >= alusta.maxKoko() || y >= alusta.maxKoko()) {
+        while (!alusta.onkoTyhja(x, y) || x >= alusta.getKoko() || y >= alusta.getKoko()) {
             System.out.println("Virheelliset koordinaatit!");
             System.out.print("Syötä x-koordinaatti: ");
             x = lukija.nextInt();
