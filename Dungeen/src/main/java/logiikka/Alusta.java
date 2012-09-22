@@ -1,5 +1,7 @@
 package logiikka;
 
+import tekoaly.Arvioija;
+
 /**
  *
  * @author ;GGGG
@@ -10,12 +12,14 @@ public class Alusta {
     private int voittorivinpituus;
     private char[][] lauta;
     private int tilaa;
+    private int arvio;
 
     public Alusta(int koko, int voittorivinpituus) {
         this.koko = koko;
         this.voittorivinpituus = voittorivinpituus;
         this.lauta = new char[this.koko][this.koko];
         this.tyhjaaLauta();
+        this.arvio = 0;
     }
 
     public Alusta(Alusta alusta) {
@@ -25,7 +29,6 @@ public class Alusta {
                 this.lauta[j][i] = alusta.lauta[j][i];
             }
         }
-
     }
 
     public void tyhjaaLauta() {
@@ -87,5 +90,11 @@ public class Alusta {
 
     public int voittorivinpituus() {
         return voittorivinpituus;
+    }
+    public int getArvio(){
+        return arvio;
+    }
+    public void setArvio(int arvio){
+        this.arvio=arvio;
     }
 }
