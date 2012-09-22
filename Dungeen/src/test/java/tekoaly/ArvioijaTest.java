@@ -57,47 +57,32 @@ public class ArvioijaTest {
     public void testaaArviointia2() {
         char x = 'x';
         char o = 'o';
-        int rivi = 1;
-        for (int i = 0; i < this.alusta.maxKoko(); i++) {
-            if (rivi == 1 || rivi == 2) {
-                x = 'x';
-                o = 'o';
-            }
-            if (rivi == 3 || rivi == 4) {
-                x = 'o';
-                o = 'x';
-            }
-            for (int j = 0; j < this.alusta.maxKoko(); j++) {
-                if (j % 2 == 0) {
-                    this.alusta.lisaaMerkkiLaudalle(i, j, x);
-                } else {
-                    this.alusta.lisaaMerkkiLaudalle(i, j, o);
-                }
-            }
-            rivi++;
-            if (rivi == 5) {
-                rivi = 1;
-            }
-        }
-        this.alusta.lisaaMerkkiLaudalle(50, 51, ' ');
-        this.alusta.lisaaMerkkiLaudalle(51, 51, ' ');
-        this.alusta.lisaaMerkkiLaudalle(52, 51, ' ');
-        this.alusta.lisaaMerkkiLaudalle(53, 51, ' ');
-        this.alusta.lisaaMerkkiLaudalle(54, 51, ' ');
-        this.alusta.lisaaMerkkiLaudalle(55, 51, ' ');
-        this.alusta.lisaaMerkkiLaudalle(50, 50, ' ');
         this.alusta.lisaaMerkkiLaudalle(51, 50, 'o');
         this.alusta.lisaaMerkkiLaudalle(52, 50, 'o');
         this.alusta.lisaaMerkkiLaudalle(53, 50, 'o');
         this.alusta.lisaaMerkkiLaudalle(54, 50, 'o');
-        this.alusta.lisaaMerkkiLaudalle(55, 50, ' ');
-        this.alusta.lisaaMerkkiLaudalle(51, 49, ' ');
-        this.alusta.lisaaMerkkiLaudalle(52, 49, ' ');
-        this.alusta.lisaaMerkkiLaudalle(53, 49, ' ');
-        this.alusta.lisaaMerkkiLaudalle(54, 49, ' ');
-        this.alusta.lisaaMerkkiLaudalle(55, 49, ' ');
-        this.alusta.lisaaMerkkiLaudalle(50, 49, ' ');
+
         this.alusta.tulostaAlusta();
-        assertEquals(-42,this.arvioija.arvioiAlusta(this.alusta));
+        assertEquals(-2222,this.arvioija.arvioiAlusta(this.alusta));
+    }
+    @Test
+    public void testaaArviointia3() {
+        char x = 'x';
+        char o = 'o';
+        this.alusta.lisaaMerkkiLaudalle(51, 50, 'o');
+
+        this.alusta.tulostaAlusta();
+        assertEquals(0,this.arvioija.arvioiAlusta(this.alusta));
+    }
+    @Test
+    public void testaaArviointia4() {
+        char x = 'x';
+        char o = 'o';
+        this.alusta.lisaaMerkkiLaudalle(49, 50, x);
+        this.alusta.lisaaMerkkiLaudalle(50, 50, o);
+        this.alusta.lisaaMerkkiLaudalle(51, 50, x);
+
+        this.alusta.tulostaAlusta();
+        assertEquals(0,this.arvioija.arvioiAlusta(this.alusta));
     }
 }

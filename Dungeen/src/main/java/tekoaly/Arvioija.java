@@ -14,8 +14,8 @@ public class Arvioija {
 
     int voittoRivinPituus;
     Alusta alusta;
-    final int merkinArvo = 10;
-    final int tyhjanArvo = 1;
+    //final int merkinArvo = 10;
+    final int tyhjanArvo = 2;
 
     public Arvioija() {
     }
@@ -29,13 +29,8 @@ public class Arvioija {
                 if (alusta.onkoTyhja(i, j)) {
                     continue;
                 }
-                arvio = arvioiSuora(i, j);
-                if (arvio > 0) {
-                    return arvio;
-                }
-                if (arvio < 0) {
-                    return arvio;
-                }
+                arvio = arvio + arvioiSuora(i, j);
+
 
             }
         }
@@ -44,40 +39,41 @@ public class Arvioija {
 
     private int arvioiSuora(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
-        int arvo = 0;
-        arvo = tarkistaVasemmalle(x, y) + merkinArvo + tarkistaOikealle(x, y, merkki);
-        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
+        int arvo;
+        int arvio=0;
+        arvo = tarkistaVasemmalle(x, y) + tarkistaOikealle(x, y, merkki);
+        if (arvo > 10) {
             if (merkki == 'x') {
-                return arvo;
+                arvio=arvio+arvo;
             } else {
-                return -arvo;
+                arvio=arvio-arvo;
             }
         }
-        arvo = tarkistaYlos(x, y) + merkinArvo + tarkistaAlas(x, y, merkki);
-        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
+        arvo = tarkistaYlos(x, y) + tarkistaAlas(x, y, merkki);
+        if (arvo > 10) {
             if (merkki == 'x') {
-                return arvo;
+                arvio=arvio+arvo;
             } else {
-                return -arvo;
+                arvio=arvio-arvo;
             }
         }
-        arvo = tarkistaVasemmalleYlos(x, y) + merkinArvo + tarkistaOikealleAlas(x, y, merkki);
-        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
+        arvo = tarkistaVasemmalleYlos(x, y) + tarkistaOikealleAlas(x, y, merkki);
+        if (arvo > 10) {
             if (merkki == 'x') {
-                return arvo;
+                arvio=arvio+arvo;
             } else {
-                return -arvo;
+                arvio=arvio-arvo;
             }
         }
-        arvo = tarkistaOikealleYlos(x, y) + merkinArvo + tarkistaVasemmalleAlas(x, y, merkki);
-        if (arvo >= merkinArvo * (voittoRivinPituus-1) + tyhjanArvo) {
+        arvo = tarkistaOikealleYlos(x, y) + tarkistaVasemmalleAlas(x, y, merkki);
+        if (arvo > 10) {
             if (merkki == 'x') {
-                return arvo;
+                arvio=arvio+arvo;
             } else {
-                return -arvo;
+                arvio=arvio-arvo;
             }
         }
-        return 0;
+        return arvio;
     }
 
     private int tarkistaVasemmalle(int x, int y) {
@@ -93,16 +89,17 @@ public class Arvioija {
     private int tarkistaOikealle(int x, int y, char merkki) {
 
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y)) {
-            return 0;
-        }
-
-        if ((this.alusta.lueMerkki(x + 1, y)) == merkki) {
-            return merkinArvo + tarkistaOikealle(x + 1, y, merkki);
+            return 1;
         }
         if (this.alusta.onkoTyhja(x + 1, y)) {
             return tyhjanArvo;
         }
-        return 0;
+        if ((this.alusta.lueMerkki(x + 1, y)) == merkki) {
+            return 10 * tarkistaOikealle(x + 1, y, merkki);
+            //return merkinArvo + tarkistaOikealle(x + 1, y, merkki);
+        }
+
+        return 1;
     }
 
     private int tarkistaYlos(int x, int y) {
@@ -122,12 +119,13 @@ public class Arvioija {
         }
 
         if ((this.alusta.lueMerkki(x, y + 1)) == merkki) {
-            return merkinArvo + tarkistaAlas(x, y + 1, merkki);
+            return 10 * tarkistaAlas(x, y + 1, merkki);
+//            return merkinArvo + tarkistaAlas(x, y + 1, merkki);
         }
         if (this.alusta.onkoTyhja(x, y + 1)) {
             return tyhjanArvo;
         }
-        return 0;
+        return 1;
     }
 
     private int tarkistaVasemmalleYlos(int x, int y) {
@@ -147,12 +145,13 @@ public class Arvioija {
         }
 
         if ((this.alusta.lueMerkki(x + 1, y + 1)) == merkki) {
-            return merkinArvo + tarkistaOikealleAlas(x + 1, y + 1, merkki);
+            return 10 * tarkistaOikealleAlas(x + 1, y + 1, merkki);
+//            return merkinArvo + tarkistaOikealleAlas(x + 1, y + 1, merkki);
         }
         if (this.alusta.onkoTyhja(x + 1, y + 1)) {
             return tyhjanArvo;
         }
-        return 0;
+        return 1;
     }
 
     private int tarkistaOikealleYlos(int x, int y) {
@@ -172,11 +171,12 @@ public class Arvioija {
         }
 
         if ((this.alusta.lueMerkki(x - 1, y + 1)) == merkki) {
-            return merkinArvo + tarkistaVasemmalleAlas(x - 1, y + 1, merkki);
+            return 10 * tarkistaVasemmalleAlas(x - 1, y + 1, merkki);
+//            return merkinArvo + tarkistaVasemmalleAlas(x - 1, y + 1, merkki);
         }
         if (this.alusta.onkoTyhja(x - 1, y + 1)) {
             return tyhjanArvo;
         }
-        return 0;
+        return 1;
     }
 }
