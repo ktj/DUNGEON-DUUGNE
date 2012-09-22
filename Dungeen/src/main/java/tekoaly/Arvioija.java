@@ -19,7 +19,11 @@ public class Arvioija {
 
     public Arvioija() {
     }
-
+/**
+ * 
+ * @param alusta Arvioitava alusta
+ * @return palauttaa arvion alustasta posiitivinen tarkoittaa hyvää x:lle ja negatiivinen hyvää oo:lle
+ */
     public int arvioiAlusta(Alusta alusta) {
         this.alusta = alusta;
         this.voittoRivinPituus = alusta.voittorivinpituus();
@@ -31,12 +35,26 @@ public class Arvioija {
                 }
                 arvio = arvio + arvioiSuora(i, j);
 
-
             }
         }
         return arvio;
     }
-
+/**
+ * Arviointi tapahtuu seuraavasti: (x:n suhteen arvio) x = 4
+ * ox=2
+ * oxx=20
+ * oxxx=200
+ * xx=22
+ * xxx=202
+ * xxxx2002
+ * jne
+ * Arviointi tapahtu vain oikealle, alas, oikealle alas ja vasemmalle alas.
+ * Kun jokainen ruutu käydään läpi niin kaikki mahdolliset suorat saadaan arvioitua ja minimoidaan samojen suorien uudelleen arviointi.
+ * Metodit tarkista vasemmalle, ylös jne ovat olemassa vain sitä varten, että voidaan tarkistaa tyhjät ruudut suorien päissä.
+ * @param x x koordinaatti
+ * @param y y koordinaatti
+ * @return tietysti pisteestä lähtevien suorien arviot
+ */
     private int arvioiSuora(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
         int arvo;

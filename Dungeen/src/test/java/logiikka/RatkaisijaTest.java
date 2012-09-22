@@ -21,7 +21,7 @@ public class RatkaisijaTest {
 
     @Test
     public void testEtsiVoitto0() {
-        assertFalse(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == 0);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class RatkaisijaTest {
         int x = 0;
         int y = 0;
         alusta.lisaaMerkkiLaudalle(x, y, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == 0);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(i, y, merkki);
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == 0);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(x, i, merkki);
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == 0);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(i, y, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class RatkaisijaTest {
             for (int i = 0; i < pituus; i++) {
                 alusta.lisaaMerkkiLaudalle(i, j, merkki);
             }
-            assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+            assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
         }
     }
 
@@ -81,7 +81,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(x, i, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
 
     @Test
@@ -91,7 +91,7 @@ public class RatkaisijaTest {
             for (int i = 0; i < pituus; i++) {
                 alusta.lisaaMerkkiLaudalle(j, i, merkki);
             }
-            assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+            assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
         }
     }
 
@@ -103,9 +103,9 @@ public class RatkaisijaTest {
         alusta.lisaaMerkkiLaudalle(1, 1, merkki);
         alusta.lisaaMerkkiLaudalle(2, 1, merkki);
         alusta.lisaaMerkkiLaudalle(4, 1, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == 0);
         alusta.lisaaMerkkiLaudalle(3, 1, merkki);
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
 
     @Test
@@ -116,9 +116,9 @@ public class RatkaisijaTest {
         alusta.lisaaMerkkiLaudalle(1, 1, merkki);
         alusta.lisaaMerkkiLaudalle(1, 2, merkki);
         alusta.lisaaMerkkiLaudalle(1, 4, merkki);
-        assertFalse(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == 0);
         alusta.lisaaMerkkiLaudalle(1, 3, merkki);
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
 
     @Test
@@ -152,7 +152,7 @@ public class RatkaisijaTest {
             }
         }
         alusta.tulostaAlusta();
-        assertFalse(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == 0);
     }
 
     @Test
@@ -164,7 +164,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(40, i, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
     @Test
     public void etsiVoittoOikealle(){
@@ -175,7 +175,7 @@ public class RatkaisijaTest {
             alusta.lisaaMerkkiLaudalle(i, 40, merkki);
         }
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
     @Test
     public void etsiVoittoOikealleAlas(){
@@ -188,7 +188,7 @@ public class RatkaisijaTest {
         alusta.lisaaMerkkiLaudalle(43, 43, merkki);
         alusta.lisaaMerkkiLaudalle(44, 44, merkki);
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
     @Test
     public void etsiVoittoVasemmalleAlas(){
@@ -201,6 +201,6 @@ public class RatkaisijaTest {
         alusta.lisaaMerkkiLaudalle(41, 43, merkki);
         alusta.lisaaMerkkiLaudalle(40, 44, merkki);
         alusta.tulostaAlusta();
-        assertTrue(ratkaisija.etsiVoitto(alusta) == 50 || ratkaisija.etsiVoitto(alusta) == -50);
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
 }

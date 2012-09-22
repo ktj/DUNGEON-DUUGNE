@@ -22,9 +22,9 @@ public class Ratkaisija {
                 }
                 if (tarkistaRuutu(i, j)) {
                     if (this.alusta.lueMerkki(i, j) == 'x') {
-                        return 50;
+                        return Integer.MAX_VALUE;
                     } else {
-                        return -50;
+                        return Integer.MIN_VALUE;
                     }
                 }
             }
