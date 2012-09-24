@@ -61,7 +61,7 @@ public class Arvioija {
         char merkki = alusta.lueMerkki(x, y);
         int arvo;
         int arvio = 0;
-        arvo = tarkistaVasemmalle(x, y) + tarkistaOikealle(x, y, merkki);
+        arvo = tarkistaVasemmalle(x, y) * tarkistaOikealle(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
                 arvio = arvio + arvo;
@@ -69,7 +69,7 @@ public class Arvioija {
                 arvio = arvio - arvo;
             }
         }
-        arvo = tarkistaYlos(x, y) + tarkistaAlas(x, y, merkki);
+        arvo = tarkistaYlos(x, y) * tarkistaAlas(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
                 arvio = arvio + arvo;
@@ -77,7 +77,7 @@ public class Arvioija {
                 arvio = arvio - arvo;
             }
         }
-        arvo = tarkistaVasemmalleYlos(x, y) + tarkistaOikealleAlas(x, y, merkki);
+        arvo = tarkistaVasemmalleYlos(x, y) * tarkistaOikealleAlas(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
                 arvio = arvio + arvo;
@@ -85,7 +85,7 @@ public class Arvioija {
                 arvio = arvio - arvo;
             }
         }
-        arvo = tarkistaOikealleYlos(x, y) + tarkistaVasemmalleAlas(x, y, merkki);
+        arvo = tarkistaOikealleYlos(x, y) * tarkistaVasemmalleAlas(x, y, merkki);
         if (arvo > 10) {
             if (merkki == 'x') {
                 arvio = arvio + arvo;
@@ -98,12 +98,12 @@ public class Arvioija {
 
     private int tarkistaVasemmalle(int x, int y) {
         if (!this.alusta.tarkistaKoordinaatit(x - 1, y)) {
-            return 0;
+            return 1;
         }
         if (this.alusta.onkoTyhja(x - 1, y)) {
             return tyhjanArvo;
         }
-        return 0;
+        return 1;
     }
 
     private int tarkistaOikealle(int x, int y, char merkki) {
@@ -124,12 +124,12 @@ public class Arvioija {
 
     private int tarkistaYlos(int x, int y) {
         if (!this.alusta.tarkistaKoordinaatit(x, y - 1)) {
-            return 0;
+            return 1;
         }
         if (this.alusta.onkoTyhja(x, y - 1)) {
             return tyhjanArvo;
         }
-        return 0;
+        return 1;
     }
 
     private int tarkistaAlas(int x, int y, char merkki) {
@@ -150,12 +150,12 @@ public class Arvioija {
 
     private int tarkistaVasemmalleYlos(int x, int y) {
         if (!this.alusta.tarkistaKoordinaatit(x - 1, y - 1)) {
-            return 0;
+            return 1;
         }
         if (this.alusta.onkoTyhja(x - 1, y - 1)) {
             return tyhjanArvo;
         }
-        return 0;
+        return 1;
     }
 
     private int tarkistaOikealleAlas(int x, int y, char merkki) {
@@ -176,12 +176,12 @@ public class Arvioija {
 
     private int tarkistaOikealleYlos(int x, int y) {
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y - 1)) {
-            return 0;
+            return 1;
         }
         if (this.alusta.onkoTyhja(x + 1, y - 1)) {
             return tyhjanArvo;
         }
-        return 0;
+        return 1;
     }
 
     private int tarkistaVasemmalleAlas(int x, int y, char merkki) {
