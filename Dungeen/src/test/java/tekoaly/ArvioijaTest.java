@@ -63,7 +63,7 @@ public class ArvioijaTest {
         this.alusta.lisaaMerkkiLaudalle(54, 50, 'o');
 
         this.alusta.tulostaAlusta();
-        assertEquals(-2222,this.arvioija.arvioiAlusta(this.alusta));
+        assertEquals(-4220,this.arvioija.arvioiAlusta(this.alusta));
     }
     @Test
     public void testaaArviointia3() {
