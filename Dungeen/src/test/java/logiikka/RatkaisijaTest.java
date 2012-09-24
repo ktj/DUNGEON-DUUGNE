@@ -62,9 +62,18 @@ public class RatkaisijaTest {
         alusta.tulostaAlusta();
         assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MAX_VALUE);
     }
-
+@Test
+    public void testiEtstiVoitto41() {
+        int y = 0;
+        merkki='o';
+        for (int i = 0; i < pituus; i++) {
+            alusta.lisaaMerkkiLaudalle(i, y, merkki);
+        }
+        alusta.tulostaAlusta();
+        assertTrue(ratkaisija.etsiVoitto(alusta) == Integer.MIN_VALUE);
+}
     @Test
-    public void testiEtsiVoitto41() {
+    public void testiEtsiVoitto42() {
         for (int j = 0; j < pituus; j++) {
             alusta = new Alusta(alustakoko, alustakoko);
             for (int i = 0; i < pituus; i++) {
