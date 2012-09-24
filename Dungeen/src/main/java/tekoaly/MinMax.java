@@ -21,11 +21,17 @@ public class MinMax {
         Alusta suurin = puu.haeAlusta();
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
-        for (Puu lapsi : puu) {
+        
+
+        
+        for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = minimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
-            if (lapsenarvo > v) {
+            if (lapsenarvo >= v) {
                 suurin = lapsi.haeAlusta();
                 v = lapsenarvo;
+            }
+            if (lapsenarvo == Integer.MAX_VALUE) {
+                break;
             }
         }
         return suurin;
@@ -39,11 +45,14 @@ public class MinMax {
         Alusta pienin = puu.haeAlusta();
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
-        for (Puu lapsi : puu) {
+        for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = maksimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
-            if (lapsenarvo < v) {
+            if (lapsenarvo <= v) {
                 pienin = lapsi.haeAlusta();
                 v = lapsenarvo;
+            }
+            if (lapsenarvo == Integer.MIN_VALUE) {
+                break;
             }
         }
         return pienin;
@@ -64,16 +73,16 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MIN_VALUE;
-        for (Puu lapsi : puu) {
+        for (Puu lapsi : puu.haeLapset()) {
             v = Math.max(v, minimi(lapsi, alfa, beta));
-            if (v >= beta) {
+            if (v >= beta || v == Integer.MAX_VALUE) {
                 return v;
             }
             alfa = Math.max(alfa, v);
         }
 
         if (v == Integer.MIN_VALUE) {
-            v = arvioija.arvioiAlusta(alusta);
+            v = alusta.getArvio();
         }
 
         return v;
@@ -86,12 +95,15 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MAX_VALUE;
-        for (Puu lapsi : puu) {
+        for (Puu lapsi : puu.haeLapset()) {
             v = Math.min(v, maksimi(lapsi, alfa, beta));
-            if (v <= alfa) {
+            if (v <= alfa || v == Integer.MIN_VALUE) {
                 return v;
             }
             beta = Math.min(beta, v);
+        }
+        if (v == Integer.MAX_VALUE) {
+            v = alusta.getArvio();
         }
         return v;
     }

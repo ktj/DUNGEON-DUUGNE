@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Puu implements Iterable<Puu> {
+public class Puu implements Iterable<Puu>, Comparable<Puu> {
 
     private Set<Puu> lapset;
     private Alusta alusta;
@@ -29,5 +29,9 @@ public class Puu implements Iterable<Puu> {
 
     public Iterator<Puu> iterator() {
         return lapset.iterator();
+    }
+
+    public int compareTo(Puu t) {
+        return this.haeAlusta().getArvio() - (t.haeAlusta().getArvio());
     }
 }

@@ -21,9 +21,10 @@ public class Ratkaisija {
                     continue;
                 }
                 if (tarkistaRuutu(i, j)) {
-                    if (this.alusta.lueMerkki(i, j) == 'x') {
+                    char merkki = this.alusta.lueMerkki(i, j);
+                    if (merkki == 'x') {
                         return Integer.MAX_VALUE;
-                    } else {
+                    } else if (merkki == 'o') {
                         return Integer.MIN_VALUE;
                     }
                 }

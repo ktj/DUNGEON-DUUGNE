@@ -38,6 +38,7 @@ public class Arvioija {
 
             }
         }
+        alusta.setArvio(arvio);
         return arvio;
     }
 

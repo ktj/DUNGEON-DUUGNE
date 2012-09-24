@@ -22,7 +22,7 @@ public class PuukasaajaTest {
     @Before
     public void setUp() {
         koko = 3;
-        kasaaja = new Puukasaaja();
+        kasaaja = new Puukasaaja(new Arvioija());
         alusta = new Alusta(koko, koko);
     }
 

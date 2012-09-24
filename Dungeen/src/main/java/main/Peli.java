@@ -20,18 +20,21 @@ public class Peli {
 
     public void aloita() {
         alusta.tyhjaaLauta();
-        while (ratkaisija.etsiVoitto(alusta) == 0 && !alusta.onkoLautaTaynna()) {
+        int ratkasu = 0;
+        do {
             alusta = pelaaja1.seuraava_siirto(alusta, 'x');
-            if (ratkaisija.etsiVoitto(alusta) == 0 && !alusta.onkoLautaTaynna()) {
+            ratkasu = ratkaisija.etsiVoitto(alusta);
+            if (ratkasu == 0 && !alusta.onkoLautaTaynna()) {
                 alusta = pelaaja2.seuraava_siirto(alusta, 'o');
             }
-        }
+            ratkasu = ratkaisija.etsiVoitto(alusta);
+        } while (ratkasu == 0 && !alusta.onkoLautaTaynna());
 
         alusta.tulostaAlusta();
         System.out.println("");
-        if (ratkaisija.etsiVoitto(alusta) > 0) {
+        if (ratkasu > 0) {
             System.out.println("Pelin voitti x!");
-        } else if (ratkaisija.etsiVoitto(alusta) < 0) {
+        } else if (ratkasu < 0) {
             System.out.println("Pelin voitti o!");
         } else {
             System.out.println("Tasapeli!");
