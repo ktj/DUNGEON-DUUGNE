@@ -31,7 +31,6 @@ public class MinMaxTest {
 
     @Test
     public void testAloitaMax() {
-        Set<Puu> set = new HashSet<Puu>();
         when(ratkaisijamock.etsiVoitto(eq(alusta))).thenReturn(0);
         minmax.aloitaMax(puu);
         verify(ratkaisijamock).etsiVoitto(eq(alusta));
@@ -39,7 +38,6 @@ public class MinMaxTest {
 
     @Test
     public void testAloitaMin() {
-        Set<Puu> set = new HashSet<Puu>();
         when(ratkaisijamock.etsiVoitto(eq(alusta))).thenReturn(0);
         minmax.aloitaMax(puu);
         verify(ratkaisijamock).etsiVoitto(eq(alusta));

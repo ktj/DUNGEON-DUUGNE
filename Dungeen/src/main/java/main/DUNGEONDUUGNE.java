@@ -24,12 +24,12 @@ public class DUNGEONDUUGNE {
 
 
 ////
-//        alusta.lisaaMerkkiLaudalle(1, 0, 'x');
-//        alusta.lisaaMerkkiLaudalle(2, 0, 'x');
-////        alusta.lisaaMerkkiLaudalle(2, 1, 'x');
-////        alusta.lisaaMerkkiLaudalle(0, 1, 'o');
-//        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
-//        alusta.lisaaMerkkiLaudalle(1, 2, 'o');
+        alusta.lisaaMerkkiLaudalle(1, 0, 'x');
+        alusta.lisaaMerkkiLaudalle(2, 0, 'x');
+//        alusta.lisaaMerkkiLaudalle(2, 1, 'x');
+//        alusta.lisaaMerkkiLaudalle(0, 1, 'o');
+        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
+        alusta.lisaaMerkkiLaudalle(1, 2, 'o');
 //        
 //
 //
@@ -55,8 +55,18 @@ public class DUNGEONDUUGNE {
 //        
 //        puu = kasaaja.kasaaPuu(alusta2, 'x', 100);
 //        minmax.aloitaMax(puu).tulostaAlusta();
-////        
         
+//        Joukko joukko = new Joukko(10);
+//        
+//        Alusta alusta2 = new Alusta(alusta);
+//        alusta2.lisaaMerkkiLaudalle(2, 1, 'x');
+//        
+//        joukko.add(new Puu(alusta2));
+//        
+//        for(Puu lapsi : joukko){
+//            System.out.println("asd");
+//            //lapsi.haeAlusta().tulostaAlusta();
+//        }
     }
     
     private static void tulostaPuu(Puu puu) {

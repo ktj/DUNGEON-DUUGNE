@@ -1,6 +1,7 @@
 package tekoaly;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -137,6 +138,9 @@ public class MinMax {
         int alfa = Integer.MIN_VALUE;
         int beta = Integer.MAX_VALUE;
 
+//        Collections.sort(puu.haeLapset());
+//        Collections.reverse(puu.haeLapset());
+        
         for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = maksimi(lapsi, alfa, beta);
             if (lapsenarvo < v) {
@@ -159,6 +163,8 @@ public class MinMax {
         int alfa = Integer.MIN_VALUE;
         int beta = Integer.MAX_VALUE;
 
+//        Collections.sort(puu.haeLapset());
+        
         for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = minimi(lapsi, alfa, beta);
             if (lapsenarvo > v) {
@@ -185,6 +191,10 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MIN_VALUE;
+        
+//        Collections.sort(puu.haeLapset());
+//        Collections.reverse(puu.haeLapset());
+        
         for (Puu lapsi : puu.haeLapset()) {
             v = Math.max(v, minimi(lapsi, alfa, beta));
             if (v >= beta) {
@@ -205,6 +215,9 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MAX_VALUE;
+        
+//        Collections.sort(puu.haeLapset());
+        
         for (Puu lapsi : puu.haeLapset()) {
             v = Math.min(v, maksimi(lapsi, alfa, beta));
             if (v <= alfa) {

@@ -1,29 +1,29 @@
 package tekoaly;
 
 import logiikka.Alusta;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Puu implements Iterable<Puu>, Comparable<Puu> {
 
-    private Set<Puu> lapset;
+    private Joukko lapset;
     private Alusta alusta;
 
     public Puu(Alusta alusta) {
-        lapset = new HashSet<Puu>();
+        lapset = new Joukko(alusta.getKoko()*alusta.getKoko());
         this.alusta = alusta;
     }
 
-    public boolean lisaaLapsi(Puu n) {
-        return lapset.add(n);
+    public void lisaaLapsi(Puu n) {
+        lapset.add(n);
     }
 
     public Alusta haeAlusta() {
         return alusta;
     }
 
-    public Set<Puu> haeLapset() {
+    public Joukko haeLapset() {
         return lapset;
     }
 

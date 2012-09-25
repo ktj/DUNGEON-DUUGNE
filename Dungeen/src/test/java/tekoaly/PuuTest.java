@@ -41,14 +41,6 @@ public class PuuTest {
     }
 
     @Test
-    public void testHaeAlusta() {
-        Alusta alusta2 = puu.haeAlusta();
-        alusta2.getKoko();
-        verify(alustamock).getKoko();
-    }
-
-
-    @Test
     public void testIterator() {
         assertFalse(puu.iterator().hasNext());
         puu.lisaaLapsi(new Puu(alustamock));
