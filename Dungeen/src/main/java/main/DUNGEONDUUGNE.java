@@ -11,7 +11,7 @@ public class DUNGEONDUUGNE {
     
     public static void main(String[] args) {
         
-        Alusta alusta = new Alusta(5, 5);
+        Alusta alusta = new Alusta(15, 5);
         Ratkaisija ratkaisija = new Ratkaisija();
         Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();
         Pelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
@@ -24,27 +24,35 @@ public class DUNGEONDUUGNE {
 
 
 ////
-        alusta.lisaaMerkkiLaudalle(1, 0, 'x');
-        alusta.lisaaMerkkiLaudalle(2, 0, 'x');
-//        alusta.lisaaMerkkiLaudalle(2, 1, 'x');
-//        alusta.lisaaMerkkiLaudalle(0, 1, 'o');
-        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
-        alusta.lisaaMerkkiLaudalle(1, 2, 'o');
-//        
-//
-//
-////        Arvioija arvioija = new Arvioija();
-////        System.out.println(arvioija.arvioiAlusta(alusta));
-////
-////        alusta.lisaaMerkkiLaudalle(2, 2, 'o');
-////        System.out.println(arvioija.arvioiAlusta(alusta));
-//
-////        pelaaja2.seuraava_siirto(alusta, 'x').tulostaAlusta();
-//
+        alusta.lisaaMerkkiLaudalle(5, 5, 'x');
+        alusta.lisaaMerkkiLaudalle(6, 6, 'x');
+        alusta.lisaaMerkkiLaudalle(7, 7, 'x');
+        alusta.lisaaMerkkiLaudalle(8, 8, 'x');
+        alusta.lisaaMerkkiLaudalle(4, 4, 'o');
+        alusta.lisaaMerkkiLaudalle(3, 5, 'o');
+        alusta.lisaaMerkkiLaudalle(2, 6, 'o');
+        
 //        alusta.tulostaAlusta();
+//      
+        
+        
+        
+//
+//
+//        Arvioija arvioija = new Arvioija();
+//        System.out.println(arvioija.arvioiAlusta(alusta));
+//
+//        alusta.lisaaMerkkiLaudalle(9, 9, 'x');
+//        alusta.tulostaAlusta();
+//        System.out.println(arvioija.arvioiAlusta(alusta));
+////
+//////        pelaaja2.seuraava_siirto(alusta, 'x').tulostaAlusta();
+////
+////        alusta.tulostaAlusta();
 //        Puukasaaja kasaaja = new Puukasaaja(new Arvioija());
-//        Puu puu = kasaaja.kasaaPuu(alusta, 'o', 100);
-////        tulostaPuu(puu);
+//        Puu puu = kasaaja.kasaaPuu(alusta, 'o', 4);
+        
+//        tulostaPuu(puu);
 ////        
 ////        alusta.tulostaAlusta();
 ////        

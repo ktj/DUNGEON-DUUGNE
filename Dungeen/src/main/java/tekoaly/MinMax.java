@@ -35,8 +35,8 @@ public class MinMax {
         if (onkovalmis(alusta)) {
             return alusta;
         }
-//        return moniajoMax(puu);
-        return yksiajoMax(puu);
+        return moniajoMax(puu);
+//       return yksiajoMax(puu);
     }
 
     public Alusta aloitaMin(Puu puu) {
@@ -44,8 +44,8 @@ public class MinMax {
         if (onkovalmis(alusta)) {
             return alusta;
         }
-//        return moniajoMin(puu);
-        return yksiajoMin(puu);
+        return moniajoMin(puu);
+//        return yksiajoMin(puu);
     }
 
     private Alusta moniajoMin(Puu puu) throws RuntimeException {

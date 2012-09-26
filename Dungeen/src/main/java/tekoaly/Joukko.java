@@ -23,12 +23,12 @@ public class Joukko implements Iterable<Puu> {
         koko++;
         tilaa--;
     }
-    
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return koko == 0;
     }
-    
-    public int size(){
+
+    public int size() {
         return koko;
     }
 
@@ -42,7 +42,6 @@ public class Joukko implements Iterable<Puu> {
 
     public Iterator<Puu> iterator() {
         return new Iterator<Puu>() {
-            
             private int i = 0;
 
             public boolean hasNext() {
@@ -50,10 +49,11 @@ public class Joukko implements Iterable<Puu> {
             }
 
             public Puu next() {
-                if(hasNext())
+                if (hasNext()) {
                     return puut[i++];
-                else
+                } else {
                     throw new NoSuchElementException();
+                }
             }
 
             public void remove() {

@@ -136,7 +136,7 @@ public class Arvioija {
     private int tarkistaAlas(int x, int y, char merkki) {
 
         if (!this.alusta.tarkistaKoordinaatit(x, y + 1)) {
-            return 0;
+            return 1;
         }
 
         if ((this.alusta.lueMerkki(x, y + 1)) == merkki) {
@@ -162,7 +162,7 @@ public class Arvioija {
     private int tarkistaOikealleAlas(int x, int y, char merkki) {
 
         if (!this.alusta.tarkistaKoordinaatit(x + 1, y + 1)) {
-            return 0;
+            return 1;
         }
 
         if ((this.alusta.lueMerkki(x + 1, y + 1)) == merkki) {
@@ -188,7 +188,7 @@ public class Arvioija {
     private int tarkistaVasemmalleAlas(int x, int y, char merkki) {
 
         if (!this.alusta.tarkistaKoordinaatit(x - 1, y + 1)) {
-            return 0;
+            return 1;
         }
 
         if ((this.alusta.lueMerkki(x - 1, y + 1)) == merkki) {
