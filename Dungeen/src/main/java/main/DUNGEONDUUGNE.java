@@ -1,5 +1,6 @@
 package main;
 
+import kayttoliittyma.Graafinenkayttoliittyma;
 import kayttoliittyma.Tekstikayttoliittyma;
 import logiikka.Alusta;
 import logiikka.Ihmispelaaja;
@@ -8,15 +9,16 @@ import logiikka.Ratkaisija;
 import tekoaly.*;
 
 public class DUNGEONDUUGNE {
-    
+
     public static void main(String[] args) {
-        
+
         Alusta alusta = new Alusta(15, 5);
         Ratkaisija ratkaisija = new Ratkaisija();
+        Graafinenkayttoliittyma gui = new Graafinenkayttoliittyma();
         Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();
         Pelaaja pelaaja1 = new Ihmispelaaja(tekstikäli);
-        Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija, new Arvioija()), new Puukasaaja(new Arvioija()));
-        
+        Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija, new Arvioija()), new Puukasaaja(new Arvioija()), gui);
+
         Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja2);
         peli.aloita();
 
@@ -32,11 +34,12 @@ public class DUNGEONDUUGNE {
         alusta.lisaaMerkkiLaudalle(3, 5, 'o');
         alusta.lisaaMerkkiLaudalle(2, 6, 'o');
         
+//        gui.luo(alusta);
 //        alusta.tulostaAlusta();
 //      
-        
-        
-        
+
+
+
 //
 //
 //        Arvioija arvioija = new Arvioija();
@@ -51,7 +54,7 @@ public class DUNGEONDUUGNE {
 ////        alusta.tulostaAlusta();
 //        Puukasaaja kasaaja = new Puukasaaja(new Arvioija());
 //        Puu puu = kasaaja.kasaaPuu(alusta, 'o', 4);
-        
+
 //        tulostaPuu(puu);
 ////        
 ////        alusta.tulostaAlusta();
@@ -63,7 +66,7 @@ public class DUNGEONDUUGNE {
 //        
 //        puu = kasaaja.kasaaPuu(alusta2, 'x', 100);
 //        minmax.aloitaMax(puu).tulostaAlusta();
-        
+
 //        Joukko joukko = new Joukko(10);
 //        
 //        Alusta alusta2 = new Alusta(alusta);
@@ -76,7 +79,7 @@ public class DUNGEONDUUGNE {
 //            //lapsi.haeAlusta().tulostaAlusta();
 //        }
     }
-    
+
     private static void tulostaPuu(Puu puu) {
         puu.haeAlusta().tulostaAlusta();
         System.out.println("-------");

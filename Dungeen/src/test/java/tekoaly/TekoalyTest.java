@@ -1,5 +1,6 @@
 package tekoaly;
 
+import kayttoliittyma.Graafinenkayttoliittyma;
 import tekoaly.Tekoaly;
 import tekoaly.Puukasaaja;
 import tekoaly.MinMax;
@@ -15,6 +16,7 @@ public class TekoalyTest {
     Puukasaaja kasaaja;
     MinMax minmax;
     Tekoaly tekoaly;
+    Graafinenkayttoliittyma gui;
     int koko;
 
     public TekoalyTest() {
@@ -24,7 +26,8 @@ public class TekoalyTest {
     public void setUp() {
         kasaaja = mock(Puukasaaja.class);
         minmax = mock(MinMax.class);
-        tekoaly = new Tekoaly(minmax, kasaaja);
+        gui = mock(Graafinenkayttoliittyma.class);
+        tekoaly = new Tekoaly(minmax, kasaaja, gui);
         this.koko = 3;
     }
 
