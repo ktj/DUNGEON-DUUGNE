@@ -86,9 +86,9 @@ public class Puukasaaja {
      */
     private boolean onSuotuisampi(Puu parent, Alusta alustaklooni, char merkki) {
         if (merkki == 'x') {
-            return (parent.haeAlusta().getArvio() <= alustaklooni.getArvio()) || parent.haeLapset().isEmpty();
+            return (parent.haeAlusta().getArvio() < alustaklooni.getArvio()) || parent.haeLapset().isEmpty();
         } else {
-            return (parent.haeAlusta().getArvio() >= alustaklooni.getArvio()) || parent.haeLapset().isEmpty();
+            return (parent.haeAlusta().getArvio() > alustaklooni.getArvio()) || parent.haeLapset().isEmpty();
         }
     }
 
