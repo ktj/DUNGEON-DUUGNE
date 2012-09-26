@@ -22,9 +22,10 @@ public class Arvioija {
     }
 
     /**
-     * 
+     *
      * @param alusta Arvioitava alusta
-     * @return palauttaa arvion alustasta posiitivinen tarkoittaa hyvää x:lle ja negatiivinen hyvää oo:lle
+     * @return palauttaa arvion alustasta posiitivinen tarkoittaa hyvää x:lle ja
+     * negatiivinen hyvää oo:lle
      */
     public int arvioiAlusta(Alusta alusta) {
         this.alusta = alusta;
@@ -44,17 +45,14 @@ public class Arvioija {
     }
 
     /**
-     * Arviointi tapahtuu seuraavasti: (x:n suhteen arvio) x = 4
-     * ox=2
-     * oxx=20
-     * oxxx=200
-     * xx=22
-     * xxx=202
-     * xxxx2002
-     * jne
-     * Arviointi tapahtu vain oikealle, alas, oikealle alas ja vasemmalle alas.
-     * Kun jokainen ruutu käydään läpi niin kaikki mahdolliset suorat saadaan arvioitua ja minimoidaan samojen suorien uudelleen arviointi.
-     * Metodit tarkista vasemmalle, ylös jne ovat olemassa vain sitä varten, että voidaan tarkistaa tyhjät ruudut suorien päissä.
+     * Arviointi tapahtuu seuraavasti: (x:n suhteen arvio) x = 4 ox=2 oxx=20
+     * oxxx=200 xx=22 xxx=202 xxxx2002 jne Arviointi tapahtu vain oikealle,
+     * alas, oikealle alas ja vasemmalle alas. Kun jokainen ruutu käydään läpi
+     * niin kaikki mahdolliset suorat saadaan arvioitua ja minimoidaan samojen
+     * suorien uudelleen arviointi. Metodit tarkista vasemmalle, ylös jne ovat
+     * olemassa vain sitä varten, että voidaan tarkistaa tyhjät ruudut suorien
+     * päissä.
+     *
      * @param x x koordinaatti
      * @param y y koordinaatti
      * @return tietysti pisteestä lähtevien suorien arviot
@@ -74,25 +72,25 @@ public class Arvioija {
         arvo = tarkistaYlos(x, y) * tarkistaAlas(x, y, merkki);
         if (arvo > minimiArvo) {
             if (merkki == 'x') {
-                arvio = arvio + arvo;
+                arvio = arvio + arvo + arvio / 10;
             } else {
-                arvio = arvio - arvo;
+                arvio = arvio - arvo - arvio / 10;
             }
         }
         arvo = tarkistaVasemmalleYlos(x, y) * tarkistaOikealleAlas(x, y, merkki);
         if (arvo > minimiArvo) {
             if (merkki == 'x') {
-                arvio = arvio + arvo;
+                arvio = arvio + arvo + arvio / 10;
             } else {
-                arvio = arvio - arvo;
+                arvio = arvio - arvo - arvio / 10;
             }
         }
         arvo = tarkistaOikealleYlos(x, y) * tarkistaVasemmalleAlas(x, y, merkki);
         if (arvo > minimiArvo) {
             if (merkki == 'x') {
-                arvio = arvio + arvo;
+                arvio = arvio + arvo + arvio / 10;
             } else {
-                arvio = arvio - arvo;
+                arvio = arvio - arvo - arvio / 10;
             }
         }
         return arvio;
