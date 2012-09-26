@@ -11,7 +11,7 @@ public class Puu implements Iterable<Puu>, Comparable<Puu> {
     private Alusta alusta;
 
     public Puu(Alusta alusta) {
-        lapset = new Joukko(alusta.getKoko()*alusta.getKoko());
+        lapset = new Joukko(alusta.tyhjaaTilaa());
         this.alusta = alusta;
     }
 
