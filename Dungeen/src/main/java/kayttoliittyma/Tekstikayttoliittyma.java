@@ -12,7 +12,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
     }
 
     @Override
-    public void tulosta_alusta(Alusta alusta) {
+    public void tulostaAlusta(Alusta alusta) {
         System.out.println();
         for (int i = 0; i < alusta.getKoko(); i++) {
             for (int j = 0; j < alusta.getKoko(); j++) {
@@ -23,7 +23,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
     }
 
     @Override
-    public Alusta kysy_siirto(Alusta alusta, char merkki) {
+    public Alusta kysySiirto(Alusta alusta, char merkki) {
         int x, y;
         System.out.print("Syötä x-koordinaatti: ");
         x = lukija.nextInt();
@@ -39,5 +39,13 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         }
         alusta.lisaaMerkkiLaudalle(x, y, merkki);
         return alusta;
+    }
+
+    public void tulostaVoitto(char merkki) {
+        if (merkki == 't') {
+            System.out.println("TasapelI!");
+            return;
+        }
+        System.out.println("Pelin voitti " + merkki + "!");
     }
 }

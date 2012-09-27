@@ -16,18 +16,22 @@ public class Tekoaly implements Pelaaja {
         this.ui = ui;
     }
 
-    public Alusta seuraava_siirto(Alusta alusta, char merkki) {
+    public Alusta seuraavaSiirto(Alusta alusta, char merkki) {
 
         Puu puu;
         Alusta siirto;
 
-        ui.tulosta_alusta(alusta);
+        ui.tulostaAlusta(alusta);
         puu = kasaaja.kasaaPuu(alusta, merkki, 4);
         if (merkki == 'x') {
             siirto = minmax.aloitaMax(puu);
         }
         siirto = minmax.aloitaMin(puu);
-        ui.tulosta_alusta(siirto);
+        ui.tulostaAlusta(siirto);
         return siirto;
+    }
+
+    public void ilmoitaVoitto(char merkki) {
+        ui.tulostaVoitto(merkki);
     }
 }

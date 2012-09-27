@@ -4,7 +4,7 @@ import logiikka.Alusta;
 
 public interface Kayttoliittyma {
 
-    public void tulosta_alusta(Alusta alusta);
-
-    public Alusta kysy_siirto(Alusta alusta, char merkki);
+    public void tulostaAlusta(Alusta alusta);
+    public void tulostaVoitto(char merkki);
+    public Alusta kysySiirto(Alusta alusta, char merkki);
 }

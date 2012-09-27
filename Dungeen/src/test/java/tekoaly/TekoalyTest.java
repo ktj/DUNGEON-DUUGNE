@@ -38,7 +38,7 @@ public class TekoalyTest {
 
         char merkki = 'x';
 
-        tekoaly.seuraava_siirto(alusta, merkki);
+        tekoaly.seuraavaSiirto(alusta, merkki);
 
         verify(kasaaja).kasaaPuu(eq(alusta), eq(merkki), anyInt());
         verify(minmax).aloitaMax(any(Puu.class));
@@ -49,7 +49,7 @@ public class TekoalyTest {
     public void testSeuraava_siirto2() {
         Alusta alusta = new Alusta(koko, koko);
         char merkki = 'o';
-        tekoaly.seuraava_siirto(alusta, merkki);
+        tekoaly.seuraavaSiirto(alusta, merkki);
         verify(kasaaja).kasaaPuu(eq(alusta), eq(merkki), anyInt());
         verify(minmax).aloitaMin(any(Puu.class));
 

@@ -2,5 +2,6 @@ package logiikka;
 
 public interface Pelaaja {
 
-    public Alusta seuraava_siirto(Alusta alusta, char merkki);
+    public Alusta seuraavaSiirto(Alusta alusta, char merkki);
+    public void ilmoitaVoitto(char merkki);
 }

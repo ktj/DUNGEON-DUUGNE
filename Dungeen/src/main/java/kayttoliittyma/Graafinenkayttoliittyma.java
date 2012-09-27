@@ -7,7 +7,9 @@ import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import logiikka.Alusta;
 
@@ -22,7 +24,7 @@ public class Graafinenkayttoliittyma implements Kayttoliittyma {
     public Graafinenkayttoliittyma() {
         alustettu = false;
         vuoro = false;
-        
+
     }
 
     public void luo(Alusta alusta) {
@@ -77,7 +79,7 @@ public class Graafinenkayttoliittyma implements Kayttoliittyma {
         return frame;
     }
 
-    public void tulosta_alusta(Alusta alusta) {
+    public void tulostaAlusta(Alusta alusta) {
         this.alusta = alusta;
         if (!alustettu) {
             this.luo(alusta);
@@ -86,7 +88,15 @@ public class Graafinenkayttoliittyma implements Kayttoliittyma {
         frame.pack();
     }
 
-    public Alusta kysy_siirto(Alusta alusta, char merkki) {
+    public void tulostaVoitto(char merkki) {
+        if (merkki == 't') {
+            JOptionPane.showMessageDialog(frame, "Tasapeli!");
+            return;
+        }
+        JOptionPane.showMessageDialog(frame, "Pelin voitti " + merkki + "!");
+    }
+
+    public Alusta kysySiirto(Alusta alusta, char merkki) {
         vuoro = true;
         this.merkki = merkki;
         while (vuoro) {

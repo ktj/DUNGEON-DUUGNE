@@ -12,7 +12,7 @@ public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
 
-        Alusta alusta = new Alusta(10, 5);
+        Alusta alusta = new Alusta(3, 3);
         Ratkaisija ratkaisija = new Ratkaisija();
         Graafinenkayttoliittyma gui = new Graafinenkayttoliittyma();
         Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();

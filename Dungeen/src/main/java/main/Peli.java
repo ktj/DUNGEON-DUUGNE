@@ -22,22 +22,20 @@ public class Peli {
         alusta.tyhjaaLauta();
         int ratkasu = 0;
         do {
-            alusta = pelaaja1.seuraava_siirto(alusta, 'x');
+            alusta = pelaaja1.seuraavaSiirto(alusta, 'x');
             ratkasu = ratkaisija.etsiVoitto(alusta);
             if (ratkasu == 0 && !alusta.onkoLautaTaynna()) {
-                alusta = pelaaja2.seuraava_siirto(alusta, 'o');
+                alusta = pelaaja2.seuraavaSiirto(alusta, 'o');
             }
             ratkasu = ratkaisija.etsiVoitto(alusta);
         } while (ratkasu == 0 && !alusta.onkoLautaTaynna());
 
-        alusta.tulostaAlusta();
-        System.out.println("");
         if (ratkasu > 0) {
-            System.out.println("Pelin voitti x!");
+            pelaaja1.ilmoitaVoitto('X');
         } else if (ratkasu < 0) {
-            System.out.println("Pelin voitti o!");
+            pelaaja2.ilmoitaVoitto('O');
         } else {
-            System.out.println("Tasapeli!");
+            pelaaja1.ilmoitaVoitto('t');
         }
 
     }
