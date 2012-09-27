@@ -67,19 +67,22 @@ public class MinMax {
 
         Tuple<Integer, Alusta> tuple = null;
         Alusta pienin = puu.haeAlusta();
+        boolean paivitetty = false;
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
 
         for (Future<Tuple<Integer, Alusta>> lapsi : futures) {
+            
             try {
                 tuple = lapsi.get();
             } catch (Exception ex) {
                 throw new RuntimeException("Moniajos vikaa!");
             }
             lapsenarvo = tuple.x;
-            if (lapsenarvo < v) {
+            if (lapsenarvo < v || !paivitetty) {
                 pienin = tuple.y;
                 v = lapsenarvo;
+                paivitetty = true;
             }
             if (lapsenarvo == Integer.MIN_VALUE) {
                 break;
@@ -108,6 +111,7 @@ public class MinMax {
 
         Tuple<Integer, Alusta> tuple = null;
         Alusta suurin = puu.haeAlusta();
+        boolean paivitetty = false;
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
 
@@ -118,9 +122,10 @@ public class MinMax {
                 throw new RuntimeException("Moniajos vikaa!");
             }
             lapsenarvo = tuple.x;
-            if (lapsenarvo > v) {
+            if (lapsenarvo > v || !paivitetty) {
                 suurin = tuple.y;
                 v = lapsenarvo;
+                paivitetty = true;
             }
             if (lapsenarvo == Integer.MAX_VALUE) {
                 break;
@@ -132,6 +137,7 @@ public class MinMax {
 
     private Alusta yksiajoMin(Puu puu) {
         Alusta pienin = puu.haeAlusta();
+        boolean paivitetty = false;
         int v = Integer.MAX_VALUE;
         int lapsenarvo;
 
@@ -140,12 +146,13 @@ public class MinMax {
 
 //        Collections.sort(puu.haeLapset());
 //        Collections.reverse(puu.haeLapset());
-        
+
         for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = maksimi(lapsi, alfa, beta);
-            if (lapsenarvo < v) {
+            if (lapsenarvo < v || !paivitetty) {
                 pienin = lapsi.haeAlusta();
                 v = lapsenarvo;
+                paivitetty = true;
             }
             if (lapsenarvo == Integer.MIN_VALUE) {
                 break;
@@ -157,6 +164,7 @@ public class MinMax {
 
     private Alusta yksiajoMax(Puu puu) {
         Alusta suurin = puu.haeAlusta();
+        boolean paivitetty = false;
         int v = Integer.MIN_VALUE;
         int lapsenarvo;
 
@@ -164,12 +172,13 @@ public class MinMax {
         int beta = Integer.MAX_VALUE;
 
 //        Collections.sort(puu.haeLapset());
-        
+
         for (Puu lapsi : puu.haeLapset()) {
             lapsenarvo = minimi(lapsi, alfa, beta);
-            if (lapsenarvo > v) {
+            if (lapsenarvo > v || !paivitetty) {
                 suurin = lapsi.haeAlusta();
                 v = lapsenarvo;
+                paivitetty = true;
             }
             if (lapsenarvo == Integer.MAX_VALUE) {
                 break;
@@ -191,10 +200,10 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MIN_VALUE;
-        
+
 //        Collections.sort(puu.haeLapset());
 //        Collections.reverse(puu.haeLapset());
-        
+
         for (Puu lapsi : puu.haeLapset()) {
             v = Math.max(v, minimi(lapsi, alfa, beta));
             if (v >= beta) {
@@ -215,9 +224,9 @@ public class MinMax {
             return ratkaisuarvo;
         }
         int v = Integer.MAX_VALUE;
-        
+
 //        Collections.sort(puu.haeLapset());
-        
+
         for (Puu lapsi : puu.haeLapset()) {
             v = Math.min(v, maksimi(lapsi, alfa, beta));
             if (v <= alfa) {

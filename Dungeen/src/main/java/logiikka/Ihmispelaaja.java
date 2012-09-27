@@ -13,6 +13,8 @@ public class Ihmispelaaja implements Pelaaja {
     @Override
     public Alusta seuraava_siirto(Alusta alusta, char merkki) {
         UI.tulosta_alusta(alusta);
-        return UI.kysy_siirto(alusta, merkki);
+        Alusta pal = UI.kysy_siirto(alusta, merkki);
+        UI.tulosta_alusta(pal);
+        return pal;
     }
 }
