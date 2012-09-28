@@ -20,24 +20,23 @@ public class DUNGEONDUUGNE {
         Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija, new Arvioija()), new Puukasaaja(new Arvioija()), gui);
 
         Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2);
-        //peli.aloita();
+        peli.aloita();
         
         
         
         
-        alusta.lisaaMerkkiLaudalle(5, 5, 'x');
-        alusta.lisaaMerkkiLaudalle(5, 6, 'x');
-        alusta.lisaaMerkkiLaudalle(5, 7, 'x');
-        alusta.lisaaMerkkiLaudalle(5, 8, 'x');
-        alusta.lisaaMerkkiLaudalle(5, 4, 'o');
-        alusta.lisaaMerkkiLaudalle(4, 5, 'o');
-        alusta.lisaaMerkkiLaudalle(4, 6, 'o');
-        //alusta.lisaaMerkkiLaudalle(48, 49, 'o');
-        //alusta.lisaaMerkkiLaudalle(50, 54, 'o');
-        alusta.tulostaAlusta();
-        Puukasaaja puukasaaja = new Puukasaaja(new Arvioija());
-        Puu puu;
-        tulostaPuu(puukasaaja.kasaaPuu(alusta, 'o', 2));
+//        alusta.lisaaMerkkiLaudalle(5, 5, 'x');
+//        alusta.lisaaMerkkiLaudalle(5, 6, 'x');
+//        alusta.lisaaMerkkiLaudalle(5, 7, 'x');
+//        alusta.lisaaMerkkiLaudalle(5, 8, 'x');
+//        alusta.lisaaMerkkiLaudalle(5, 4, 'o');
+//        alusta.lisaaMerkkiLaudalle(4, 5, 'o');
+//        alusta.lisaaMerkkiLaudalle(4, 6, 'o');
+//        //alusta.lisaaMerkkiLaudalle(3, 4, 'o');
+//        //alusta.lisaaMerkkiLaudalle(5, 9, 'o');
+//        Puukasaaja puukasaaja = new Puukasaaja(new Arvioija());
+//        Puu puu;
+//        tulostaPuu(puukasaaja.kasaaPuu(alusta, 'x', 1));
         
         
         

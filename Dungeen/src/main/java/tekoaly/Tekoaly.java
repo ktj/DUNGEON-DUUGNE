@@ -25,8 +25,9 @@ public class Tekoaly implements Pelaaja {
         puu = kasaaja.kasaaPuu(alusta, merkki, 4);
         if (merkki == 'x') {
             siirto = minmax.aloitaMax(puu);
-        }
+        }else{
         siirto = minmax.aloitaMin(puu);
+        }
         ui.tulostaAlusta(siirto);
         return siirto;
     }

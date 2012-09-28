@@ -18,6 +18,7 @@ public class Arvioija {
     final int tyhjanArvo = 1;
     int minimiArvo = 10;
     int seina = 0;
+    int iso_luku = 1000000;
 
     public Arvioija() {
     }
@@ -62,14 +63,13 @@ public class Arvioija {
         char merkki = alusta.lueMerkki(x, y);
         int arvo;
         int arvio = 0;
-        int lisa;
         arvo = tarkistaVasemmalle(x, y) + tarkistaOikealle(x, y, merkki);
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
                 if (merkki == 'x') {
-                    return Integer.MAX_VALUE;
+                    return iso_luku;
                 } else {
-                    return Integer.MIN_VALUE;
+                    return -iso_luku;
                 }
             }
             if (arvo % 10 == 2) {
@@ -91,9 +91,9 @@ public class Arvioija {
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
                 if (merkki == 'x') {
-                    return Integer.MAX_VALUE;
+                    return iso_luku;
                 } else {
-                    return Integer.MIN_VALUE;
+                    return -iso_luku;
                 }
             }
             if (arvo % 10 == 2) {
@@ -115,9 +115,9 @@ public class Arvioija {
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
                 if (merkki == 'x') {
-                    return Integer.MAX_VALUE;
+                    return iso_luku;
                 } else {
-                    return Integer.MIN_VALUE;
+                    return -iso_luku;
                 }
             }
             if (arvo % 10 == 2) {
@@ -139,9 +139,9 @@ public class Arvioija {
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
                 if (merkki == 'x') {
-                    return Integer.MAX_VALUE;
+                    return iso_luku;
                 } else {
-                    return Integer.MIN_VALUE;
+                    return -iso_luku;
                 }
             }
             if (arvo % 10 == 2) {
