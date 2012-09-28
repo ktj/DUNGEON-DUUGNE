@@ -66,7 +66,11 @@ public class Arvioija {
         arvo = tarkistaVasemmalle(x, y) + tarkistaOikealle(x, y, merkki);
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
-                return Integer.MAX_VALUE;
+                if (merkki == 'x') {
+                    return Integer.MAX_VALUE;
+                } else {
+                    return Integer.MIN_VALUE;
+                }
             }
             if (arvo % 10 == 2) {
                 if (merkki == 'x') {
@@ -86,7 +90,11 @@ public class Arvioija {
         arvo = tarkistaYlos(x, y) + tarkistaAlas(x, y, merkki);
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
-                return Integer.MAX_VALUE;
+                if (merkki == 'x') {
+                    return Integer.MAX_VALUE;
+                } else {
+                    return Integer.MIN_VALUE;
+                }
             }
             if (arvo % 10 == 2) {
                 if (merkki == 'x') {
@@ -106,7 +114,11 @@ public class Arvioija {
         arvo = tarkistaVasemmalleYlos(x, y) + tarkistaOikealleAlas(x, y, merkki);
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
-                return Integer.MAX_VALUE;
+                if (merkki == 'x') {
+                    return Integer.MAX_VALUE;
+                } else {
+                    return Integer.MIN_VALUE;
+                }
             }
             if (arvo % 10 == 2) {
                 if (merkki == 'x') {
@@ -126,7 +138,11 @@ public class Arvioija {
         arvo = tarkistaOikealleYlos(x, y) + tarkistaVasemmalleAlas(x, y, merkki);
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * 10) {
-                return Integer.MAX_VALUE;
+                if (merkki == 'x') {
+                    return Integer.MAX_VALUE;
+                } else {
+                    return Integer.MIN_VALUE;
+                }
             }
             if (arvo % 10 == 2) {
                 if (merkki == 'x') {
