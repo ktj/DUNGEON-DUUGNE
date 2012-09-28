@@ -22,11 +22,12 @@ public class Tekoaly implements Pelaaja {
         Alusta siirto;
 
         ui.tulostaAlusta(alusta);
-        puu = kasaaja.kasaaPuu(alusta, merkki, 4);
+        puu = kasaaja.kasaaPuu(alusta, merkki, 1);
         if (merkki == 'x') {
             siirto = minmax.aloitaMax(puu);
-        }else{
-        siirto = minmax.aloitaMin(puu);
+        } else {
+            siirto = minmax.aloitaMin(puu);
+
         }
         ui.tulostaAlusta(siirto);
         return siirto;
