@@ -62,7 +62,7 @@ public class ArvioijaTest {
         this.alusta.lisaaMerkkiLaudalle(53, 50, 'o');
         this.alusta.lisaaMerkkiLaudalle(54, 50, 'o');
 
-        this.alusta.tulostaAlusta();
+        //this.alusta.tulostaAlusta();
         assertEquals(-96,this.arvioija.arvioiAlusta(this.alusta));
     }
     @Test
@@ -71,7 +71,7 @@ public class ArvioijaTest {
         char o = 'o';
         this.alusta.lisaaMerkkiLaudalle(51, 50, 'o');
 
-        this.alusta.tulostaAlusta();
+        //this.alusta.tulostaAlusta();
         assertEquals(0,this.arvioija.arvioiAlusta(this.alusta));
     }
     @Test
@@ -82,27 +82,24 @@ public class ArvioijaTest {
         this.alusta.lisaaMerkkiLaudalle(50, 50, o);
         this.alusta.lisaaMerkkiLaudalle(51, 50, x);
 
-        this.alusta.tulostaAlusta();
+        //this.alusta.tulostaAlusta();
         assertEquals(0,this.arvioija.arvioiAlusta(this.alusta));
     }
     @Test
     public void testaaArviointia5(){
         char x = 'x';
         char o = 'o';
-        this.alusta.lisaaMerkkiLaudalle(50, 50, o);
-        this.alusta.lisaaMerkkiLaudalle(51, 50, o);
-        this.alusta.lisaaMerkkiLaudalle(50, 51, o);
-        this.alusta.lisaaMerkkiLaudalle(49, 51, o);
-        this.alusta.lisaaMerkkiLaudalle(49, 52, o);
-        this.alusta.lisaaMerkkiLaudalle(52, 51, o);
-        this.alusta.lisaaMerkkiLaudalle(51, 49, x);
-        this.alusta.lisaaMerkkiLaudalle(52, 49, x);
-        this.alusta.lisaaMerkkiLaudalle(51, 51, x);
+        this.alusta.lisaaMerkkiLaudalle(50, 50, x);
+        this.alusta.lisaaMerkkiLaudalle(50, 51, x);
         this.alusta.lisaaMerkkiLaudalle(50, 52, x);
-        this.alusta.lisaaMerkkiLaudalle(51, 52, x);
-        this.alusta.lisaaMerkkiLaudalle(52, 52, x);
-        this.alusta.lisaaMerkkiLaudalle(49, 53, x);
+        this.alusta.lisaaMerkkiLaudalle(50, 53, x);
+        this.alusta.lisaaMerkkiLaudalle(50, 49, o);
+        this.alusta.lisaaMerkkiLaudalle(49, 50, o);
+        this.alusta.lisaaMerkkiLaudalle(49, 51, o);
+        //this.alusta.lisaaMerkkiLaudalle(48, 49, o);
+        //this.alusta.lisaaMerkkiLaudalle(50, 54, o);
         this.alusta.tulostaAlusta();
+        System.out.println(this.arvioija.arvioiAlusta(this.alusta));
         assertEquals(9,this.arvioija.arvioiAlusta(this.alusta));
 
     }
