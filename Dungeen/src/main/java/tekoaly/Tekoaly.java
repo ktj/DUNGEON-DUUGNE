@@ -22,7 +22,7 @@ public class Tekoaly implements Pelaaja {
         Alusta siirto;
 
         ui.tulostaAlusta(alusta);
-        puu = kasaaja.kasaaPuu(alusta, merkki, 1);
+        puu = kasaaja.kasaaPuu(alusta, merkki, 3);
         if (merkki == 'x') {
             siirto = minmax.aloitaMax(puu);
         } else {
@@ -30,6 +30,7 @@ public class Tekoaly implements Pelaaja {
 
         }
         ui.tulostaAlusta(siirto);
+        System.out.println(siirto.getArvio());
         return siirto;
     }
 
