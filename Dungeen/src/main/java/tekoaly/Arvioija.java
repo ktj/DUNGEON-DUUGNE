@@ -46,6 +46,53 @@ public class Arvioija {
         return arvio;
     }
 
+    private int pisteytaSuora(int arvo,char merkki){
+        if (arvo > minimiArvo) {
+            if (arvo >= (voittoRivinPituus - 1) * merkinArvo) {
+                if (merkki == 'x') {
+                    return iso_luku;
+                } else {
+                    return -iso_luku;
+                }
+            }
+            if(arvo >=(voittoRivinPituus - 2)*merkinArvo + tyhjanArvo*2){
+                if (merkki == 'x') {
+                    return iso_luku/10;
+                } else {
+                    return -iso_luku/10;
+                }
+            }
+            if(arvo>=(voittoRivinPituus -2)*merkinArvo + tyhjanArvo){
+                if (merkki == 'x') {
+                    return iso_luku/100;
+                } else {
+                    return iso_luku/100;
+                }
+            }
+            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
+                if (merkki == 'x') {
+                    return iso_luku/1000;
+                } else {
+                    return -iso_luku/1000;
+                }
+            }
+            if (arvo % 10 == 2) {
+                if (merkki == 'x') {
+                    return 2*arvo;
+                } else {
+                    return -2*arvo;
+                }
+            }
+            if (arvo % 10 == 1) {
+                if (merkki == 'x') {
+                    return arvo;
+                } else {
+                    return -arvo;
+                }
+            }
+        }
+        return 0;
+    }
     /**
      * Saa jonkin pisteen ja tarkistaa siitä kaikki siitä lähtevät suorat ja antaa pisteelle sen mukaan arvion.
      * 
@@ -58,185 +105,17 @@ public class Arvioija {
         int arvo;
         int arvio = 0;
         arvo = tarkistaVasemmalle(x, y) + tarkistaOikealle(x, y, merkki);
-        if (arvo > minimiArvo) {
-            if (arvo >= (voittoRivinPituus - 1) * merkinArvo) {
-                if (merkki == 'x') {
-                    return iso_luku;
-                } else {
-                    return -iso_luku;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 2)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/10;
-                } else {
-                    return -iso_luku/10;
-                }
-            }
-            if(arvo>=(voittoRivinPituus -2)*merkinArvo + tyhjanArvo){
-                if (merkki == 'x') {
-                    arvio = arvio + iso_luku/100;
-                } else {
-                    arvio = arvio + iso_luku/100;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/1000;
-                } else {
-                    return -iso_luku/1000;
-                }
-            }
-            if (arvo % 10 == 2) {
-                if (merkki == 'x') {
-                    arvio = arvio + 2*arvo;
-                } else {
-                    arvio = arvio - 2*arvo;
-                }
-            }
-            if (arvo % 10 == 1) {
-                if (merkki == 'x') {
-                    arvio = arvio + arvo;
-                } else {
-                    arvio = arvio - arvo;
-                }
-            }
-        }
+        arvio = arvio + pisteytaSuora(arvo, merkki);
+        
         arvo = tarkistaYlos(x, y) + tarkistaAlas(x, y, merkki);
-        if (arvo > minimiArvo) {
-            if (arvo >= (voittoRivinPituus - 1) * merkinArvo) {
-                if (merkki == 'x') {
-                    return iso_luku;
-                } else {
-                    return -iso_luku;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 2)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/10;
-                } else {
-                    return -iso_luku/10;
-                }
-            }
-            if(arvo>=(voittoRivinPituus -2)*merkinArvo + tyhjanArvo){
-                if (merkki == 'x') {
-                    arvio = arvio + iso_luku/100;
-                } else {
-                    arvio = arvio + iso_luku/100;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/1000;
-                } else {
-                    return -iso_luku/1000;
-                }
-            }
-            if (arvo % 10 == 2) {
-                if (merkki == 'x') {
-                    arvio = arvio + 2*arvo;
-                } else {
-                    arvio = arvio - 2*arvo;
-                }
-            }
-            if (arvo % 10 == 1) {
-                if (merkki == 'x') {
-                    arvio = arvio + arvo;
-                } else {
-                    arvio = arvio - arvo;
-                }
-            }
-        }
+        arvio = arvio + pisteytaSuora(arvo, merkki);
+        
         arvo = tarkistaVasemmalleYlos(x, y) + tarkistaOikealleAlas(x, y, merkki);
-        if (arvo > minimiArvo) {
-            if (arvo >= (voittoRivinPituus - 1) * merkinArvo) {
-                if (merkki == 'x') {
-                    return iso_luku;
-                } else {
-                    return -iso_luku;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 2)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/10;
-                } else {
-                    return -iso_luku/10;
-                }
-            }
-            if(arvo>=(voittoRivinPituus -2)*merkinArvo + tyhjanArvo){
-                if (merkki == 'x') {
-                    arvio = arvio + iso_luku/100;
-                } else {
-                    arvio = arvio + iso_luku/100;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/1000;
-                } else {
-                    return -iso_luku/1000;
-                }
-            }
-            if (arvo % 10 == 2) {
-                if (merkki == 'x') {
-                    arvio = arvio + 2*arvo;
-                } else {
-                    arvio = arvio - 2*arvo;
-                }
-            }
-            if (arvo % 10 == 1) {
-                if (merkki == 'x') {
-                    arvio = arvio + arvo;
-                } else {
-                    arvio = arvio - arvo;
-                }
-            }
-        }
+        arvio = arvio + pisteytaSuora(arvo, merkki);
+        
         arvo = tarkistaOikealleYlos(x, y) + tarkistaVasemmalleAlas(x, y, merkki);
-        if (arvo > minimiArvo) {
-            if (arvo >= (voittoRivinPituus - 1) * merkinArvo) {
-                if (merkki == 'x') {
-                    return iso_luku;
-                } else {
-                    return -iso_luku;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 2)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/10;
-                } else {
-                    return -iso_luku/10;
-                }
-            }
-            if(arvo>=(voittoRivinPituus -2)*merkinArvo + tyhjanArvo){
-                if (merkki == 'x') {
-                    arvio = arvio + iso_luku/100;
-                } else {
-                    arvio = arvio + iso_luku/100;
-                }
-            }
-            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
-                if (merkki == 'x') {
-                    return iso_luku/1000;
-                } else {
-                    return -iso_luku/1000;
-                }
-            }
-            if (arvo % 10 == 2) {
-                if (merkki == 'x') {
-                    arvio = arvio + 2*arvo;
-                } else {
-                    arvio = arvio - 2*arvo;
-                }
-            }
-            if (arvo % 10 == 1) {
-                if (merkki == 'x') {
-                    arvio = arvio + arvo;
-                } else {
-                    arvio = arvio - arvo;
-                }
-            }
-        }
+        arvio = arvio + pisteytaSuora(arvo, merkki);
+        
         return arvio;
     }
 
