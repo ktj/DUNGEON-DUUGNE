@@ -80,6 +80,13 @@ public class Arvioija {
                     arvio = arvio + iso_luku/100;
                 }
             }
+            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
+                if (merkki == 'x') {
+                    return iso_luku/1000;
+                } else {
+                    return -iso_luku/1000;
+                }
+            }
             if (arvo % 10 == 2) {
                 if (merkki == 'x') {
                     arvio = arvio + 2*arvo;
@@ -116,6 +123,13 @@ public class Arvioija {
                     arvio = arvio + iso_luku/100;
                 } else {
                     arvio = arvio + iso_luku/100;
+                }
+            }
+            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
+                if (merkki == 'x') {
+                    return iso_luku/1000;
+                } else {
+                    return -iso_luku/1000;
                 }
             }
             if (arvo % 10 == 2) {
@@ -156,6 +170,13 @@ public class Arvioija {
                     arvio = arvio + iso_luku/100;
                 }
             }
+            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
+                if (merkki == 'x') {
+                    return iso_luku/1000;
+                } else {
+                    return -iso_luku/1000;
+                }
+            }
             if (arvo % 10 == 2) {
                 if (merkki == 'x') {
                     arvio = arvio + 2*arvo;
@@ -192,6 +213,13 @@ public class Arvioija {
                     arvio = arvio + iso_luku/100;
                 } else {
                     arvio = arvio + iso_luku/100;
+                }
+            }
+            if(arvo >=(voittoRivinPituus - 3)*merkinArvo + tyhjanArvo*2){
+                if (merkki == 'x') {
+                    return iso_luku/1000;
+                } else {
+                    return -iso_luku/1000;
                 }
             }
             if (arvo % 10 == 2) {
