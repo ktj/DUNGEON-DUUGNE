@@ -35,8 +35,8 @@ public class MinMax {
         if (onkovalmis(alusta)) {
             return alusta;
         }
-        return moniajoMax(puu);
-//       return yksiajoMax(puu);
+//        return moniajoMax(puu);
+        return yksiajoMax(puu);
     }
 
     public Alusta aloitaMin(Puu puu) {
@@ -44,8 +44,8 @@ public class MinMax {
         if (onkovalmis(alusta)) {
             return alusta;
         }
-        return moniajoMin(puu);
-//        return yksiajoMin(puu);
+//        return moniajoMin(puu);
+        return yksiajoMin(puu);
     }
 
     private Alusta moniajoMin(Puu puu) throws RuntimeException {
@@ -54,9 +54,8 @@ public class MinMax {
         ArrayList<Future<Tuple<Integer, Alusta>>> futures = new ArrayList<Future<Tuple<Integer, Alusta>>>();
         for (final Puu lapsi : puu.haeLapset()) {
             Callable<Tuple<Integer, Alusta>> callable = new Callable<Tuple<Integer, Alusta>>() {
-
                 public Tuple<Integer, Alusta> call() throws Exception {
-                    int arvo = maksimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
+                    int arvo = maksimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE, 1);
                     return new Tuple<Integer, Alusta>(arvo, lapsi.haeAlusta());
                 }
             };
@@ -72,7 +71,7 @@ public class MinMax {
         int lapsenarvo;
 
         for (Future<Tuple<Integer, Alusta>> lapsi : futures) {
-            
+
             try {
                 tuple = lapsi.get();
             } catch (Exception ex) {
@@ -98,9 +97,8 @@ public class MinMax {
         ArrayList<Future<Tuple<Integer, Alusta>>> futures = new ArrayList<Future<Tuple<Integer, Alusta>>>();
         for (final Puu lapsi : puu.haeLapset()) {
             Callable<Tuple<Integer, Alusta>> callable = new Callable<Tuple<Integer, Alusta>>() {
-
                 public Tuple<Integer, Alusta> call() throws Exception {
-                    int arvo = minimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE);
+                    int arvo = minimi(lapsi, Integer.MIN_VALUE, Integer.MAX_VALUE, 1);
                     return new Tuple<Integer, Alusta>(arvo, lapsi.haeAlusta());
                 }
             };
@@ -144,11 +142,8 @@ public class MinMax {
         int alfa = Integer.MIN_VALUE;
         int beta = Integer.MAX_VALUE;
 
-//        Collections.sort(puu.haeLapset());
-//        Collections.reverse(puu.haeLapset());
-
         for (Puu lapsi : puu.haeLapset()) {
-            lapsenarvo = maksimi(lapsi, alfa, beta);
+            lapsenarvo = maksimi(lapsi, alfa, beta, 1);
             if (lapsenarvo < v || !paivitetty) {
                 pienin = lapsi.haeAlusta();
                 v = lapsenarvo;
@@ -171,10 +166,10 @@ public class MinMax {
         int alfa = Integer.MIN_VALUE;
         int beta = Integer.MAX_VALUE;
 
-//        Collections.sort(puu.haeLapset());
 
         for (Puu lapsi : puu.haeLapset()) {
-            lapsenarvo = minimi(lapsi, alfa, beta);
+
+            lapsenarvo = minimi(lapsi, alfa, beta, 1);
             if (lapsenarvo > v || !paivitetty) {
                 suurin = lapsi.haeAlusta();
                 v = lapsenarvo;
@@ -184,7 +179,9 @@ public class MinMax {
                 break;
             }
             alfa = Math.max(alfa, v);
+            System.out.println("minimi: " + v);
         }
+        System.out.println("Valittu:" + v);
         return suurin;
     }
 
@@ -193,49 +190,46 @@ public class MinMax {
         return (alusta.onkoLautaTaynna() || ratkaisuarvo != 0);
     }
 
-    private int maksimi(Puu puu, int alfa, int beta) {
+    private int maksimi(Puu puu, int alfa, int beta, int taso) {
         Alusta alusta = puu.haeAlusta();
         int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
         if (onkovalmis(alusta)) {
-            return ratkaisuarvo;
+            return ratkaisuarvo / taso;
         }
         int v = Integer.MIN_VALUE;
-
-//        Collections.sort(puu.haeLapset());
-//        Collections.reverse(puu.haeLapset());
+        ;
 
         for (Puu lapsi : puu.haeLapset()) {
-            v = Math.max(v, minimi(lapsi, alfa, beta));
+            v = Math.max(v, minimi(lapsi, alfa, beta, taso++));
             if (v >= beta) {
                 return v;
             }
             alfa = Math.max(alfa, v);
         }
         if (puu.haeLapset().isEmpty()) {
-            v = alusta.getArvio();
+            v = alusta.getArvio() / taso;
         }
         return v;
     }
 
-    private int minimi(Puu puu, int alfa, int beta) {
+    private int minimi(Puu puu, int alfa, int beta, int taso) {
         Alusta alusta = puu.haeAlusta();
         int ratkaisuarvo = ratkaisija.etsiVoitto(alusta);
         if (alusta.onkoLautaTaynna() || ratkaisuarvo != 0) {
-            return ratkaisuarvo;
+            return ratkaisuarvo  / taso;
         }
         int v = Integer.MAX_VALUE;
 
-//        Collections.sort(puu.haeLapset());
 
         for (Puu lapsi : puu.haeLapset()) {
-            v = Math.min(v, maksimi(lapsi, alfa, beta));
+            v = Math.min(v, maksimi(lapsi, alfa, beta, taso++));
             if (v <= alfa) {
                 return v;
             }
             beta = Math.min(beta, v);
         }
         if (puu.haeLapset().isEmpty()) {
-            v = alusta.getArvio();
+            v = alusta.getArvio() / taso;
         }
         return v;
     }

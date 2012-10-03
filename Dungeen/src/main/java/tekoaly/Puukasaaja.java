@@ -12,6 +12,7 @@ public class Puukasaaja {
 
     /**
      * Kasaa puun parametrinä annestusta alustasta lähtien.
+     *
      * @param alusta Juuri
      * @param merkki Ensimmäinen laitettava merkki, eli kumman vuoro
      * @param maksimitaso Kuinka pitkälle mennään
@@ -19,6 +20,7 @@ public class Puukasaaja {
      */
     public Puu kasaaPuu(Alusta alusta, char merkki, int maksimitaso) {
         arvioija.arvioiAlusta(alusta);
+        System.out.println("kasaapuu arvio: " + alusta.getArvio());
         Puu puu = new Puu(alusta);
         if (maksimitaso < 1) {
             return puu;
@@ -28,6 +30,7 @@ public class Puukasaaja {
 
     /**
      * Itse puun kasaus, kutsuu rekursiivisesti itseään puun pohjalle saakka
+     *
      * @param parent Vanhempi solmu
      * @param merkki laitettava merkki, vaihtuu vuorottain
      * @param taso Nykyinen taso
@@ -37,8 +40,8 @@ public class Puukasaaja {
     private Puu kasaaLapset(Puu parent, char merkki, int taso, int maksimitaso) {
         etsiVaihtoehdot(parent, merkki);
         int seurtaso = taso + 1;
-        for (Puu lapsi : parent.haeLapset()) {
-            if (taso < maksimitaso) {
+        if (taso < maksimitaso) {
+            for (Puu lapsi : parent.haeLapset()) {
                 kasaaLapset(lapsi, negaatio(merkki), seurtaso, maksimitaso);
             }
         }
@@ -54,7 +57,9 @@ public class Puukasaaja {
     }
 
     /**
-     * Etsii kaikki mahdolliset vaihtoehdot eli lapset puulle ja karsii niitä. Etsii ainoastaa yhden tason lapsia. 
+     * Etsii kaikki mahdolliset vaihtoehdot eli lapset puulle ja karsii niitä.
+     * Etsii ainoastaa yhden tason lapsia.
+     *
      * @param parent Juuri
      * @param merkki laitettava merkki
      */
@@ -79,6 +84,7 @@ public class Puukasaaja {
 
     /**
      * Katsoo onko vaihtoehto suotuisampi kuin edellinen siirto.
+     *
      * @param parent Edellinen siirto
      * @param alustaklooni verrattava vaihtoehto
      * @param merkki asetettava merkki
@@ -94,6 +100,7 @@ public class Puukasaaja {
 
     /**
      * Karsii kaikki ruudut, joiden ympärillä ei ole muita merkkejä
+     *
      * @param alusta
      * @param x x-koordinaatti
      * @param y y-koordinaatti
@@ -104,7 +111,7 @@ public class Puukasaaja {
         }
         for (int k = y - 1; k <= y + 1; k++) {
             for (int l = x - 1; l <= x + 1; l++) {
-                if (!alusta.onkoTyhja(l, k) || alusta.onkoLautaTyhja()) {
+                if (!alusta.onkoTyhjaTaiSeina(l, k) || alusta.onkoLautaTyhja()) {
                     return true;
                 }
             }

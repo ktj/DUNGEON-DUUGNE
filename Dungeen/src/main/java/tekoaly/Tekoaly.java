@@ -30,7 +30,6 @@ public class Tekoaly implements Pelaaja {
 
         }
         ui.tulostaAlusta(siirto);
-        System.out.println(siirto.getArvio());
         return siirto;
     }
 

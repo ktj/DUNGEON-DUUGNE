@@ -12,37 +12,51 @@ public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {
 
-        Alusta alusta = new Alusta(10, 5 );
+        Alusta alusta = new Alusta(10, 5);
         Ratkaisija ratkaisija = new Ratkaisija();
         Graafinenkayttoliittyma gui = new Graafinenkayttoliittyma();
         Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();
         Pelaaja pelaaja1 = new Ihmispelaaja(gui);
         Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija, new Arvioija()), new Puukasaaja(new Arvioija()), gui);
 
-        Peli peli = new Peli(alusta, ratkaisija, pelaaja1, pelaaja2);
+        Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja1);
         peli.aloita();
-        
-        
-        
-        
-//        alusta.lisaaMerkkiLaudalle(5, 5, 'x');
+
+
+
+
+//        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
+//        alusta.lisaaMerkkiLaudalle(2, 2, 'o');
+//        alusta.lisaaMerkkiLaudalle(3, 3, 'o');
+//        alusta.lisaaMerkkiLaudalle(0, 0, 'o');
+        alusta.lisaaMerkkiLaudalle(4, 4, 'x');
+//        alusta.lisaaMerkkiLaudalle(3, 5, 'x');
+//        alusta.lisaaMerkkiLaudalle(3, 6, 'x');
+//        alusta.lisaaMerkkiLaudalle(3, 7, 'x');
+//        alusta.lisaaMerkkiLaudalle(4, 5, 'x');
 //        alusta.lisaaMerkkiLaudalle(5, 6, 'x');
-//        alusta.lisaaMerkkiLaudalle(5, 7, 'x');
-//        alusta.lisaaMerkkiLaudalle(5, 8, 'x');
-//        alusta.lisaaMerkkiLaudalle(5, 4, 'o');
-//        alusta.lisaaMerkkiLaudalle(4, 5, 'o');
-//        alusta.lisaaMerkkiLaudalle(4, 6, 'o');
+//        alusta.lisaaMerkkiLaudalle(5, 5, 'o');
+//        alusta.lisaaMerkkiLaudalle(6, 7, 'o');
+//        System.out.println(alusta.onkoTyhja(5, 5));
+//        System.out.println(alusta.lueMerkki(5, 5));
+//        System.out.println("asd ("+alusta.lueMerkki(-1, 4) + ")");
+//        System.out.println(alusta.tarkistaKoordinaatit(-1, 4));
+        
+        
+        alusta.tulostaAlusta();
+
+
 //        //alusta.lisaaMerkkiLaudalle(3, 4, 'o');
 //        //alusta.lisaaMerkkiLaudalle(5, 9, 'o');
 //        Puukasaaja puukasaaja = new Puukasaaja(new Arvioija());
 //        Puu puu;
 //        tulostaPuu(puukasaaja.kasaaPuu(alusta, 'x', 1));
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
 //        alusta.lisaaMerkkiLaudalle(0, 0, 'x');
 //        alusta.lisaaMerkkiLaudalle(0, 1, 'o');
 //        alusta.tulostaAlusta();
@@ -65,14 +79,24 @@ public class DUNGEONDUUGNE {
 
 //
 //
-//        Arvioija arvioija = new Arvioija();
+        Arvioija arvioija = new Arvioija();
+        arvioija.arvioiAlusta(alusta);
+        System.out.println(alusta.getArvio());
 //
+//        alusta.lisaaMerkkiLaudalle(3, 8, 'o');
+//
+//        arvioija.arvioiAlusta(alusta);
+//        alusta.tulostaAlusta();
+//        System.out.println(alusta.getArvio());
+//        
+
+
 //        Puukasaaja kasaaja = new Puukasaaja(new Arvioija());
-//        Puu puu = kasaaja.kasaaPuu(alusta, 'o', 100);
+//        Puu puu = kasaaja.kasaaPuu(alusta, 'o', 1);
 //        tulostaPuu(puu);
-        
-        
-        
+
+
+
 //        MinMax minmax = new MinMax(new Ratkaisija(), new Arvioija());
 
 //        Alusta alusta2 = minmax.aloitaMin(puu);

@@ -3,6 +3,7 @@ package main;
 import logiikka.Alusta;
 import logiikka.Pelaaja;
 import logiikka.Ratkaisija;
+import tekoaly.Arvioija;
 
 public class Peli {
 
@@ -29,7 +30,11 @@ public class Peli {
             }
             ratkasu = ratkaisija.etsiVoitto(alusta);
         } while (ratkasu == 0 && !alusta.onkoLautaTaynna());
-
+        
+        Arvioija arv = new Arvioija();
+        arv.arvioiAlusta(alusta);
+        System.out.println("Pelin loppu! " + alusta.getArvio());
+        
         if (ratkasu > 0) {
             pelaaja1.ilmoitaVoitto('X');
         } else if (ratkasu < 0) {

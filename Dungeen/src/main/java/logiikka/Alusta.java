@@ -62,6 +62,10 @@ public class Alusta {
      * @return True tai False tilanteen mukaan
      */
     public boolean onkoTyhja(int x, int y) {
+        return lueMerkki(x, y) == ' ';
+    }
+    
+    public boolean onkoTyhjaTaiSeina(int x, int y) {
         return (lueMerkki(x, y) == ' ' || lueMerkki(x, y) == 'z');
     }
 
