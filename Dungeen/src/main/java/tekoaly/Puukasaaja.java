@@ -20,7 +20,7 @@ public class Puukasaaja {
      */
     public Puu kasaaPuu(Alusta alusta, char merkki, int maksimitaso) {
         arvioija.arvioiAlusta(alusta);
-        System.out.println("kasaapuu arvio: " + alusta.getArvio());
+//        System.out.println("kasaapuu arvio: " + alusta.getArvio());
         Puu puu = new Puu(alusta);
         if (maksimitaso < 1) {
             return puu;

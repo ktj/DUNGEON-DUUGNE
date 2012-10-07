@@ -66,7 +66,7 @@ public class Arvioija {
                 if (merkki == 'x') {
                     return iso_luku / 100;
                 } else {
-                    return iso_luku / 100;
+                    return -iso_luku / 100;
                 }
             }
             if (arvo >= (voittoRivinPituus - 3) * merkinArvo + tyhjanArvo * 2) {

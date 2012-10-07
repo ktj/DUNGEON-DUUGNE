@@ -17,7 +17,7 @@ public class DUNGEONDUUGNE {
         Graafinenkayttoliittyma gui = new Graafinenkayttoliittyma();
         Tekstikayttoliittyma tekstikäli = new Tekstikayttoliittyma();
         Pelaaja pelaaja1 = new Ihmispelaaja(gui);
-        Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija, new Arvioija()), new Puukasaaja(new Arvioija()), gui);
+        Pelaaja pelaaja2 = new Tekoaly(new MinMax(ratkaisija), new Puukasaaja(new Arvioija()), gui);
 
         Peli peli = new Peli(alusta, ratkaisija, pelaaja2, pelaaja1);
         peli.aloita();
@@ -25,16 +25,16 @@ public class DUNGEONDUUGNE {
 
 
 
-//        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
-//        alusta.lisaaMerkkiLaudalle(2, 2, 'o');
-//        alusta.lisaaMerkkiLaudalle(3, 3, 'o');
-//        alusta.lisaaMerkkiLaudalle(0, 0, 'o');
+        alusta.lisaaMerkkiLaudalle(1, 1, 'o');
+        alusta.lisaaMerkkiLaudalle(2, 2, 'o');
+        alusta.lisaaMerkkiLaudalle(3, 3, 'o');
+        alusta.lisaaMerkkiLaudalle(0, 0, 'o');
         alusta.lisaaMerkkiLaudalle(4, 4, 'x');
-//        alusta.lisaaMerkkiLaudalle(3, 5, 'x');
-//        alusta.lisaaMerkkiLaudalle(3, 6, 'x');
-//        alusta.lisaaMerkkiLaudalle(3, 7, 'x');
-//        alusta.lisaaMerkkiLaudalle(4, 5, 'x');
-//        alusta.lisaaMerkkiLaudalle(5, 6, 'x');
+        alusta.lisaaMerkkiLaudalle(3, 5, 'x');
+        alusta.lisaaMerkkiLaudalle(3, 6, 'x');
+        alusta.lisaaMerkkiLaudalle(3, 7, 'x');
+        alusta.lisaaMerkkiLaudalle(4, 5, 'x');
+        alusta.lisaaMerkkiLaudalle(5, 6, 'x');
 //        alusta.lisaaMerkkiLaudalle(5, 5, 'o');
 //        alusta.lisaaMerkkiLaudalle(6, 7, 'o');
 //        System.out.println(alusta.onkoTyhja(5, 5));

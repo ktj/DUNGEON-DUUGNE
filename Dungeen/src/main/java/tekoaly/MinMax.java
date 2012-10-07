@@ -12,11 +12,9 @@ import logiikka.Ratkaisija;
 public class MinMax {
 
     private Ratkaisija ratkaisija;
-    private Arvioija arvioija;
 
-    public MinMax(Ratkaisija ratkaisija, Arvioija arvioija) {
+    public MinMax(Ratkaisija ratkaisija) {
         this.ratkaisija = ratkaisija;
-        this.arvioija = arvioija;
     }
 
     private class Tuple<X, Y> {
@@ -168,7 +166,9 @@ public class MinMax {
 
 
         for (Puu lapsi : puu.haeLapset()) {
-
+//            System.out.println("***");
+//            lapsi.haeAlusta().tulostaAlusta();
+//            System.out.println("***");
             lapsenarvo = minimi(lapsi, alfa, beta, 1);
             if (lapsenarvo > v || !paivitetty) {
                 suurin = lapsi.haeAlusta();
@@ -179,9 +179,9 @@ public class MinMax {
                 break;
             }
             alfa = Math.max(alfa, v);
-            System.out.println("minimi: " + v);
+//            System.out.println("minimi: " + v);
         }
-        System.out.println("Valittu:" + v);
+//        System.out.println("Valittu:" + v);
         return suurin;
     }
 
