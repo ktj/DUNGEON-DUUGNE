@@ -64,6 +64,7 @@ public class MinMaxTest {
 
         Alusta tulos = minmaxoikea.aloitaMin(kasattu);
         alusta10.lisaaMerkkiLaudalle(1, 6, 'o');
+//        tulos.tulostaAlusta();
 
         onkoSamat(alusta10, tulos);
     }
