@@ -45,7 +45,26 @@ public class Arvioija {
         alusta.setArvio(arvio);
         return arvio;
     }
-
+/**
+ * Saa parametrinä arvon, josta tulkitaan suoran lopullinen pisteytys.
+ * Suoran pituus on kymmenissä ja lopussa oleva luku 0,1 tai 2 kertoo kuinka
+ * monta tyhjää suoran päissä on. Arvo xy tulkitaan siis x+1 on suoran pituus
+ * ja y on tyhjien määrä. 32 tarkoittaa silloin neljän suora ja molemmissa päissä
+ * tyhjää. Mikäli suora on alle voittorivin pituinen ja molemmat päät on tukittu,
+ * niin suora on arvoton.
+ * Tällä hetkellä arvot ovat esim 5 suora pelissä seuraavat:
+ * Viiden suora tai pidempi(tyhjillä ei merkitystä) = iso_luku
+ * Neljän suora, molemmat päät tyhjät = iso_luku/10
+ * Neljän suora, yksi tyhjä = iso_luku/100
+ * Kolmen suora, molemmat päät tyhjät = iso_luku/1000
+ * Pienemmät suorat, molemmat päät tyhjiä = arvo*2
+ * Kolme tai pienempi suora, yksi tyhjä = arvo
+ * Muuten 0
+ * 
+ * @param arvo tulkittava arvo
+ * @param merkki x tai o eli + tai -
+ * @return suoran lopullinen arvo.
+ */
     private int pisteytaSuora(int arvo, char merkki) {
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * merkinArvo) {
@@ -99,16 +118,22 @@ public class Arvioija {
     /**
      * Saa jonkin pisteen ja tarkistaa siitä kaikki siitä lähtevät suorat ja
      * antaa pisteelle sen mukaan arvion.
-     *
+     * Tarkistettavat suunnat ovat 
+     * oikealle (+tyhjän tarkistus vasemmalta puolelta)
+     * alas (+tyhjän tarkistus ylös)
+     * oikealle alas(+...)
+     * vasemmalle alas(+..)
      * @param x x koordinaatti
      * @param y y koordinaatti
-     * @return tietysti pisteestä lähtevien suorien arviot
+     * @return tietysti pisteestä lähtevien suorien arviot yhteensä.
      */
     private int arvioiSuora(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
         int arvo;
         int arvio = 0;
+        //Tarkistaa pisteestä oikealle lähtevän suoran pituuden ja lisää siihen mahdollisen tyhjän arvon suoran vasemmalta puolelta.
         arvo = tarkistaVasemmalle(x, y) + tarkistaOikealle(x, y, merkki);
+        //Antaa arvon lopulliseen pisteytykseen ja lisää sen pisteen kokonais arvioon.
         arvio = arvio + pisteytaSuora(arvo, merkki);
 
         arvo = tarkistaYlos(x, y) + tarkistaAlas(x, y, merkki);

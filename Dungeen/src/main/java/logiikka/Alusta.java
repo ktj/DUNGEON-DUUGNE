@@ -44,7 +44,7 @@ public class Alusta {
     }
 
     /**
-     * Tyhjää laudan, asettaa välilyönnin jokaiseen ruutuun.
+     * Tyhjää laudan, asettaa välilyönnin jokaiseen ruutuun ja nollaa käytetyn tilan.
      */
     public void tyhjaaLauta() {
         for (int i = 0; i < this.koko; i++) {
@@ -64,7 +64,12 @@ public class Alusta {
     public boolean onkoTyhja(int x, int y) {
         return lueMerkki(x, y) == ' ';
     }
-    
+    /**
+     * Tarkistaa onko tyhjä tai seinä.
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
+     * @return True tai False tilanteen mukaan
+     */
     public boolean onkoTyhjaTaiSeina(int x, int y) {
         return (lueMerkki(x, y) == ' ' || lueMerkki(x, y) == 'z');
     }
@@ -83,7 +88,8 @@ public class Alusta {
     }
 
     /**
-     * Lukee merkin kohdasta, mikäli koordinaatit ovat pätevät
+     * Lukee merkin kohdasta mikäli koordinaatit ovat pätevät, muuten palauttaa
+     * "seinän".
      * @param x x-koordinaatti
      * @param y y-koordinaatti
      * @return kohdassa olevan merkin
