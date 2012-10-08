@@ -10,12 +10,25 @@ public class Tekoaly implements Pelaaja {
     private Puukasaaja kasaaja;
     private Kayttoliittyma ui;
 
+    /**
+     * Tekoäly luokka joka hallinnoi tekoälyyn liittyviä luokki
+     * @param minmax MinMax luoka
+     * @param kasaaja Pelipuun kasaajaluokka
+     * @param ui Käyttöliittymä tulostusta varten.
+     */
     public Tekoaly(MinMax minmax, Puukasaaja kasaaja, Kayttoliittyma ui) {
         this.minmax = minmax;
         this.kasaaja = kasaaja;
         this.ui = ui;
     }
 
+    /**
+     * Kysytään seuraava siirto
+     * Ensin kasataan puu nykyisestä tilanteesta, minkä jälkeen puu annetaan minmaxille, mikä laskee parhaimman siirron
+     * @param alusta Nykyinen pelitilanne
+     * @param merkki Laitettava merkki
+     * @return Tehty siirto
+     */
     public Alusta seuraavaSiirto(Alusta alusta, char merkki) {
 
         Puu puu;

@@ -12,6 +12,10 @@ public class MinMax {
 
     private Ratkaisija ratkaisija;
 
+    /**
+     * Minmax luokka, joka laskee optimaalisimman reitin voittoon käyttäen arvioita hyväkseen.
+     * @param ratkaisija Ratkaisija pelitilanteen päättymisen tarkastamiseksi.
+     */
     public MinMax(Ratkaisija ratkaisija) {
         this.ratkaisija = ratkaisija;
     }

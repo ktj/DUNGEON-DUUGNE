@@ -20,6 +20,9 @@ public class Arvioija {
     int seina = 0;
     int iso_luku = 1000000;
 
+    /**
+     * Arvioija luokka, mikä arvioi nykyisen tilanteen ja antaa sille luvun.
+     */
     public Arvioija() {
     }
 

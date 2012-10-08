@@ -12,6 +12,13 @@ public class Peli {
     Alusta alusta;
     Ratkaisija ratkaisija;
 
+    /**
+     * Pelin pyörittäjäluokka. Kutsuu pelaajilta siirtoja ja pitää tallessa nykyistä pelitilannetta
+     * @param alusta Aloitettava pelilauta
+     * @param ratkaisija Ratkaisija pelitilanteen päättymisen tarkastamista varten.
+     * @param pelaaja1 1. Pelaaja
+     * @param pelaaja2 2. Pelaaja
+     */
     public Peli(Alusta alusta, Ratkaisija ratkaisija, Pelaaja pelaaja1, Pelaaja pelaaja2) {
         this.alusta = alusta;
         this.ratkaisija = ratkaisija;
@@ -19,9 +26,14 @@ public class Peli {
         this.pelaaja2 = pelaaja2;
     }
 
+    /**
+     * Käynnistää pelin ja kysyy vuorotellen pelaajilta siirtoja kunnes peli on päättynyt, jolloin voittoilmoitus annetaan toiselle pelaajalle.
+     */
     public void aloita() {
         alusta.tyhjaaLauta();
         int ratkasu = 0;
+
+
         do {
             alusta = pelaaja1.seuraavaSiirto(alusta, 'x');
             ratkasu = ratkaisija.etsiVoitto(alusta);
@@ -30,11 +42,10 @@ public class Peli {
             }
             ratkasu = ratkaisija.etsiVoitto(alusta);
         } while (ratkasu == 0 && !alusta.onkoLautaTaynna());
-        
+
         Arvioija arv = new Arvioija();
         arv.arvioiAlusta(alusta);
-        System.out.println("Pelin loppu! " + alusta.getArvio());
-        
+
         if (ratkasu > 0) {
             pelaaja1.ilmoitaVoitto('X');
         } else if (ratkasu < 0) {
@@ -42,6 +53,7 @@ public class Peli {
         } else {
             pelaaja1.ilmoitaVoitto('t');
         }
+        System.exit(0);
 
     }
 }

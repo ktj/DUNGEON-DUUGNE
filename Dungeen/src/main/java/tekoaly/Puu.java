@@ -2,14 +2,16 @@ package tekoaly;
 
 import logiikka.Alusta;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Puu implements Iterable<Puu>, Comparable<Puu> {
 
     private Joukko lapset;
     private Alusta alusta;
 
+    /**
+     * Pelipuun tietorakenne. Joko juuri, solmu tai lehti tilanteen mukaan.
+     * @param alusta Solmun arvo alustana, eli tietty pelitilanne.
+     */
     public Puu(Alusta alusta) {
         lapset = new Joukko(alusta.tyhjaaTilaa());
         this.alusta = alusta;

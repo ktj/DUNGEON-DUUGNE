@@ -7,6 +7,9 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
 
     Scanner lukija;
 
+    /**
+     * Pieni apukäyttöliittymä, mikäli graafisessa on jotain vikaa
+     */
     public Tekstikayttoliittyma() {
         lukija = new Scanner(System.in);
     }
