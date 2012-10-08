@@ -12,6 +12,11 @@ public class Ratkaisija {
     public Ratkaisija() {
     }
 
+    /**
+     * Katsoo kaikista laudan eityhjistä merkistä eri suuntiin, onko samaa merkkiä voittorivin verran
+     * @param alusta Nykyinen pelitilanne
+     * @return arvon tilanteesta; max int jos x:n voitto, min int jos o:n voitto ja 0 jos tasapeli
+     */
     public int etsiVoitto(Alusta alusta) {
         this.alusta = alusta;
         this.voittoRivinPituus = alusta.getVoittorivinpituus();
@@ -33,6 +38,12 @@ public class Ratkaisija {
         return 0;
     }
 
+    /**
+     * Apumetodi joka kutsuu kaikkii relevantteihin suuntiin löytyykö voittoriviä tietystä koordinaatista
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
+     * @return True jos voittorivi löytyi, false muuten.
+     */
     private boolean tarkistaRuutu(int x, int y) {
         char merkki = alusta.lueMerkki(x, y);
         if ((1 + tarkistaOikealle(x, y, merkki)) >= this.voittoRivinPituus) {
