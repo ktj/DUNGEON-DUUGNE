@@ -5,6 +5,10 @@ import logiikka.Pelaaja;
 import logiikka.Ratkaisija;
 import tekoaly.Arvioija;
 
+/**
+ * Pelin pyörittäjäluokka. Kutsuu pelaajilta siirtoja ja pitää tallessa nykyistä pelitilannetta
+ * @author n9clip
+ */
 public class Peli {
 
     Pelaaja pelaaja1;
@@ -13,7 +17,6 @@ public class Peli {
     Ratkaisija ratkaisija;
 
     /**
-     * Pelin pyörittäjäluokka. Kutsuu pelaajilta siirtoja ja pitää tallessa nykyistä pelitilannetta
      * @param alusta Aloitettava pelilauta
      * @param ratkaisija Ratkaisija pelitilanteen päättymisen tarkastamista varten.
      * @param pelaaja1 1. Pelaaja

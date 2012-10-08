@@ -7,6 +7,9 @@ import logiikka.Pelaaja;
 import logiikka.Ratkaisija;
 import tekoaly.*;
 
+/**
+ * Main-luokka, pelin asetukset asetetaan ja käynnistetään täältä
+ */
 public class DUNGEONDUUGNE {
 
     public static void main(String[] args) {

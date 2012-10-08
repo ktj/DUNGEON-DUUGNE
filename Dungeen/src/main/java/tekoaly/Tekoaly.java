@@ -4,6 +4,9 @@ import kayttoliittyma.Kayttoliittyma;
 import logiikka.Alusta;
 import logiikka.Pelaaja;
 
+/**
+ * Tekoäly luokka joka hallinnoi tekoälyyn liittyviä luokki
+ */
 public class Tekoaly implements Pelaaja {
 
     private MinMax minmax;
@@ -11,7 +14,6 @@ public class Tekoaly implements Pelaaja {
     private Kayttoliittyma ui;
 
     /**
-     * Tekoäly luokka joka hallinnoi tekoälyyn liittyviä luokki
      * @param minmax MinMax luoka
      * @param kasaaja Pelipuun kasaajaluokka
      * @param ui Käyttöliittymä tulostusta varten.

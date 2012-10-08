@@ -3,13 +3,13 @@ package kayttoliittyma;
 import logiikka.Alusta;
 import java.util.Scanner;
 
+/**
+ * Pieni apukäyttöliittymä, mikäli graafisessa on jotain vikaa
+ */
 public class Tekstikayttoliittyma implements Kayttoliittyma {
 
     Scanner lukija;
 
-    /**
-     * Pieni apukäyttöliittymä, mikäli graafisessa on jotain vikaa
-     */
     public Tekstikayttoliittyma() {
         lukija = new Scanner(System.in);
     }

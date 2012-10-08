@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
-
+/**
+ * Yksittäinen ruutu laudalla. Kuuluu graafiseen käyttöliittymään
+ * @author n9clip
+ */
 public class Ruutu extends JPanel {
 
     private char merkki;
@@ -13,7 +16,6 @@ public class Ruutu extends JPanel {
     public final int y;
 
     /**
-     * Yksittäinen ruutu laudalla. Kuuluu graafiseen käyttöliittymään
      * @param merkki ruudun merkki
      * @param x x-koordinaatti laudalla
      * @param y y-koordinaatti laudalla
@@ -26,12 +28,11 @@ public class Ruutu extends JPanel {
 
     /**
      * Piirtää x:n tai o:n konstruktorissa annetun merkin perusteella annettuihin koordinaatteihin
-     * @param graphics 
      */
     @Override
     protected void paintComponent(Graphics graphics) {
         Graphics2D g2 = (Graphics2D) graphics;
-        super.paintComponents(g2);
+//        super.paintComponents(g2);
         g2.setStroke(new BasicStroke(2));
         if (merkki == 'o') {
             g2.setColor(new Color(205, 133, 0));

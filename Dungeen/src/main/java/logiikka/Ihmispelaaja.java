@@ -2,6 +2,9 @@ package logiikka;
 
 import kayttoliittyma.Kayttoliittyma;
 
+/**
+ * Ihmispelaaja, eli pelaaja, jonka siirrot kysytään käyttäjältä.
+ */
 public class Ihmispelaaja implements Pelaaja {
 
     Kayttoliittyma UI;

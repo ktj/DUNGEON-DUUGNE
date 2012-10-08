@@ -2,6 +2,9 @@ package kayttoliittyma;
 
 import logiikka.Alusta;
 
+/**
+ * Rajapinta käyttöliittymiä varten
+ */
 public interface Kayttoliittyma {
 
     public void tulostaAlusta(Alusta alusta);

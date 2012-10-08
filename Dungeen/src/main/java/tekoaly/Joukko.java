@@ -3,16 +3,15 @@ package tekoaly;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * Oma tietorakenne, mikä pitää tallessa puun solmujen lapsia.
+ */
 public class Joukko implements Iterable<Puu> {
 
     private Puu[] puut;
     private int tilaa;
     private int koko;
 
-    /**
-     * Oma tietorakenne, mikä pitää tallessa puun solmujen lapsia.
-     * @param koko Lapsien määrä
-     */
     public Joukko(int koko) {
         this.puut = new Puu[koko];
         tilaa = koko;
@@ -57,6 +56,7 @@ public class Joukko implements Iterable<Puu> {
      */
     public Iterator<Puu> iterator() {
         return new Iterator<Puu>() {
+
             private int i = 0;
 
             public boolean hasNext() {

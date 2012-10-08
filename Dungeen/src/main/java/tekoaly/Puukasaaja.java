@@ -2,6 +2,10 @@ package tekoaly;
 
 import logiikka.Alusta;
 
+/**
+ * Kasaa pelipuun tietystä tilanteesta lähtien.
+ * Karsii myös vaihtoehtoja.
+ */
 public class Puukasaaja {
 
     private Arvioija arvioija;

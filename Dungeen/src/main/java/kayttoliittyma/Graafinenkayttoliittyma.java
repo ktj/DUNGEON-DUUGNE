@@ -22,6 +22,9 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import logiikka.Alusta;
 
+/**
+ * Graafinen käyttöliittymä!
+ */
 public class Graafinenkayttoliittyma implements Kayttoliittyma {
 
     private JFrame frame;

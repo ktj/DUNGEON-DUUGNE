@@ -1,8 +1,7 @@
 package logiikka;
 
 /**
- *
- * @author qq
+ * Ratkaisija-luokka, minkä avulla voidaan tarkistaa onko pelissä voittorivi olemassa.
  */
 public class Ratkaisija {
 

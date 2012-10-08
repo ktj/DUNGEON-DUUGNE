@@ -7,30 +7,24 @@ package tekoaly;
 import logiikka.Alusta;
 
 /**
- *
- * @author qq
+ * Arvioija luokka, mikä arvioi nykyisen tilanteen ja antaa sille luvun.
  */
 public class Arvioija {
 
-    int voittoRivinPituus;
-    Alusta alusta;
-    final int merkinArvo = 10;
-    final int tyhjanArvo = 1;
-    int minimiArvo = 10;
-    int seina = 0;
-    int iso_luku = 1000000;
+    private int voittoRivinPituus;
+    private Alusta alusta;
+    private final int merkinArvo = 10;
+    private final int tyhjanArvo = 1;
+    private int minimiArvo = 10;
+    private int seina = 0;
+    private int iso_luku = 1000000;
 
-    /**
-     * Arvioija luokka, mikä arvioi nykyisen tilanteen ja antaa sille luvun.
-     */
     public Arvioija() {
     }
 
     /**
-     *
      * @param alusta Arvioitava alusta
-     * @return palauttaa arvion alustasta posiitivinen tarkoittaa hyvää x:lle ja
-     * negatiivinen hyvää oo:lle
+     * @return palauttaa arvion alustasta posiitivinen tarkoittaa hyvää x:lle ja negatiivinen hyvää oo:lle
      */
     public int arvioiAlusta(Alusta alusta) {
         this.alusta = alusta;
@@ -48,26 +42,27 @@ public class Arvioija {
         alusta.setArvio(arvio);
         return arvio;
     }
-/**
- * Saa parametrinä arvon, josta tulkitaan suoran lopullinen pisteytys.
- * Suoran pituus on kymmenissä ja lopussa oleva luku 0,1 tai 2 kertoo kuinka
- * monta tyhjää suoran päissä on. Arvo xy tulkitaan siis x+1 on suoran pituus
- * ja y on tyhjien määrä. 32 tarkoittaa silloin neljän suora ja molemmissa päissä
- * tyhjää. Mikäli suora on alle voittorivin pituinen ja molemmat päät on tukittu,
- * niin suora on arvoton.
- * Tällä hetkellä arvot ovat esim 5 suora pelissä seuraavat:
- * Viiden suora tai pidempi(tyhjillä ei merkitystä) = iso_luku
- * Neljän suora, molemmat päät tyhjät = iso_luku/10
- * Neljän suora, yksi tyhjä = iso_luku/100
- * Kolmen suora, molemmat päät tyhjät = iso_luku/1000
- * Pienemmät suorat, molemmat päät tyhjiä = arvo*2
- * Kolme tai pienempi suora, yksi tyhjä = arvo
- * Muuten 0
- * 
- * @param arvo tulkittava arvo
- * @param merkki x tai o eli + tai -
- * @return suoran lopullinen arvo.
- */
+
+    /**
+     * Saa parametrinä arvon, josta tulkitaan suoran lopullinen pisteytys.
+     * Suoran pituus on kymmenissä ja lopussa oleva luku 0,1 tai 2 kertoo kuinka
+     * monta tyhjää suoran päissä on. Arvo xy tulkitaan siis x+1 on suoran pituus
+     * ja y on tyhjien määrä. 32 tarkoittaa silloin neljän suora ja molemmissa päissä
+     * tyhjää. Mikäli suora on alle voittorivin pituinen ja molemmat päät on tukittu,
+     * niin suora on arvoton.
+     * Tällä hetkellä arvot ovat esim 5 suora pelissä seuraavat:
+     * Viiden suora tai pidempi(tyhjillä ei merkitystä) = iso_luku
+     * Neljän suora, molemmat päät tyhjät = iso_luku/10
+     * Neljän suora, yksi tyhjä = iso_luku/100
+     * Kolmen suora, molemmat päät tyhjät = iso_luku/1000
+     * Pienemmät suorat, molemmat päät tyhjiä = arvo*2
+     * Kolme tai pienempi suora, yksi tyhjä = arvo
+     * Muuten 0
+     * 
+     * @param arvo tulkittava arvo
+     * @param merkki x tai o eli + tai -
+     * @return suoran lopullinen arvo.
+     */
     private int pisteytaSuora(int arvo, char merkki) {
         if (arvo > minimiArvo) {
             if (arvo >= (voittoRivinPituus - 1) * merkinArvo) {
@@ -94,9 +89,9 @@ public class Arvioija {
             if (arvo >= (voittoRivinPituus - 3) * merkinArvo + tyhjanArvo * 2) {
                 if (arvo % 10 == 2) {
                     if (merkki == 'x') {
-                        return iso_luku/1000;
+                        return iso_luku / 1000;
                     } else {
-                        return -iso_luku/1000;
+                        return -iso_luku / 1000;
                     }
                 }
             }

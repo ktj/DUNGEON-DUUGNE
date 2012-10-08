@@ -1,10 +1,7 @@
 package logiikka;
 
-import tekoaly.Arvioija;
-
 /**
- *
- * @author ;GGGG
+ * Pelin laudan luokka. Sisältää matriisin eli ruudukon, missä merkkejä.
  */
 public class Alusta {
 
